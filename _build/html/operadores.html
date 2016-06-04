@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Operadores &mdash; Introducción a Octave 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Introducción a Octave 1.0 documentation" href="index.html" />
+    <link rel="up" title="Primeros pasos con Octave" href="intro.html" />
+    <link rel="next" title="Vectores y Matrices" href="vectores.html" />
+    <link rel="prev" title="Tipos de datos" href="tiposdatos.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="vectores.html" title="Vectores y Matrices"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="tiposdatos.html" title="Tipos de datos"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Introducción a Octave 1.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="intro.html" accesskey="U">Primeros pasos con Octave</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="operadores">
+<h1>Operadores<a class="headerlink" href="#operadores" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="operadores-relacionales-y-de-igualdad">
+<h2>Operadores relacionales y de igualdad<a class="headerlink" href="#operadores-relacionales-y-de-igualdad" title="Permalink to this headline">¶</a></h2>
+<p>Utilizados entre dos valores numéricos devuelven una variable <em>logical</em>, <em>true (1)</em> o <em>false (0)</em>. Los siguientes son operadores válidos:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="83%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>&lt;</td>
+<td>Menor que</td>
+</tr>
+<tr class="row-even"><td>&lt;=</td>
+<td>Menor o igual que</td>
+</tr>
+<tr class="row-odd"><td>&gt;</td>
+<td>Mayor que</td>
+</tr>
+<tr class="row-even"><td>&gt;=</td>
+<td>Mayor o igual que</td>
+</tr>
+<tr class="row-odd"><td>==</td>
+<td>Igual a</td>
+</tr>
+<tr class="row-even"><td>~=</td>
+<td>No igual a</td>
+</tr>
+</tbody>
+</table>
+<p>Algunos ejemplos podrían ser:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="c">% ans=1</span>
+<span class="mi">2</span> <span class="o">&gt;</span> <span class="mi">3</span> <span class="c">% ans=0</span>
+<span class="mi">2</span> <span class="o">&gt;</span><span class="p">=</span> <span class="mi">3</span> <span class="c">% ans=0</span>
+<span class="mi">2</span> <span class="o">==</span> <span class="mi">3</span> <span class="c">% ans=0</span>
+<span class="mi">8</span> <span class="o">==</span> <span class="p">(</span><span class="mi">2</span>^<span class="mi">3</span><span class="p">)</span> <span class="c">% ans=1</span>
+<span class="mi">8</span> <span class="o">~=</span> <span class="mi">3</span> <span class="c">% ans=1</span>
+</pre></div>
+</div>
+<p>Hay que poner especial cuidado con el orden en que opera <em>Octave</em> cuando se concatenan varias operaciones seguidas en la misma línea. En general, cuando en una misma línea aparecen varios operadores relacionales, <em>Octave</em> opera la línea de izquierda a derecha.Veamos un ejemplo:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="p">=</span> <span class="mi">6</span><span class="p">;</span>
+<span class="n">bool</span> <span class="p">=</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">5</span>
+<span class="c">% El resultado será: bool = 1</span>
+<span class="n">x</span> <span class="p">=</span> <span class="mi">3</span>
+<span class="n">bool</span> <span class="p">=</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">5</span>
+<span class="c">% El resultado será: bool = 1</span>
+</pre></div>
+</div>
+<p>En el ejemplo anterior, la expresión <em>1&lt;x&lt;5</em> siempre devolverá el resultado <em>true</em>, <em>1</em>, independientemente del valor que tenga <em>x</em> La explicación es la siguiente: <em>Octave</em> opera la expresión <em>1&lt;x&lt;5</em> de izquierda a derecha; primero opera <em>1&lt;x</em>, que será <em>0</em> (false) o <em>1</em> (true) en función del valor de <em>x</em>. El resultado de esta operación lo compara con <em>6</em>, dando siempre como resultado <em>1</em>.</p>
+<p>Para evitar errores en la operaciones, siempre es aconsejable hacer uso de los paréntesis. La expresión anterior se evaluaría correctamente escribiendo: <img class="math" src="_images/math/189904a65dcb69e5855607ef5aee4c12136aabcb.png" alt="(1 &lt; x) \&amp; (x &gt; 6)"/></p>
+</div>
+<div class="section" id="operadores-logicos">
+<h2>Operadores lógicos<a class="headerlink" href="#operadores-logicos" title="Permalink to this headline">¶</a></h2>
+<p>Operan entre dos variables <em>logical</em> y el resultado también es un valor <em>logical</em>. Los siguientes son los operadores que se pueden utilizar:</p>
+<ul class="simple">
+<li><strong>OR</strong> Se utiliza el símbolo <strong>|</strong> (barra vertical). El resultado será cierto si es cierto el valor de al menos una de las dos variables <em>logical</em> que se operan</li>
+<li><strong>AND</strong> Se utiliza el símbolo <strong>&amp;</strong>. El resultado de la operación es cierto si son ciertas las dos variables <em>logical</em> que se operan.</li>
+<li><strong>OR EXCLUSIVO</strong> Se utiliza la función <strong>xor()</strong>. En este caso el resultado es cierto si lo es una de las dos variables, pero no si son falsas o verdaderas las dos.</li>
+<li><strong>NOT</strong> Este operador opera sobre una sola variable <em>logical</em>. El resultado será el contrario del valor de la variable.</li>
+</ul>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">=</span><span class="mi">3</span><span class="p">;</span>
+<span class="n">bool1</span> <span class="p">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">&lt;</span><span class="n">x</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">6</span><span class="p">)</span>
+<span class="c">% El resultado será: bool1 = 1</span>
+<span class="n">bool2</span> <span class="p">=</span> <span class="nb">xor</span><span class="p">((</span><span class="mi">1</span><span class="o">&lt;</span><span class="n">x</span><span class="p">),(</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">6</span><span class="p">))</span>
+<span class="c">% El resultado será: bool1 = 0</span>
+
+<span class="n">x</span><span class="p">=</span><span class="mi">7</span><span class="p">;</span>
+<span class="n">bool3</span> <span class="p">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">&lt;</span><span class="n">x</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">6</span><span class="p">)</span>
+<span class="c">% El resultado será: bool3 = 1</span>
+<span class="n">bool4</span> <span class="p">=</span> <span class="o">~</span><span class="p">(</span><span class="mi">3</span><span class="o">&lt;</span><span class="n">x</span><span class="p">)</span>
+<span class="c">% El resultado será: bool4 = 0</span>
+<span class="n">bool5</span> <span class="p">=</span> <span class="nb">xor</span><span class="p">((</span><span class="mi">1</span><span class="o">&lt;</span><span class="n">x</span><span class="p">),(</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">6</span><span class="p">))</span>
+<span class="c">% El resultado será: bool5 = 1</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Operadores</a><ul>
+<li><a class="reference internal" href="#operadores-relacionales-y-de-igualdad">Operadores relacionales y de igualdad</a></li>
+<li><a class="reference internal" href="#operadores-logicos">Operadores lógicos</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="tiposdatos.html"
+                        title="previous chapter">Tipos de datos</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="vectores.html"
+                        title="next chapter">Vectores y Matrices</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/operadores.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="vectores.html" title="Vectores y Matrices"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="tiposdatos.html" title="Tipos de datos"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Introducción a Octave 1.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="intro.html" >Primeros pasos con Octave</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Santiago Higuera.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.
+    </div>
+  </body>
+</html>

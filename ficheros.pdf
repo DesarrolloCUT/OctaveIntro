@@ -1,0 +1,668 @@
+%PDF-1.4
+%“Œ‹ž ReportLab Generated PDF document http://www.reportlab.com
+1 0 obj
+<< /F1 2 0 R /F2 3 0 R /F3 4 0 R /F4 5 0 R /F5 6 0 R /F6 7 0 R 
+  /F7 8 0 R >>
+endobj
+2 0 obj
+<< /BaseFont /Helvetica /Encoding /WinAnsiEncoding /Name /F1 /Subtype /Type1 /Type /Font >>
+endobj
+3 0 obj
+<< /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding /Name /F2 /Subtype /Type1 /Type /Font >>
+endobj
+4 0 obj
+<< /BaseFont /Helvetica-BoldOblique /Encoding /WinAnsiEncoding /Name /F3 /Subtype /Type1 /Type /Font >>
+endobj
+5 0 obj
+<< /BaseFont /Courier /Encoding /WinAnsiEncoding /Name /F4 /Subtype /Type1 /Type /Font >>
+endobj
+6 0 obj
+<< /BaseFont /Courier-Oblique /Encoding /WinAnsiEncoding /Name /F5 /Subtype /Type1 /Type /Font >>
+endobj
+7 0 obj
+<< /BaseFont /ZapfDingbats /Encoding /ZapfDingbatsEncoding /Name /F6 /Subtype /Type1 /Type /Font >>
+endobj
+8 0 obj
+<< /BaseFont /Helvetica-Oblique /Encoding /WinAnsiEncoding /Name /F7 /Subtype /Type1 /Type /Font >>
+endobj
+9 0 obj
+<< /Contents 16 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 15 0 R /Resources << /Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ] >> /Rotate 0 /Trans <<  >> 
+  /Type /Page >>
+endobj
+10 0 obj
+<< /Contents 17 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 15 0 R /Resources << /Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ] >> /Rotate 0 /Trans <<  >> 
+  /Type /Page >>
+endobj
+11 0 obj
+<< /Outlines 13 0 R /PageLabels 18 0 R /PageMode /UseNone /Pages 15 0 R /Type /Catalog >>
+endobj
+12 0 obj
+<< /Author () /CreationDate (D:20141103233745-01'00') /Creator (\(unspecified\)) /Keywords () /Producer (ReportLab PDF Library - www.reportlab.com) /Subject (\(unspecified\)) 
+  /Title (Lectura y escritura de ficheros de texto) >>
+endobj
+13 0 obj
+<< /Count 1 /First 14 0 R /Last 14 0 R /Type /Outlines >>
+endobj
+14 0 obj
+<< /Dest [ 9 0 R /XYZ 62.69291 558.0236 0 ] /Parent 13 0 R /Title (La funci\363n fopen\(\)) >>
+endobj
+15 0 obj
+<< /Count 2 /Kids [ 9 0 R 10 0 R ] /Type /Pages >>
+endobj
+16 0 obj
+<< /Length 9403 >>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 741.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4 Tm /F2 20 Tf 24 TL 48.21488 0 Td (Lectura y escritura de ficheros de texto) Tj T* -48.21488 0 Td ET
+Q
+Q
+q
+1 0 0 1 62.69291 719.0236 cm
+Q
+q
+1 0 0 1 62.69291 576.0236 cm
+.960784 .960784 .862745 rg
+n 0 143 469.8898 -143 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 6 117 Tm  T* ET
+q
+1 0 0 1 16 112 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2.5 Tm /F3 12.5 Tf 15 TL (Note) Tj T* ET
+Q
+Q
+q
+1 0 0 1 16 76 cm
+q
+BT 1 0 0 1 0 14 Tm .586412 Tw 12 TL /F1 10 Tf 0 0 0 rg (La documentaci\363n de Octave y de Matlab correspondiente a este cap\355tulo se puede encontrar en) Tj T* 0 Tw (los siguientes enlaces:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 16 70 cm
+Q
+q
+1 0 0 1 16 70 cm
+Q
+q
+1 0 0 1 16 46 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 9 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+BT 1 0 0 1 0 14 Tm 6.785 Tw 12 TL /F2 10 Tf 0 0 0 rg (Octave) Tj /F1 10 Tf (: <) Tj (a href='http://www.gnu.org/software/octave/doc/interpreter/Opening-and-Closing-Files.html') Tj T* 0 Tw (target='_blank') Tj (>) Tj (http://www.gnu.org/software/octave/doc/interpreter/Opening-and-Closing-Files.html) Tj (<) Tj (/a) Tj (>) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 16 40 cm
+Q
+q
+1 0 0 1 16 16 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 9 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+BT 1 0 0 1 0 14 Tm 39.92988 Tw 12 TL /F2 10 Tf 0 0 0 rg (Matlab) Tj /F1 10 Tf (: <) Tj (a href='http://es.mathworks.com/help/matlab/low-level-file-i-o.html') Tj T* 0 Tw (target='_blank') Tj (>) Tj (http://es.mathworks.com/help/matlab/low-level-file-i-o.html) Tj (<) Tj (/a) Tj (>) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 16 16 cm
+Q
+q
+1 J
+1 j
+.662745 .662745 .662745 RG
+.5 w
+n 0 143 m 469.8898 143 l S
+n 0 0 m 469.8898 0 l S
+n 0 0 m 0 143 l S
+n 469.8898 0 m 469.8898 143 l S
+Q
+Q
+q
+1 0 0 1 62.69291 570.0236 cm
+Q
+q
+1 0 0 1 62.69291 537.0236 cm
+q
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (La funci\363n fopen\(\)) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 483.0236 cm
+q
+BT 1 0 0 1 0 38 Tm 1.461984 Tw 12 TL /F1 10 Tf 0 0 0 rg (Para poder realizar operaciones de lectura y/o escritura en los ficheros de texto es necesario primero) Tj T* 0 Tw .408221 Tw (abrir el fichero con ) Tj /F2 10 Tf (fopen\(\)) Tj /F1 10 Tf (. Una vez abierto el fichero, se procede a realizar las distintas operaciones de) Tj T* 0 Tw .510514 Tw (lectura y/o de escritura en el mismo. Cuando se termina de operar con el fichero hay que cerrarlo con la) Tj T* 0 Tw (funcion ) Tj /F2 10 Tf (close\(\)) Tj /F1 10 Tf (.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 465.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (El procedimiento habitual para operar con un fichero se resume en el siguiente esquema:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 383.8236 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 468.6898 72 re B*
+Q
+q
+.960784 .960784 .862745 rg
+n 0 48.75 18 12 re f*
+.960784 .960784 .862745 rg
+n 24 48.75 6 12 re f*
+.960784 .960784 .862745 rg
+n 36 48.75 30 12 re f*
+.960784 .960784 .862745 rg
+n 66 48.75 6 12 re f*
+.960784 .960784 .862745 rg
+n 72 48.75 90 12 re f*
+.960784 .960784 .862745 rg
+n 162 48.75 6 12 re f*
+.960784 .960784 .862745 rg
+n 174 48.75 18 12 re f*
+.960784 .960784 .862745 rg
+n 192 48.75 12 12 re f*
+.960784 .960784 .862745 rg
+n 0 24.75 216 12 re f*
+.960784 .960784 .862745 rg
+n 0 .75 36 12 re f*
+.960784 .960784 .862745 rg
+n 36 .75 6 12 re f*
+.960784 .960784 .862745 rg
+n 42 .75 18 12 re f*
+.960784 .960784 .862745 rg
+n 60 .75 12 12 re f*
+BT 1 0 0 1 0 50 Tm 12 TL /F4 10 Tf 0 0 0 rg (fid) Tj 0 0 0 rg ( ) Tj 0 0 0 rg (=) Tj 0 0 0 rg ( ) Tj 0 .501961 0 rg (fopen) Tj 0 0 0 rg (\() Tj .729412 .129412 .129412 rg ('mifichero.txt') Tj 0 0 0 rg (,) Tj 0 0 0 rg ( ) Tj .729412 .129412 .129412 rg ('r') Tj 0 0 0 rg (\);) Tj 0 0 0 rg  T*  T* /F5 10 Tf .25098 .501961 .501961 rg (% Operaciones de lectura del fichero) Tj /F4 10 Tf 0 0 0 rg  T*  T* 0 .501961 0 rg (fclose) Tj 0 0 0 rg (\() Tj 0 0 0 rg (fid) Tj 0 0 0 rg (\);) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 363.8236 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg /F6 10 Tf 12 TL (n) Tj /F1 10 Tf 12 TL (a funci\363n ) Tj /F2 10 Tf (fopen\(\) ) Tj /F1 10 Tf (tiene la siguiente signatura:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 357.8236 cm
+Q
+q
+1 0 0 1 62.69291 357.8236 cm
+Q
+q
+1 0 0 1 62.69291 76.86614 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 265.9575 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 217.9575 cm
+q
+BT 1 0 0 1 0 50 Tm 1.690697 Tw 12 TL /F2 10 Tf 0 0 0 rg (fileId = fopen\(filename, permission\) ) Tj /F1 10 Tf (Abre el fichero de nombre ) Tj /F7 10 Tf (filename ) Tj /F1 10 Tf (con el tipo de acceso) Tj T* 0 Tw .318555 Tw (especificado por ) Tj /F7 10 Tf (permission) Tj /F1 10 Tf (. Devuelve ) Tj /F7 10 Tf (fileId) Tj /F1 10 Tf (, que es un n\372mero, un ) Tj /F7 10 Tf (puntero) Tj /F1 10 Tf (, que identifica al fichero) Tj T* 0 Tw .929318 Tw (en ulteriores operaciones de lectura escritura. Si se producen errores al intentar abrir el fichero, la) Tj T* 0 Tw .752927 Tw (funci\363n ) Tj /F7 10 Tf (fopen\(\) ) Tj /F1 10 Tf (devuelve ) Tj /F7 10 Tf (-1) Tj /F1 10 Tf (. El puntero ser\341 un n\372mero mayor o igual a ) Tj /F7 10 Tf (3) Tj /F1 10 Tf (. Los parametros son los) Tj T* 0 Tw (siguientes:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 23 211.9575 cm
+Q
+q
+1 0 0 1 23 -3 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 20 214.9575 cm
+Q
+q
+1 0 0 1 20 214.9575 cm
+Q
+q
+1 0 0 1 20 190.9575 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 9 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+BT 1 0 0 1 0 14 Tm .578735 Tw 12 TL /F7 10 Tf 0 0 0 rg (filename) Tj /F1 10 Tf (: cadena de texto con el nombre del fichero que se quiere abrir. Si incluye la ruta) Tj T* 0 Tw (del fichero se utilizar\341, si no se buscar\341 o creara el fichero en el directorio de trabajo.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 184.9575 cm
+Q
+q
+1 0 0 1 20 0 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 169.9575 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 121.9575 cm
+q
+BT 1 0 0 1 0 50 Tm .543555 Tw 12 TL /F7 10 Tf 0 0 0 rg (permission) Tj /F1 10 Tf (: especifica el modo de apertura del fichero. Lo habitual es abrir el fichero para) Tj T* 0 Tw .16683 Tw (escribir en \351l o para leer de \351l, si bien es tambi\351n posible abrir el fichero en modo ) Tj /F7 10 Tf (lectura y) Tj T* 0 Tw .913984 Tw (escritura) Tj /F1 10 Tf (. En los modos de escritura es posible a\361adir texto a un fichero existente o bien) Tj T* 0 Tw .49498 Tw (crear uno nuevo para la operaci\363n, sobreescribiendo el existente si lo hubiera. ) Tj /F7 10 Tf (permission) Tj T* 0 Tw /F1 10 Tf (es una cadena de texto que puede tener los siguientes valores:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 23 115.9575 cm
+Q
+q
+1 0 0 1 23 1.95748 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 20 108 cm
+Q
+q
+1 0 0 1 20 108 cm
+Q
+q
+1 0 0 1 20 84 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 9 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+BT 1 0 0 1 0 14 Tm .513318 Tw 12 TL /F1 10 Tf 0 0 0 rg ('r': Abre el fichero para lectura. Es el modo por defecto, si se utiliza la funci\363n) Tj T* 0 Tw /F7 10 Tf (fopen\(\) ) Tj /F1 10 Tf (sin el argumento ) Tj /F7 10 Tf (permission) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 78 cm
+Q
+q
+1 0 0 1 20 66 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg ('r+': Abre el fichero en modo ) Tj /F7 10 Tf (lectura-escritura) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 60 cm
+Q
+q
+1 0 0 1 20 48 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg ('w': Abre o crea un nuevo fichero en modo ) Tj /F7 10 Tf (escritura) Tj /F1 10 Tf (. Si existe se sobreescribe) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 42 cm
+Q
+q
+1 0 0 1 20 30 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg ('w+': Abre o crea un fichero para ) Tj /F7 10 Tf (lectura-escritura) Tj /F1 10 Tf (. Si existe, se sobreescribe) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 24 cm
+Q
+q
+1 0 0 1 20 0 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 9 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+BT 1 0 0 1 0 14 Tm .787126 Tw 12 TL /F1 10 Tf 0 0 0 rg ('a': Abre o crea un nuevo fichero para ) Tj /F7 10 Tf (escritura) Tj /F1 10 Tf (. Si existe el fichero, a\361ade al) Tj T* 0 Tw (final del mismo.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+Q
+Q
+q
+Q
+Q
+q
+Q
+Q
+q
+Q
+Q
+ 
+endstream
+endobj
+17 0 obj
+<< /Length 3242 >>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 753.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 6 -1 Tm  T* ET
+q
+1 0 0 1 23 -3 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 20 0 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 6 -1 Tm  T* ET
+q
+1 0 0 1 23 -3 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 20 24 cm
+Q
+q
+1 0 0 1 20 0 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 9 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+BT 1 0 0 1 0 14 Tm 1.065366 Tw 12 TL /F1 10 Tf 0 0 0 rg ('a+': Abre o crea un nuevo fichero para ) Tj /F7 10 Tf (lectura-escritura) Tj /F1 10 Tf (. Si existe, se a\361ade al) Tj T* 0 Tw (final del mismo.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 0 cm
+Q
+q
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 0 cm
+Q
+q
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 753.0236 cm
+Q
+q
+1 0 0 1 62.69291 741.0236 cm
+Q
+q
+1 0 0 1 62.69291 658.0236 cm
+.960784 .960784 .862745 rg
+n 0 83 469.8898 -83 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 6 57 Tm  T* ET
+q
+1 0 0 1 16 52 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2.5 Tm /F3 12.5 Tf 15 TL (Note) Tj T* ET
+Q
+Q
+q
+1 0 0 1 16 16 cm
+q
+BT 1 0 0 1 0 14 Tm .806098 Tw 12 TL /F1 10 Tf 0 0 0 rg (Hay dos modos m\341s de apertura de ficheros: 'A' y 'W' que no realizan el ) Tj /F7 10 Tf (flush ) Tj /F1 10 Tf (autom\341tico de los) Tj T* 0 Tw (datos.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+.662745 .662745 .662745 RG
+.5 w
+n 0 83 m 469.8898 83 l S
+n 0 0 m 469.8898 0 l S
+n 0 0 m 0 83 l S
+n 469.8898 0 m 469.8898 83 l S
+Q
+Q
+q
+1 0 0 1 62.69291 652.0236 cm
+Q
+q
+1 0 0 1 62.69291 640.0236 cm
+Q
+q
+1 0 0 1 62.69291 545.0236 cm
+.960784 .960784 .862745 rg
+n 0 95 469.8898 -95 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 6 69 Tm  T* ET
+q
+1 0 0 1 16 64 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2.5 Tm /F3 12.5 Tf 15 TL (Note) Tj T* ET
+Q
+Q
+q
+1 0 0 1 16 16 cm
+q
+BT 1 0 0 1 0 26 Tm 1.859983 Tw 12 TL /F1 10 Tf 0 0 0 rg (La funci\363n ) Tj /F7 10 Tf (fopen\(\) ) Tj /F1 10 Tf (admite un tercer y cuarto par\341metros que permiten especificar el orden de) Tj T* 0 Tw .593828 Tw (lectura escritura de los bytes \(Big-endian, Little-endian\) y la codificaci\363n de caracteres del fichero) Tj T* 0 Tw (\(UTF-8, ISO-8859-1,...\).) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+.662745 .662745 .662745 RG
+.5 w
+n 0 95 m 469.8898 95 l S
+n 0 0 m 469.8898 0 l S
+n 0 0 m 0 95 l S
+n 469.8898 0 m 469.8898 95 l S
+Q
+Q
+q
+1 0 0 1 62.69291 539.0236 cm
+Q
+q
+1 0 0 1 62.69291 527.0236 cm
+Q
+q
+1 0 0 1 62.69291 456.0236 cm
+.960784 .960784 .862745 rg
+n 0 71 469.8898 -71 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 6 45 Tm  T* ET
+q
+1 0 0 1 16 40 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2.5 Tm /F3 12.5 Tf 15 TL (Note) Tj T* ET
+Q
+Q
+q
+1 0 0 1 16 16 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F2 10 Tf 0 0 0 rg (fids = fopen\('All'\)) Tj /F1 10 Tf (: Devuelve un vector con los punteros a TODOS los ficheros abiertos que haya.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+.662745 .662745 .662745 RG
+.5 w
+n 0 71 m 469.8898 71 l S
+n 0 0 m 469.8898 0 l S
+n 0 0 m 0 71 l S
+n 469.8898 0 m 469.8898 71 l S
+Q
+Q
+q
+1 0 0 1 62.69291 450.0236 cm
+Q
+ 
+endstream
+endobj
+18 0 obj
+<< /Nums [ 0 19 0 R 1 20 0 R ] >>
+endobj
+19 0 obj
+<< /S /D /St 1 >>
+endobj
+20 0 obj
+<< /S /D /St 2 >>
+endobj
+xref
+0 21
+0000000000 65535 f
+0000000075 00000 n
+0000000173 00000 n
+0000000283 00000 n
+0000000398 00000 n
+0000000520 00000 n
+0000000628 00000 n
+0000000744 00000 n
+0000000862 00000 n
+0000000980 00000 n
+0000001189 00000 n
+0000001399 00000 n
+0000001508 00000 n
+0000001759 00000 n
+0000001836 00000 n
+0000001950 00000 n
+0000002020 00000 n
+0000011480 00000 n
+0000014779 00000 n
+0000014832 00000 n
+0000014869 00000 n
+trailer
+<< /ID 
+ % ReportLab generated PDF document -- digest (http://www.reportlab.com)
+ [(\270\374\221\(6e;\036\227\231\220\375\356Q\377\315) (\270\374\221\(6e;\036\227\231\220\375\356Q\377\315)]
+ /Info 12 0 R /Root 11 0 R /Size 21 >>
+startxref
+14906
+%%EOF

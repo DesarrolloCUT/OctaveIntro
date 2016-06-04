@@ -1,0 +1,596 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"FISH",
+				"FISHMOVE"
+			],
+			[
+				"adjus",
+				"adjustColumn"
+			],
+			[
+				"SH",
+				"SHARKS_MOVE"
+			],
+			[
+				"FIS",
+				"FISH_MOVE"
+			],
+			[
+				"m",
+				"sharks_main"
+			],
+			[
+				"plot",
+				"plotCannon"
+			],
+			[
+				"u",
+				"ul	Tag"
+			],
+			[
+				"se",
+				"section	Tag"
+			],
+			[
+				"android",
+				"android-studio"
+			],
+			[
+				"a",
+				"appName"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "graph.rst",
+			"settings":
+			{
+				"buffer_size": 4881,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/LaTeXing/LaTeX.sublime-build",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 117.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"Snippet: l",
+				"Snippet: New Article"
+			],
+			[
+				"",
+				"Set Syntax: Java"
+			],
+			[
+				"Snippet: ",
+				"Snippet: trycatch"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"Package",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 467.0
+	},
+	"console":
+	{
+		"height": 139.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/shiguera/ownCloud/InformaticaCaminos/OctaveIntro",
+		"/home/shiguera/Dropbox/InformaticaCaminos/cursorec/source"
+	],
+	"file_history":
+	[
+		"/home/shiguera/ownCloud/InformaticaCaminos/OctaveIntro/data/mediamedianatest.m",
+		"/home/shiguera/prueba2.py",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/ficheros.rst",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/programacion.rst",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/sharks_main.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/perfil3.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/perfil2.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/prueba",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/sharks.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/perfil2.txt",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/prueba.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/sharks_main_fase1.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/sharks.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/matrices.rst",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/funciones.rst",
+		"/home/shiguera/Dropbox/InformaticaCaminos/trabajoElena.tex",
+		"/home/shiguera/workspace/python/pp.py",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/java.rst",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/utilidades.rst",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/index.rst",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/code.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/simpson5.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/simpson2.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/simpson.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/simpson3.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/ejerciciosficheros.rst",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/graph.rst",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/intro.rst",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/vectores.rst",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/.gitignore",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/dado.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/script.m",
+		"/home/shiguera/Escritorio/Acroread.desktop",
+		"/home/shiguera/.local/share/applications/mimeapps.list",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/plotparab.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/readdem2.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/readSlopes.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/ejer2.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/slopes.csv",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/decode.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/plotparabhiper.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/plotSlopes.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/readSlopes2.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/plothiper.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/ej_graficos.rst",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/octaveintro.sublime-project",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/spiral3d.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/hat.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/tiposdatos.rst",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/perso.rst",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/readdem.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/plotdem.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/minmaxdem.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/webaccess.rst",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/accuweather.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/infodem.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/ej_primeros.rst",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/mdt.rst",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/drawLogarithm.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/drawHyperbolic.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/helix.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/cannon.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/cannon3d.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/readmdt.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/mifile.txt",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/turtle.rst",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/drawkoch.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/koch.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/ccurve.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/turtle.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/triang.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/index.pdf",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/drawArquimedes.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/turtledancing.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/turtledance.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/plotProfile.m",
+		"/home/shiguera/Dropbox/InformaticaCaminos/OctaveIntro/data/readMatrix.m",
+		"/home/shiguera/Ejercicio5_5.m",
+		"/home/shiguera/f.m",
+		"/home/shiguera/area.m",
+		"/home/shiguera/areaperim.m",
+		"/home/shiguera/areatrap.m",
+		"/home/shiguera/ejer54.m",
+		"/home/shiguera/Documents/tesis/articles/reconstruccionVertical/2015ISHGD-Higuera-AlignmentReconstruction.tex",
+		"/home/shiguera/.octaverc",
+		"/home/shiguera/mylib.m",
+		"/home/shiguera/kdenlive/20140813_124458.gpx",
+		"/home/shiguera/kdenlive/20130423_120758.gpx",
+		"/home/shiguera/kdenlive/20130423_121958.gpx",
+		"/home/shiguera/20130319_124813.gpx",
+		"/home/shiguera/Documents/tesis/data/BoadillaBrunete/20130319_124813.mp4",
+		"/home/shiguera/Documents/tesis/articles/reconstruccionVertical/reconstruccionvertical.sublime-project",
+		"/home/shiguera/.dput.cf",
+		"/home/shiguera/.gnupg/gpg.conf",
+		"/home/shiguera/workspace/octaveupm/octaveupm/trunk/gui/debian/changelog",
+		"/home/shiguera/backup.sh",
+		"/home/shiguera/borrador.pdf",
+		"/home/shiguera/Documents/tesis/articles/reconstruction/reconstruction.tex",
+		"/etc/apt/sources.list",
+		"/src/main/java/org/mapsforge/android/maps/mapgenerator/InMemoryTileCache.java",
+		"/home/shiguera/workspace/android/maps/mapsforge/mapsforge/mapsforge-map/src/main/java/org/mapsforge/android/maps/mapgenerator/InMemoryTileCache.java",
+		"/home/shiguera/Documents/tesis/articles/reconstruccionVertical/DocsEnviadosAlISHGD2015/2015-ISHGD-Higuera-Alignment.pdf",
+		"/home/shiguera/Documents/tesis/articles/PresentacionDefensaTesina/index.html",
+		"/home/shiguera/Documents/tesis/articles/PresentacionGeocampes/index.html",
+		"/usr/share/applications/eclipse.desktop",
+		"/home/shiguera/Documents/tesis/workspace/roadplayer/src/main/java/com/mlab/roadplayer/Main.java",
+		"/home/shiguera/Documents/tesis/workspace/roadplayer/src/main/java/com/mlab/roadplayer/Constants.java",
+		"/home/shiguera/workspace/montalvo/SarebProcessor/.gitignore",
+		"/home/shiguera/Documents/tesis/workspace/roadplayer/pom.xml",
+		"/home/shiguera/Documents/tesis/workspace/roadplayer/.gitignore",
+		"/home/shiguera/workspace/gyrotracker/NavyArcachon/.gitignore",
+		"/home/shiguera/.i3/config",
+		"/etc/i3status.conf",
+		"/home/shiguera/Documents/tesis/workspace/ExifUtil/.gitignore",
+		"/home/shiguera/Documents/tesis/workspace/roadplayer/store/win32/jre/lib/security/java.policy",
+		"/home/shiguera/Documents/tesis/articles/reconstruccionVertical/prueba.txt",
+		"/home/shiguera/Documents/tesis/workspace_reconstruction/VerticalProfile/src/main/resources/Ptos_Alzado_1m_M607.prn",
+		"/usr/share/tilemill/index.js",
+		"/home/shiguera/workspace/DownloadSRTM2TilesforIberia.sh",
+		"/home/shiguera/Documents/tesis/data/M-607/datos_cesar/M607Centerline1mETRS89.csv",
+		"/home/shiguera/Documents/tesis/data/M-607/datosMaria/PtosSingulares_Alzado_M607.prn",
+		"/home/shiguera/Documents/tesis/articles/PresentacionRoadPlayer/stylesheets/sky_osgeo.css",
+		"/home/shiguera/Documents/tesis/articles/PresentacionRoadPlayer/index.html",
+		"/home/shiguera/Documents/tesis/tesis-old/articulos/NotasTesisPerezZuriaga.tex",
+		"/home/shiguera/Documents/tesis/tesis-old/articulos/DiferenciaAltitudGPSMDE.tex",
+		"/home/shiguera/Documents/tesis/articles/articles.sublime-project",
+		"/home/shiguera/Documents/tesis/tesis-old/articulos/ReconstruccionVertical.tex",
+		"/home/shiguera/Documents/tesis/tesis-old/articulos/DiferenciaAltitudGPSMDE.bbl"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"SHARKS",
+			"FISH",
+			"nfish",
+			"numPeces",
+			"starve",
+			"sbreed",
+			"fbreed",
+			"nsharks",
+			"newrow",
+			"adjustColumn",
+			"bearing",
+			"ogonda",
+			"obonga",
+			"Garach",
+			"T12:19",
+			"<time>",
+			"time",
+			"12:19",
+			"sec",
+			"\\\\section",
+			"\\section",
+			"section",
+			"herraiz",
+			"octave",
+			"Imran",
+			"Campbell",
+			"Carlson",
+			"Satellite",
+			"batery",
+			"Cafiso",
+			"Drakopoulos",
+			"Cafiso",
+			"Brisan",
+			"\n\\t",
+			"\n\\s\\s\\s\\s\\s",
+			"\n  PUNTOS DEL EJE EN ALZADO",
+			"\n  PUNTOS DEL EJE EN ALZADO\n",
+			"M-607 (alzado)",
+			"M-607 (alzado)\n  PUNTOS DEL EJE EN ALZADO\nM-607 (alzado)\n",
+			"M-607 (alzado)\n  PUNTOS DEL EJE EN ALZADO\n              L              Z             P",
+			"M-607 (alzado)\n  PUNTOS DEL EJE EN ALZADO\n              L              Z             P\\l",
+			"M-607 (alzado)\n  PUNTOS DEL EJE EN ALZADO\n              L              Z             P\\n",
+			"M-607 (alzado)\n  PUNTOS DEL EJE EN ALZADO\n              L              Z             P",
+			"Campbell",
+			"autoslide",
+			"slide",
+			"reveal",
+			"slide",
+			"auto",
+			"autoslide",
+			"OpenStreet",
+			"figure",
+			"image",
+			"snippet",
+			"snipet",
+			"roadplayer",
+			">",
+			"figure",
+			"Ver Fig",
+			"table",
+			"figure",
+			"img/",
+			"table",
+			"figure",
+			"geometrical",
+			"\\textit{Android}",
+			" Android",
+			"center line",
+			"\\begin{figure",
+			"\\begin{",
+			" Google",
+			" OpenStreetMap",
+			" frame rate",
+			" tags",
+			" Android",
+			"et al",
+			" smartphone",
+			" smartphones",
+			" smartphone",
+			" smartphones",
+			" tracks",
+			" track",
+			"smartphones",
+			"smartphone",
+			"Android",
+			"yazdany",
+			"jazdany",
+			" RoadPlayer",
+			" RoadRecorder",
+			"\\textit{RoadPl",
+			"\\textit {RoadPl",
+			"\\textit {RoadPl\\ETC",
+			"\\textit {RoadPl\\ETC.",
+			"{RoadRecorder) can be played by \\textit {RoadPlayer}. \\textit {RoadPl\\ETC.",
+			"\\textit{",
+			" é",
+			"´ u",
+			" ó",
+			"˜n",
+			"´ a",
+			"˜ n",
+			"´ e",
+			"´u",
+			"6",
+			" á",
+			" ´ a",
+			"´e",
+			"´ o",
+			"´a",
+			"´o",
+			"´ı",
+			" ´o",
+			"smartphones",
+			"smartphone",
+			"Android",
+			"´ o",
+			" á",
+			"´ a",
+			" é",
+			"track",
+			"´a",
+			" ó",
+			"´e",
+			"´ı",
+			"´o",
+			" ´o",
+			"´ o",
+			"˜n"
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"matrizTiburones",
+			"matrizPeces",
+			"numPeces",
+			"ciclosInanicionTiburones",
+			"ciclosReprodTiburones",
+			"ciclosReprodPeces",
+			"numTiburones",
+			"angulo",
+			"",
+			"&gt;",
+			"",
+			" \\textit{Android}",
+			"\\textit{Android}",
+			"centerline",
+			" \\textit{Google}",
+			" \\textit{OpenStreetMap}",
+			" \\textit{tags}",
+			" \\textit{Android}",
+			" \\textit{smartphone}",
+			" \\textit{smartphones}",
+			" \\textit{smartphone}",
+			" \\textit{Android}",
+			" \\textit{RoadPlayer}",
+			" \\textit{RoadRecorder}",
+			"é",
+			"ú",
+			"ó",
+			"ñ",
+			"á",
+			"ñ",
+			"é",
+			"ú",
+			"á",
+			"é",
+			"ó",
+			"á",
+			"ó",
+			"í",
+			"ó",
+			"\\textit{smartphones}",
+			"\\textit{smartphone}",
+			"\\textit{Android}",
+			"ó",
+			"á",
+			"é",
+			"\\textit{track}",
+			"á",
+			"ó",
+			"é",
+			"í",
+			"ó",
+			"ñ",
+			"é",
+			"á",
+			"é",
+			"í",
+			"ñ",
+			"ó",
+			"\\textit{software} desarrollado",
+			" \\textit{smartphones}",
+			" \\textit{smartphone}",
+			"\\textit{smartphone}",
+			"meta-datos"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "graph.rst",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4881,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								580,
+								580
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/RestructuredText/reStructuredText.sublime-syntax",
+							"tab_size": 3,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 102.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 235.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "octaveintro.sublime-project",
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"ls",
+				"src/main/java/com/mlab/roadplayer/api/XmlSerializable.java"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 232.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

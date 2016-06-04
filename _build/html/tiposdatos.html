@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Tipos de datos &mdash; Introducción a Octave 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Introducción a Octave 1.0 documentation" href="index.html" />
+    <link rel="up" title="Primeros pasos con Octave" href="intro.html" />
+    <link rel="next" title="Operadores" href="operadores.html" />
+    <link rel="prev" title="Primeros pasos con Octave" href="intro.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="operadores.html" title="Operadores"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="intro.html" title="Primeros pasos con Octave"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Introducción a Octave 1.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="intro.html" accesskey="U">Primeros pasos con Octave</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="tipos-de-datos">
+<h1>Tipos de datos<a class="headerlink" href="#tipos-de-datos" title="Permalink to this headline">¶</a></h1>
+<p>Octave incluye un buen número de tipos de datos básicos predefinidos, entre los que podemos mencionar los escalares enteros, reales y complejos, los valores lógicos <em>verdadero-falso</em> y las cadenas de caracteres.</p>
+<div class="section" id="el-tipo-double">
+<h2>El tipo <em>double</em><a class="headerlink" href="#el-tipo-double" title="Permalink to this headline">¶</a></h2>
+<p>El tipo de datos por defecto en <em>Octave</em> es el tipo <strong>double</strong>, esto es, cuando tecleamos un número en la consola, <em>Octave</em> lo interpretará como un número <strong>double</strong>. Los números <strong>double</strong> son numeros en coma flotante.</p>
+<p>La palabra <em>double</em> se refiere a <strong>double precision</strong>, en contraposición a la <em>single precision</em> de los números de tipo <em>single</em> que se verán más adelante.</p>
+<p>Octave reconocerá un número como <em>double</em> al teclearlo con o sin punto decimal. También se reconocen las notaciones denominadas científicas, que se teclean finalizando el número en la letra &#8216;<em>e</em>&#8216; y la potencia de diez deseada precedida del signo menos si ha lugar.</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="mi">102</span>
+<span class="mf">102.0</span>
+<span class="mf">1.02e2</span>
+<span class="mf">1020e-1</span>
+</pre></div>
+</div>
+<p>Para convertir otro tipo de dato numérico a <em>double</em>, o simplemente para crear un <em>double</em> de valor determinado se puede utilizar la función <strong>double(x)</strong>, que devuelve un número <em>double</em> de valor x.</p>
+<p><em>Octave</em> proporciona dos constantes que nos permiten conocer los valores máximo y mínimo que puede tener un número <em>double</em>, se trata de las constantes <strong>realmax</strong> y <strong>realmin</strong>.</p>
+<a class="reference internal image-reference" href="_images/realmax.png"><img alt="realmax" src="_images/realmax.png" style="width: 400px;" /></a>
+</div>
+<div class="section" id="numeros-complejos">
+<h2>Números complejos<a class="headerlink" href="#numeros-complejos" title="Permalink to this headline">¶</a></h2>
+<p>Octave opera con números complejos. Para teclear un número complejo se escribira la parte real, el signo &#8216;<em>+</em>&#8216; y la parte imaginaria seguida sin espacios por la letra <em>&#8216;i</em>&#8216;. Se puede utilizar la letra &#8216;<em>i</em>&#8216; en minúscula o mayúscula y también la letra &#8216;<em>j</em>&#8216;, mayúscula o minúscula. Octave interpreta en todos los casos que se refiere a <img class="math" src="_images/math/7c85511c4b103d0661450bfb87b9637803fb7e19.png" alt="\sqrt{-1}"/>.  Veamos algún ejemplo:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">+</span> <span class="mi">0</span><span class="n">i</span>
+<span class="mi">1</span><span class="o">-</span><span class="mi">2</span><span class="no">I</span>
+<span class="mi">1</span> <span class="o">+</span> <span class="mf">3.0e-2</span><span class="n">j</span>
+<span class="mf">1.0</span> <span class="o">+</span> <span class="mf">2.0</span><span class="n">J</span>
+</pre></div>
+</div>
+<p>La función <strong>complex()</strong> nos devuelve un número complejo construido con la parte real e imaginaria pasadas como argumento. Ejemplos de utilización de la función <strong>complex()</strong>:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="nb">complex</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span> <span class="c">% ans=2+0i Si solo se pasa un parámetro se toma como la parte real</span>
+
+<span class="nb">complex</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span> <span class="c">% ans=2+3i Si se pasan dos parámetros son la parte real y la imaginaria</span>
+</pre></div>
+</div>
+<p>Entre dos números complejos se pueden utilizar las operaciones suma, resta, producto y división:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="n">w</span> <span class="p">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">i</span><span class="p">;</span> <span class="c">% Nota: el punto y coma final indica a Octave que no imprima el resultado</span>
+<span class="n">z</span> <span class="p">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="n">i</span><span class="p">;</span>
+<span class="n">c1</span> <span class="p">=</span> <span class="n">w</span><span class="o">+</span><span class="n">z</span> <span class="c">% El resultado será: c1=3 + 3i</span>
+<span class="n">c2</span> <span class="p">=</span> <span class="n">w</span><span class="o">-</span><span class="n">z</span> <span class="c">% El resultado será: c2=-1 - 1i</span>
+<span class="n">c3</span> <span class="p">=</span> <span class="n">w</span><span class="o">*</span><span class="n">z</span> <span class="c">% El resultado será: c3=0 + 4i</span>
+<span class="n">c4</span> <span class="p">=</span> <span class="n">w</span><span class="o">+</span><span class="n">z</span> <span class="c">% El resultado será: c4=0.50000</span>
+</pre></div>
+</div>
+<p>También hay algunas funciones predefinidas para operar con números complejos. Si <strong>z</strong> es un  número complejo, podemos utilizar las siguientes funciones:</p>
+<ul class="simple">
+<li><strong>real(z)</strong> Nos devolverá la parte real del complejo <em>z</em></li>
+<li><strong>imag(z)</strong> Nos devolverá la parte imaginaria</li>
+<li><strong>conj(z)</strong> Nos devolverá el número complejo conjugado de <em>z</em></li>
+<li><strong>abs(z)</strong> Nos devolverá el módulo de <em>z</em></li>
+<li><strong>angle(z)</strong> Nos devolverá el argumento del complejo <em>z</em> (en radianes)</li>
+</ul>
+</div>
+<div class="section" id="numeros-naturales-y-numeros-enteros">
+<h2>Números naturales y números enteros<a class="headerlink" href="#numeros-naturales-y-numeros-enteros" title="Permalink to this headline">¶</a></h2>
+<p><em>Octave</em> ofrece varios tipos de datos para trabajar con números enteros, <strong>integer (int)</strong>, y con números naturales, <strong>unsigned integer (uint)</strong>.</p>
+<p>Cuando se utiliza un solo byte para el almacenamiento, se tienen los tipo de datos <strong>int8</strong> y <em>uint8*</em>, según se refiera a enteros positivos y negativos o a enteros solo positivos. En el primer caso los valores serán entre -128 y 127. En el caso de <strong>uint8</strong> los valores podrán estar comprendidos entre <em>0 y 255</em>.</p>
+<p>Para definir un número entero de un byte hay que utilizar las funciones <strong>int8()</strong> o <strong>uint8()</strong>, como en el siguiente ejemplo:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="n">n1</span> <span class="p">=</span> <span class="n">int8</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">)</span>
+<span class="c">% El resultado será: n1=-100</span>
+<span class="n">n2</span> <span class="p">=</span> <span class="n">uint8</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+<span class="c">% El resultado será: n2=25</span>
+</pre></div>
+</div>
+<p>De manera análoga al caso de los enteros de un byte de almacenamiento, <em>Octave</em> ofrece variables y funciones de creación para variables enteras, con o sin signo, de 2 bytes, 4 bytes y 8 bytes. El listado completo de tipos de datos enteros y sus correspondientes funciones de creación es:</p>
+<ul class="simple">
+<li><strong>int8</strong>, <strong>int8()</strong></li>
+<li><strong>int16</strong>, <strong>int16()</strong></li>
+<li><strong>int32</strong>, <strong>int32()</strong></li>
+<li><strong>int64</strong>, <strong>int64()</strong></li>
+<li><strong>uint8</strong>, <strong>uint8()</strong></li>
+<li><strong>uint16</strong>, <strong>uint16()</strong></li>
+<li><strong>uint32</strong>, <strong>uint32()</strong></li>
+<li><strong>uint64</strong>, <strong>uint64()</strong></li>
+</ul>
+<p>Podemos conocer los valores máximo o mínimo de cualquiera de los tipos de datos anteriores a través de las funciones <strong>intmax()</strong> e <strong>intmin()</strong>. Cuando se invocan las funciones sin argumentos nos devuelven los valores correspondientes al tipo <strong>int32</strong>. Cuando se les pasa como argumento una cadena de texto con el nombre del tipo de dato, nos devolverán el valor máximo o mínimo del tipo de datos solicitado. Por ejemplo:</p>
+<a class="reference internal image-reference" href="_images/intmax.png"><img alt="intmax" src="_images/intmax.png" style="width: 400px;" /></a>
+<br/><div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Los tipos de datos enteros, a excepción de los tipos de 8 bytes, admiten las operaciones <strong>suma, resta, producto, división y potenciación</strong>, obteniendo como resultado enteros del mismo tipo que los operados. Hay que tener cuidado con el tipo de datos del resultado cuando aplicamos estas operaciones a datos de distinto tipo.</p>
+</div>
+</div>
+<div class="section" id="valores-logical">
+<h2>Valores logical<a class="headerlink" href="#valores-logical" title="Permalink to this headline">¶</a></h2>
+<p>Un valor de tipo <strong>logical</strong> solo puede tener dos valores: <strong>verdadero (true)</strong> o <strong>falso (false)</strong>. <em>Octave</em> nos presentará un &#8216;<em>0</em>&#8216; para el valor <strong>false</strong> y un &#8216;<em>1</em>&#8216; para el valor <strong>true</strong>.</p>
+<p>Para crear una variable de tipo <em>logical</em> se utiliza la función <strong>logical()</strong>, que recibe un número como argumento. Si el número que se pasa como argumento es <em>0</em>, la variable lógica creada tendrá el valor <em>false</em>, cero. Si el numero que se pasa como argumento es distinto de cero, la variable <em>logical</em> creada tendrá el valor <em>true</em>, uno.</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="n">bool1</span> <span class="p">=</span> <span class="nb">logical</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="c">% El resultado será: bool1 = 0</span>
+<span class="n">bool2</span> <span class="p">=</span> <span class="nb">logical</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="c">% El resultado será: bool2 = 1</span>
+<span class="n">bool3</span> <span class="p">=</span> <span class="nb">logical</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="c">% El resultado será: bool3 = 1</span>
+<span class="n">bool4</span> <span class="p">=</span> <span class="nb">logical</span><span class="p">(</span><span class="mi">2500</span><span class="p">)</span>
+<span class="c">% El resultado será: bool4 = 1</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Tipos de datos</a><ul>
+<li><a class="reference internal" href="#el-tipo-double">El tipo <em>double</em></a></li>
+<li><a class="reference internal" href="#numeros-complejos">Números complejos</a></li>
+<li><a class="reference internal" href="#numeros-naturales-y-numeros-enteros">Números naturales y números enteros</a></li>
+<li><a class="reference internal" href="#valores-logical">Valores logical</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="intro.html"
+                        title="previous chapter">Primeros pasos con Octave</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="operadores.html"
+                        title="next chapter">Operadores</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/tiposdatos.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="operadores.html" title="Operadores"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="intro.html" title="Primeros pasos con Octave"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Introducción a Octave 1.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="intro.html" >Primeros pasos con Octave</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Santiago Higuera.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.
+    </div>
+  </body>
+</html>

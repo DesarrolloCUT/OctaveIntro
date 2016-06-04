@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Funciones predefinidas en Octave &mdash; Introducción a Octave 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Introducción a Octave 1.0 documentation" href="index.html" />
+    <link rel="next" title="Programación en Octave" href="programacion.html" />
+    <link rel="prev" title="Matrices" href="matrices.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="programacion.html" title="Programación en Octave"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="matrices.html" title="Matrices"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Introducción a Octave 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="funciones-predefinidas-en-octave">
+<h1>Funciones predefinidas en Octave<a class="headerlink" href="#funciones-predefinidas-en-octave" title="Permalink to this headline">¶</a></h1>
+<p><em>Octave</em> tiene una extensa librería de funciones predefinidas que abarcan numerosos campos de la ciencia matemática.</p>
+<div class="section" id="funciones-para-cadenas-de-caracteres">
+<h2>Funciones para cadenas de caracteres<a class="headerlink" href="#funciones-para-cadenas-de-caracteres" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>La documentación de Octave y Matlab para manejar cadenas de caracteres se puede encontrar en:</p>
+<ul class="last simple">
+<li><strong>Octave</strong>: <span class="raw-html"><a href='http://www.gnu.org/software/octave/doc/interpreter/Manipulating-Strings.html' target='_blank'>http://www.gnu.org/software/octave/doc/interpreter/Manipulating-Strings.html</a></span></li>
+<li><strong>Matlab</strong>: <span class="raw-html"><a href='http://es.mathworks.com/help/matlab/characters-and-strings.html' target='_blank'>http://es.mathworks.com/help/matlab/characters-and-strings.html</a></span></li>
+</ul>
+</div>
+<ul class="simple">
+<li><strong>strrep</strong> : Reemplaza una subcadena dentro de una cadena</li>
+</ul>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="n">cad</span> <span class="p">=</span> <span class="s">&#39;3,78&#39;</span>
+<span class="n">newcad</span> <span class="p">=</span> <span class="nb">strrep</span><span class="p">(</span><span class="n">cad</span><span class="p">,</span> <span class="s">&#39;,&#39;</span><span class="p">,</span><span class="s">&#39;.&#39;</span><span class="p">);</span>
+<span class="c">% result : newcad = 3.78</span>
+</pre></div>
+</div>
+<p>&#8211;<strong>strtrim(cad)</strong>: Quita los caracteres <em>espacio</em> del inicio y final de una cadena</p>
+<ul class="simple">
+<li><strong>C = strsplit(str, delimiter)</strong>: Devuelve un <em>CellArray</em> con las subcadenas que resultan de dividir la cadena original <em>str</em> con el separador <em>delimiter</em>.</li>
+</ul>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="n">cad</span> <span class="p">=</span> <span class="s">&#39;3,78&#39;</span>
+<span class="n">c</span> <span class="p">=</span> <span class="nb">strsplit</span><span class="p">(</span><span class="n">cad</span><span class="p">,</span> <span class="s">&#39;,&#39;</span><span class="p">);</span>
+<span class="n">pentera</span> <span class="p">=</span> <span class="n">str2num</span><span class="p">(</span><span class="n">c</span><span class="p">{</span><span class="mi">1</span><span class="p">})</span> <span class="c">% result 3 double</span>
+<span class="n">pdec</span> <span class="p">=</span> <span class="n">str2num</span><span class="p">(</span><span class="n">c</span><span class="p">{</span><span class="mi">2</span><span class="p">})</span> <span class="c">% result 78 double</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Recordar que para extraer elementos de un <em>CellArray</em> se utilizan llaves, no paréntesis. La función <em>size()</em> con <em>CellArrays</em> funciona igual que con matrices normales.</p>
+</div>
+<ul class="simple">
+<li><strong>str2num(cad)</strong>: Convierte en número double la cadena <em>cad</em></li>
+</ul>
+</div>
+<div class="section" id="la-funcion-rand">
+<h2>La función <em>rand()</em><a class="headerlink" href="#la-funcion-rand" title="Permalink to this headline">¶</a></h2>
+<p>La función <strong>rand()</strong> se utiliza para generar numeros pseudoaleatorios. Se pueden generar scalares o matrices de números pseudoaleatorios. Si llamamos a la función sin argumentos  nos devolverá un numeros pseudoaleatorios uniformemente distribuidos entre 0 y 1.</p>
+<p>Si pasamos un número entero <em>n</em> como parámetro, la función nos devolverá una matriz cuadrada de dimensión <em>n</em> de numeros pseudoaleatorios comprendidos entre 0 y 1. Si le pasamos dos números enteros <em>m</em> y <em>n</em> la matriz resultante tendrá <em>m</em> filas y <em>n</em> columnas.</p>
+<p>El numero que está utilizando <em>Octave</em> como <em>semilla</em> generadora de los números pseudoaleatorios se puede ver con <strong>rand(&#8216;seed&#8217;)</strong>. También podemos modificar la <em>semilla</em> con <strong>rand(&#8216;seed&#8217;, x)</strong>, donde <em>x</em> es la nueva <em>semilla</em> que queremos utilizar.</p>
+<a class="reference internal image-reference" href="_images/rand.png"><img alt="rand" src="_images/rand.png" style="width: 400px;" /></a>
+<p>Los números generados por <em>rand()</em> son doubles comprendidos entre <em>0</em> y <em>1</em>. Si queremos generar números comprendidos en un determinado intervalo debemos operar los números obtenidos de <em>rand()</em> para adaptarlos al intervalo buscado:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="p">=</span> <span class="mi">1</span>
+<span class="nb">rand</span><span class="p">()</span> <span class="o">+</span> <span class="n">M</span>
+<span class="c">% El resultado estará comprendido entre M y M+1 (en este caso entre 1 y 2)</span>
+<span class="c">%</span>
+<span class="n">M</span> <span class="p">=</span> <span class="mi">10</span>
+<span class="nb">rand</span><span class="p">()</span> <span class="o">*</span> <span class="n">M</span>
+<span class="c">% El resultado estará comprendido entre 0 y M</span>
+<span class="c">%</span>
+<span class="n">A</span> <span class="p">=</span> <span class="mi">10</span>
+<span class="n">B</span> <span class="p">=</span> <span class="mi">20</span>
+<span class="n">A</span> <span class="o">+</span> <span class="p">(</span><span class="n">B</span><span class="o">-</span><span class="n">A</span><span class="p">)</span><span class="o">*</span><span class="nb">rand</span><span class="p">()</span>
+<span class="c">% El resultado estará entre A y B</span>
+</pre></div>
+</div>
+<p>Para generar numeros enteros en un determinado intervalo se puede utilizar la función <strong>randi()</strong>:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="nb">randi</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="c">% Genera un número entero entre 1 y 10</span>
+</pre></div>
+</div>
+<p>También se pueden conseguir enteros mediante la función <em>rand()</em>:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="p">=</span> <span class="mi">10</span>
+<span class="n">B</span> <span class="p">=</span> <span class="mi">20</span>
+<span class="nb">round</span><span class="p">(</span><span class="n">A</span> <span class="o">+</span> <span class="p">(</span><span class="n">B</span><span class="o">-</span><span class="n">A</span><span class="p">)</span><span class="o">*</span><span class="nb">rand</span><span class="p">())</span>
+<span class="c">% El resultado será un entero (double con parte decimal cero) entre A y B</span>
+<span class="n">int32</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">A</span> <span class="o">+</span> <span class="p">(</span><span class="n">B</span><span class="o">-</span><span class="n">A</span><span class="p">)</span><span class="o">*</span><span class="nb">rand</span><span class="p">()))</span>
+<span class="c">% El resultado será un entero int32 entre A y B</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="utilidades-para-medir-el-tiempo">
+<h2>Utilidades para medir el tiempo<a class="headerlink" href="#utilidades-para-medir-el-tiempo" title="Permalink to this headline">¶</a></h2>
+<p>La función <strong>clock()</strong> nos devolverá un vector con el año, mes, día, hora, minutos y segundos:</p>
+<a class="reference internal image-reference" href="_images/clock_function.png"><img alt="clock_function" src="_images/clock_function.png" style="width: 400px;" /></a>
+<p>Las función <strong>date()</strong> nos devuelve la fecha como una cadena de texto.</p>
+<p>La función <strong>time()</strong> nos devuelve el número de segundos transcurridos desde las 00:00 horas UTC del día 1 de enero de 1970.</p>
+<p>La función <strong>etime()</strong> (<em>elapsed time</em>) nos devolverá el tiempo transcurrido entre dos fechas:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="n">t0</span> <span class="p">=</span> <span class="nb">clock</span><span class="p">();</span>
+<span class="c"># unas cuantas computaciones más tarde...</span>
+<span class="n">tiempo_transcurrido</span> <span class="p">=</span> <span class="nb">etime</span><span class="p">(</span><span class="nb">clock</span><span class="p">(),</span> <span class="n">t0</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>La función <strong>is_leap_year()</strong> nos devolverá <em>1</em> (<em>verdadero</em>) si el año pasado como argumento es bisiesto.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Funciones predefinidas en Octave</a><ul>
+<li><a class="reference internal" href="#funciones-para-cadenas-de-caracteres">Funciones para cadenas de caracteres</a></li>
+<li><a class="reference internal" href="#la-funcion-rand">La función <em>rand()</em></a></li>
+<li><a class="reference internal" href="#utilidades-para-medir-el-tiempo">Utilidades para medir el tiempo</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="matrices.html"
+                        title="previous chapter">Matrices</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="programacion.html"
+                        title="next chapter">Programación en Octave</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/funciones.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="programacion.html" title="Programación en Octave"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="matrices.html" title="Matrices"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Introducción a Octave 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Santiago Higuera.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.
+    </div>
+  </body>
+</html>

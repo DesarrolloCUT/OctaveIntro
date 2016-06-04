@@ -1,0 +1,433 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Tortugas y fractales &mdash; Introducción a Octave 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Introducción a Octave 1.0 documentation" href="index.html" />
+    <link rel="next" title="Modelos Digitales de Elevaciones" href="mdt.html" />
+    <link rel="prev" title="Personalización del arranque de Octave" href="perso.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="mdt.html" title="Modelos Digitales de Elevaciones"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="perso.html" title="Personalización del arranque de Octave"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Introducción a Octave 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="tortugas-y-fractales">
+<h1>Tortugas y fractales<a class="headerlink" href="#tortugas-y-fractales" title="Permalink to this headline">¶</a></h1>
+<p>Las gráficas tortuga fueron añadidas al lenguaje de programación Logo por Seymour Papert a finales de la década de 1960 para apoyar la versión de Papert del robot tortuga, un simple robot controlado desde el puesto de trabajo del usuario diseñado para llevar a cabo funciones de dibujo asignadas mediante una pequeña pluma retractil en su interior o adjuntada al cuerpo del robot.</p>
+<p>La tortuga tiene tres atributos:</p>
+<ul class="simple">
+<li>Una posición</li>
+<li>Una orientación</li>
+<li>Una pluma, teniendo atributos como color, ancho y arriba y abajo.</li>
+</ul>
+<p>La tortuga se mueve con comandos relativos a su posición, como «avanza 10 » y «gira a la izquierda 90 »</p>
+<p>Las gráficas tortuga se adaptan bien al dibujo de fractales.</p>
+<p>Vamos a explicar cómo construir una tortuga para <em>Octave</em> o <em>Matlab</em> y luego vamos a desarrollar algún ejemplo clásico de dibujo de fractales.</p>
+<p>Lo primero es construir la tortuga. Nuestra tortuga admitirá diferentes comandos identificados cada uno de ellos por una cadena de carácteres. En principio vamos a utilizar dos comandos: &#8216;<em>AVANZA</em>&#8216; y &#8216;<em>GIRA</em>&#8216;. En ambos casos nos hace falta un valor que defina la magnitud del avance o del giro de la tortuga. La función <em>turtle()</em> admitirá, por tanto dos prámetros, quedando su signatura definida de la siguiente manera:</p>
+<p><em>turtle(command, value)</em></p>
+<p>La versión <em>clásica</em> de la tortuga de <em>Papert</em> admitía dos comandos para el giro: <em>Gira izquierda</em> y <em>Gira derecha</em>. Nosotros vamos a utilizar un único comando <em>GIRA</em>, distinguiendo el sentido de giro mediante el signo del <em>value</em>.</p>
+<p>La arquitectura de la función <em>turtle()</em> estará organizada mediante una función principal, que distribuye los comandos recibidos, y una serie de funciones auxiliares para cada comando. La función principal se encarga de interpretar el comando recibido y pasarlo a la función auxiliar correspondiente que es la que realmente ejecutará el comando. El primer listado de nuestra función <em>turtle()</em> podría ser el siguiente:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">turtle</span><span class="p">(</span>command, value<span class="p">)</span><span class="w"></span>
+<span class="c">% Tortuga básica para gráficos</span>
+
+   <span class="k">if</span> <span class="nb">strcmp</span><span class="p">(</span><span class="n">command</span><span class="p">,</span><span class="s">&#39;GIRA&#39;</span><span class="p">)</span>
+      <span class="n">gira</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+   <span class="k">elseif</span> <span class="nb">strcmp</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="s">&#39;AVANZA&#39;</span><span class="p">)</span>
+      <span class="n">avanza</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+   <span class="k">else</span>
+      <span class="n">dispError</span><span class="p">(</span><span class="n">command</span><span class="p">);</span>
+   <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">function</span><span class="w"> </span><span class="nf">gira</span><span class="p">(</span>value<span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="nb">fprintf</span><span class="p">(</span><span class="s">&#39;GIRA %f\n&#39;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="k">function</span><span class="w"> </span><span class="nf">avanza</span><span class="p">(</span>value<span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="nb">fprintf</span><span class="p">(</span><span class="s">&#39;AVANZA %f\n&#39;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="k">function</span><span class="w"> </span><span class="nf">dispError</span><span class="p">(</span>command<span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="nb">fprintf</span><span class="p">(</span><span class="s">&#39;Comando no reconocido: %s\n&#39;</span><span class="p">,</span> <span class="n">command</span><span class="p">)</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>Podemos probar la función <em>turtle()</em> con comandos válidos y no válidos. Por supuesto la tortuga todavía no dibuja nada, lo único que hace es imprimir un mensaje con el comando recibido, de forma que podamos comprobar que la arquitectura <em>función principal y subfunciones</em> funciona adecuadamente. Se trata solo del <em>esqueleto</em> que nos permitirá ir dotando de funcionalidad a la tortuga.</p>
+<a class="reference internal image-reference" href="_images/turtle1.png"><img alt="turtle1" src="_images/turtle1.png" style="width: 400px;" /></a>
+<p>Inicialmente nuestra tortuga mantendrá los valores correspondientes a la posición y la orientación. La tortuga necesita mantener el valor de sus variables de estatus entre una ejecución y otra. Para ello utilizaremos unas variables globales llamadas <em>x</em>, <em>y</em> y <em>angulo</em>. La función <em>turtle()</em> se limita a declarar dichas variables como globales. Será el programa principal que utilice la función <em>turtle()</em> el encargado de definirlas.</p>
+<p>Vamos a añadir dos comando utilitarios adicionales: el comando &#8216;<em>INIT</em>&#8216; y el comando &#8216;<em>DISP</em>&#8216;. El comando &#8216;<em>INIT</em>&#8216; se encargará de inicializar las variables de estatus, poniendo a cero los valores de <em>x</em>, <em>y</em> y <em>angulo</em>. El comando &#8216;<em>DISP</em>&#8216;, por su parte, mostrará en pantalla el valor actual de las variables de estatus de la tortuga.</p>
+<p>Con estas nuevas consideraciones, el listado de nuestra tortuga quedará de la siguiente manera:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">turtle</span><span class="p">(</span>command, value<span class="p">)</span><span class="w"></span>
+<span class="c">% Tortuga básica para gráficos</span>
+<span class="c">% Necesita la existencia de unas variables globales x, y, angulo</span>
+
+   <span class="k">global</span> <span class="n">x</span> <span class="n">y</span> <span class="n">angulo</span><span class="p">;</span>
+
+   <span class="k">if</span> <span class="nb">strcmp</span><span class="p">(</span><span class="n">command</span><span class="p">,</span><span class="s">&#39;GIRA&#39;</span><span class="p">)</span>
+      <span class="n">gira</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+   <span class="k">elseif</span> <span class="nb">strcmp</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="s">&#39;AVANZA&#39;</span><span class="p">)</span>
+      <span class="n">avanza</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+   <span class="k">elseif</span> <span class="nb">strcmp</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="s">&#39;DISP&#39;</span><span class="p">)</span>
+      <span class="nb">disp</span><span class="p">();</span>
+   <span class="k">elseif</span> <span class="nb">strcmp</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="s">&#39;INIT&#39;</span><span class="p">)</span>
+      <span class="n">init</span><span class="p">();</span>
+   <span class="k">else</span>
+      <span class="n">dispError</span><span class="p">(</span><span class="n">command</span><span class="p">);</span>
+   <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">function</span><span class="w"> </span><span class="nf">gira</span><span class="p">(</span>value<span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="nb">fprintf</span><span class="p">(</span><span class="s">&#39;GIRA %f\n&#39;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="k">function</span><span class="w"> </span><span class="nf">avanza</span><span class="p">(</span>value<span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="nb">fprintf</span><span class="p">(</span><span class="s">&#39;AVANZA %f\n&#39;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="k">function</span><span class="w"> </span><span class="nf">disp</span><span class="p">()</span><span class="w"></span>
+<span class="w">   </span><span class="k">global</span> <span class="n">x</span> <span class="n">y</span> <span class="n">angulo</span><span class="p">;</span>
+   <span class="nb">fprintf</span><span class="p">(</span><span class="s">&#39;x= %6.2f y= %6.2f angulo= %6.2f\n&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">angulo</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="k">function</span><span class="w"> </span><span class="nf">init</span><span class="p">()</span><span class="w"></span>
+<span class="w">   </span><span class="k">global</span> <span class="n">x</span> <span class="n">y</span> <span class="n">angulo</span><span class="p">;</span>
+   <span class="n">x</span><span class="p">=</span><span class="mf">0.0</span><span class="p">;</span> <span class="n">y</span><span class="p">=</span><span class="mf">0.0</span><span class="p">;</span> <span class="n">z</span><span class="p">=</span><span class="mf">0.0</span><span class="p">;</span>
+   <span class="nb">disp</span><span class="p">();</span>
+<span class="k">end</span>
+
+<span class="k">function</span><span class="w"> </span><span class="nf">dispError</span><span class="p">(</span>command<span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="nb">fprintf</span><span class="p">(</span><span class="s">&#39;Comando no reconocido: %s\n&#39;</span><span class="p">,</span> <span class="n">command</span><span class="p">)</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>Si tratamos de ejecutar la función <em>turtle()</em> desde consola nos dará un error, a menos que declaremos como globales y asignemos un valor inicial a las variables <em>x</em>, <em>y</em> y <em>angulo</em>.  Podemos ver la secuencia de comandos en la siguiente imagen:</p>
+<a class="reference internal image-reference" href="_images/turtle2.png"><img alt="turtle2" src="_images/turtle2.png" style="width: 400px;" /></a>
+<p>Primero definimos desde consola las variables <em>x, y, angulo</em> y luego llamamos a la función <em>turtle()</em> varias veces con distintos comandos. La última ejecución del comando <em>DISP</em> muestra ceros en las variables de estatus, a pesar de haber realizado un giro y un avance. Esto es debido a que aún no hemos implementado las rutinas correspondientes. Lo que si podemos comprobar es el funcionamiento correcto del mecanismo de variables globales para <em>x, y, angulo</em>.</p>
+<p>Vamos a implementar la función <em>gira()</em>. Esta función debe actualizar el valor de la variable global <em>x</em>, sumándole el valor recibido. Habrá que ajustar el nuevo valor del <em>angulo</em> al intervalo <em>0-360</em>. El listado de la función &#8216;GIRA&#8217; quedará de la siguiente forma:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">gira</span><span class="p">(</span>value<span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">global</span> <span class="n">angulo</span><span class="p">;</span>
+   <span class="nb">fprintf</span><span class="p">(</span><span class="s">&#39;GIRA %f\n&#39;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+   <span class="n">angulo</span> <span class="p">=</span> <span class="n">angulo</span> <span class="o">+</span> <span class="n">value</span><span class="p">;</span>
+   <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">angulo</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">360</span>
+      <span class="n">angulo</span> <span class="p">=</span> <span class="nb">rem</span><span class="p">(</span><span class="n">angulo</span><span class="p">,</span> <span class="mi">360</span><span class="p">);</span>
+   <span class="k">end</span>
+   <span class="k">if</span> <span class="n">angulo</span> <span class="o">==</span> <span class="mi">360</span> <span class="o">|</span> <span class="n">angulo</span> <span class="o">==</span> <span class="o">-</span><span class="mi">360</span>
+      <span class="n">angulo</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="k">end</span>
+   <span class="k">if</span> <span class="n">angulo</span> <span class="o">&lt;</span> <span class="mi">0</span>
+      <span class="n">angulo</span> <span class="p">=</span> <span class="mi">360</span> <span class="o">+</span> <span class="n">angulo</span><span class="p">;</span>
+   <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>Podemos probar la nueva implementación de la función <em>gira()</em> con unas cuantas sentencias desde la consola de <em>Octave</em>. (Tendremos que haber realizado anteriormente la declaración y definición de las variables globales <em>x, y, angulo</em> ). El resultado se ve en la siguiente figura:</p>
+<a class="reference internal image-reference" href="_images/turtle3.png"><img alt="turtle3" src="_images/turtle3.png" style="width: 400px;" /></a>
+<p>La implementación de la función <em>avanza()</em> requiere algunos cálculos trigonométricos para calcular los incrementos en <em>x</em> e <em>y</em>. El listado queda de la siguiente manera:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">avanza</span><span class="p">(</span>value<span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">global</span> <span class="n">x</span> <span class="n">y</span> <span class="n">angulo</span><span class="p">;</span>
+   <span class="nb">fprintf</span><span class="p">(</span><span class="s">&#39;AVANZA %f\n&#39;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+   <span class="n">incx</span> <span class="p">=</span> <span class="n">value</span> <span class="o">*</span> <span class="nb">cosd</span><span class="p">(</span><span class="n">angulo</span><span class="p">);</span>
+   <span class="n">incy</span> <span class="p">=</span> <span class="n">value</span> <span class="o">*</span> <span class="nb">sind</span><span class="p">(</span><span class="n">angulo</span><span class="p">);</span>
+   <span class="n">x</span> <span class="p">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">incx</span><span class="p">;</span>
+   <span class="n">y</span> <span class="p">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">incy</span><span class="p">;</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>Podemos volver a probar la tortuga con comandos &#8216;AVANZA&#8217;. En la figura siguiente se puede comprobar el resultado. Obsérvese que los ángulos de la tortuga se miden desde el eje <em>x</em> en sentido levógiro. La dirección positiva del eje <em>y</em> corresponde al ángulo <em>90</em>.</p>
+<a class="reference internal image-reference" href="_images/turtle4.png"><img alt="turtle4" src="_images/turtle4.png" style="width: 500px;" /></a>
+<p>Una vez comprobado que la matemática de la tortuga funciona correctamente, podemos implementar las sentencias necesarias para que la tortuga dibuje los gráficos. En esta versión básica de tortuga la única función que realmente dibujará en pantalla será la función &#8216;<em>AVANZA</em>&#8216;. Daremos por hecho que el programa principal que utilice nuestra función <em>turtle()</em> será el encargado de abrir y configurar la ventana de gráficos, haciendo un <em>hold on</em> para que la ventana de gráficos reciba los sucesivos comandos <em>plot()</em> enviados por la tortuga. Nuestra función &#8216;turtle()&#8217; lo único que hace es enviar el comando <em>plot()</em> necesario para dibujar el segmento comprendido entre la posición de la tortuga al inicio del comando y la posición final calculada en base al ángulo y magnitud del avance de la tortuga. La función <em>avanza()</em> podría quedar resuelta de la siguiente forma:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">avanza</span><span class="p">(</span>value<span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">global</span> <span class="n">x</span> <span class="n">y</span> <span class="n">angulo</span><span class="p">;</span>
+   <span class="nb">fprintf</span><span class="p">(</span><span class="s">&#39;AVANZA %f\n&#39;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+   <span class="n">oldx</span> <span class="p">=</span> <span class="n">x</span><span class="p">;</span>
+   <span class="n">oldy</span> <span class="p">=</span> <span class="n">y</span><span class="p">;</span>
+   <span class="n">incx</span> <span class="p">=</span> <span class="n">value</span> <span class="o">*</span> <span class="nb">cosd</span><span class="p">(</span><span class="n">angulo</span><span class="p">);</span>
+   <span class="n">incy</span> <span class="p">=</span> <span class="n">value</span> <span class="o">*</span> <span class="nb">sind</span><span class="p">(</span><span class="n">angulo</span><span class="p">);</span>
+   <span class="n">x</span> <span class="p">=</span> <span class="n">oldx</span> <span class="o">+</span> <span class="n">incx</span><span class="p">;</span>
+   <span class="n">y</span> <span class="p">=</span> <span class="n">oldy</span> <span class="o">+</span> <span class="n">incy</span><span class="p">;</span>
+   <span class="n">xx</span> <span class="p">=</span> <span class="p">[</span><span class="n">oldx</span><span class="p">,</span> <span class="n">x</span><span class="p">];</span>
+   <span class="n">yy</span> <span class="p">=</span> <span class="p">[</span><span class="n">oldy</span><span class="p">,</span> <span class="n">y</span><span class="p">];</span>
+   <span class="nb">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>Podemos probar el resultado desde la consola de <em>Octave</em>. La secuencia de comandos y el gráfico que se obtendría serían los siguientes:</p>
+<a class="reference internal image-reference" href="_images/turtle5.png"><img alt="turtle5" src="_images/turtle5.png" style="width: 800px;" /></a>
+<p>Con esto tenemos creada la implementación básica de tortuga que nos permitirá realizar las primeras pruebas de dibujo. La forma habitual de utilizar la función <em>turtle()</em> será desde otras funciones que la utilizarán para realizar sus figuras. En el listado definitivo de la función <em>turtle()</em> que se muestra a continuación, se han suprimido las sentencias <em>fprintf()</em> de las funciones <em>avanza()</em> y <em>gira()</em>, para que no interfieran durante el dibujado de segmentos sucesivos.</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">turtle</span><span class="p">(</span>command, value<span class="p">)</span><span class="w"></span>
+<span class="c">% Tortuga básica para gráficos</span>
+<span class="c">% Necesita la existencia de unas variables globales x, y, angulo</span>
+
+   <span class="k">global</span> <span class="n">x</span> <span class="n">y</span> <span class="n">angulo</span><span class="p">;</span>
+
+   <span class="k">if</span> <span class="nb">strcmp</span><span class="p">(</span><span class="n">command</span><span class="p">,</span><span class="s">&#39;GIRA&#39;</span><span class="p">)</span>
+      <span class="n">gira</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+   <span class="k">elseif</span> <span class="nb">strcmp</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="s">&#39;AVANZA&#39;</span><span class="p">)</span>
+      <span class="n">avanza</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+   <span class="k">elseif</span> <span class="nb">strcmp</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="s">&#39;DISP&#39;</span><span class="p">)</span>
+      <span class="nb">disp</span><span class="p">();</span>
+   <span class="k">elseif</span> <span class="nb">strcmp</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="s">&#39;INIT&#39;</span><span class="p">)</span>
+      <span class="n">init</span><span class="p">();</span>
+   <span class="k">else</span>
+      <span class="n">dispError</span><span class="p">(</span><span class="n">command</span><span class="p">);</span>
+   <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">function</span><span class="w"> </span><span class="nf">gira</span><span class="p">(</span>value<span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">global</span> <span class="n">angulo</span><span class="p">;</span>
+   <span class="c">% fprintf(&#39;GIRA %f\n&#39;, value)</span>
+   <span class="n">angulo</span> <span class="p">=</span> <span class="n">angulo</span> <span class="o">+</span> <span class="n">value</span><span class="p">;</span>
+   <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">angulo</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">360</span>
+      <span class="n">angulo</span> <span class="p">=</span> <span class="nb">rem</span><span class="p">(</span><span class="n">angulo</span><span class="p">,</span> <span class="mi">360</span><span class="p">);</span>
+   <span class="k">end</span>
+   <span class="k">if</span> <span class="n">angulo</span> <span class="o">==</span> <span class="mi">360</span> <span class="o">|</span> <span class="n">angulo</span> <span class="o">==</span> <span class="o">-</span><span class="mi">360</span>
+      <span class="n">angulo</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="k">end</span>
+   <span class="k">if</span> <span class="n">angulo</span> <span class="o">&lt;</span> <span class="mi">0</span>
+      <span class="n">angulo</span> <span class="p">=</span> <span class="mi">360</span> <span class="o">+</span> <span class="n">angulo</span><span class="p">;</span>
+   <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">function</span><span class="w"> </span><span class="nf">avanza</span><span class="p">(</span>value<span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">global</span> <span class="n">x</span> <span class="n">y</span> <span class="n">angulo</span><span class="p">;</span>
+   <span class="c">% fprintf(&#39;AVANZA %f\n&#39;, value)</span>
+   <span class="n">oldx</span> <span class="p">=</span> <span class="n">x</span><span class="p">;</span>
+   <span class="n">oldy</span> <span class="p">=</span> <span class="n">y</span><span class="p">;</span>
+   <span class="n">incx</span> <span class="p">=</span> <span class="n">value</span> <span class="o">*</span> <span class="nb">cosd</span><span class="p">(</span><span class="n">angulo</span><span class="p">);</span>
+   <span class="n">incy</span> <span class="p">=</span> <span class="n">value</span> <span class="o">*</span> <span class="nb">sind</span><span class="p">(</span><span class="n">angulo</span><span class="p">);</span>
+   <span class="n">x</span> <span class="p">=</span> <span class="n">oldx</span> <span class="o">+</span> <span class="n">incx</span><span class="p">;</span>
+   <span class="n">y</span> <span class="p">=</span> <span class="n">oldy</span> <span class="o">+</span> <span class="n">incy</span><span class="p">;</span>
+   <span class="n">xx</span> <span class="p">=</span> <span class="p">[</span><span class="n">oldx</span><span class="p">,</span> <span class="n">x</span><span class="p">];</span>
+   <span class="n">yy</span> <span class="p">=</span> <span class="p">[</span><span class="n">oldy</span><span class="p">,</span> <span class="n">y</span><span class="p">];</span>
+   <span class="nb">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="k">function</span><span class="w"> </span><span class="nf">disp</span><span class="p">()</span><span class="w"></span>
+<span class="w">   </span><span class="k">global</span> <span class="n">x</span> <span class="n">y</span> <span class="n">angulo</span><span class="p">;</span>
+   <span class="nb">fprintf</span><span class="p">(</span><span class="s">&#39;x= %6.2f y= %6.2f angulo= %6.2f\n&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">angulo</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="k">function</span><span class="w"> </span><span class="nf">init</span><span class="p">()</span><span class="w"></span>
+<span class="w">   </span><span class="k">global</span> <span class="n">x</span> <span class="n">y</span> <span class="n">angulo</span><span class="p">;</span>
+   <span class="n">x</span><span class="p">=</span><span class="mf">0.0</span><span class="p">;</span> <span class="n">y</span><span class="p">=</span><span class="mf">0.0</span><span class="p">;</span> <span class="n">angulo</span><span class="p">=</span><span class="mf">0.0</span><span class="p">;</span>
+   <span class="nb">disp</span><span class="p">();</span>
+<span class="k">end</span>
+
+<span class="k">function</span><span class="w"> </span><span class="nf">dispError</span><span class="p">(</span>command<span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="nb">fprintf</span><span class="p">(</span><span class="s">&#39;Comando no reconocido: %s\n&#39;</span><span class="p">,</span> <span class="n">command</span><span class="p">)</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>Podemos utilizar nuestra tortuga para dibujar algunas figuras sencillas. El siguiente listado muestra cómo utilizar la tortuga para dibujar un círculo, por ejemplo:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="k"> function</span><span class="w"> </span><span class="nf">circle</span><span class="p">()</span><span class="w"></span>
+<span class="c">% Dibuja un círculo utilizando la función turtle()</span>
+<span class="k">global</span> <span class="n">x</span> <span class="n">y</span> <span class="n">angulo</span><span class="p">;</span>
+<span class="n">turtle</span><span class="p">(</span><span class="s">&#39;INIT&#39;</span><span class="p">);</span>
+
+<span class="nb">close</span><span class="p">();</span>
+<span class="nb">hold</span> <span class="n">on</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">0</span> <span class="p">:</span> <span class="mi">90</span>
+   <span class="n">turtle</span><span class="p">(</span><span class="s">&#39;AVANZA&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+   <span class="n">turtle</span><span class="p">(</span><span class="s">&#39;GIRA&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span>
+<span class="k">end</span>
+ <span class="k">end</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/turtle6.png"><img alt="turtle6" src="_images/turtle6.png" style="width: 400px;" /></a>
+<p>En el siguiente ejemplo se utiliza la tortuga para dibujar una serie de triángulos:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">triang</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="c">% Dibuja triángulos</span>
+    <span class="k">global</span> <span class="n">x</span> <span class="n">y</span> <span class="n">angulo</span><span class="p">;</span>
+    <span class="n">turtle</span><span class="p">(</span><span class="s">&#39;INIT&#39;</span><span class="p">);</span>
+
+    <span class="nb">close</span><span class="p">();</span>
+    <span class="nb">hold</span> <span class="n">on</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">1</span> <span class="p">:</span> <span class="mi">3</span>
+       <span class="n">turtle</span><span class="p">(</span><span class="s">&#39;AVANZA&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+       <span class="n">turtle</span><span class="p">(</span><span class="s">&#39;GIRA&#39;</span><span class="p">,</span> <span class="mi">120</span><span class="p">);</span>
+       <span class="n">turtle</span><span class="p">(</span><span class="s">&#39;AVANZA&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+       <span class="n">turtle</span><span class="p">(</span><span class="s">&#39;GIRA&#39;</span><span class="p">,</span> <span class="mi">120</span><span class="p">);</span>
+       <span class="n">turtle</span><span class="p">(</span><span class="s">&#39;AVANZA&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+       <span class="n">turtle</span><span class="p">(</span><span class="s">&#39;GIRA&#39;</span><span class="p">,</span> <span class="mi">120</span><span class="p">);</span>
+       <span class="n">turtle</span><span class="p">(</span><span class="s">&#39;AVANZA&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+    <span class="k">end</span>
+     <span class="k">end</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/turtle7.png"><img alt="turtle7" src="_images/turtle7.png" style="width: 600px;" /></a>
+<div class="section" id="el-copo-de-nieve-de-koch">
+<h2>El copo de nieve de Koch<a class="headerlink" href="#el-copo-de-nieve-de-koch" title="Permalink to this headline">¶</a></h2>
+<p>La curva fractal &#8216;<em>Koch snowflake</em>&#8216;, también conocida como la <em>&#8216;isla de Koch&#8217;</em>, fue descrita por primera vez por Helge von Koch en 1904. Se construye partiendo de un triángulo equilátero. En cada lado del triángulo se sustituye la tercera parte central por un nuevo triángulo equilátero de lado un tercio del primero. Este proceso se repite indefinidamente.</p>
+<a class="reference internal image-reference" href="_images/koch1.png"><img alt="koch1" src="_images/koch1.png" style="width: 600px;" /></a>
+<p>El resultado es una curva cuya longitud tiende a infinito, pero encerrando un área que tiende a una cantidad finita. Podemos implementar una función que dibuje una curva de Koch mediante la utilización de la tortuga creada en el apartado anterior. Para ello crearemos en primer lugar la función <em>drawkoch()</em> que dibuja, de forma recursiva, el segmento básico de la curva de Koch para un determinado nivel de profundidad:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">drawkoch</span><span class="p">(</span>length, depth<span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">if</span> <span class="n">depth</span> <span class="o">==</span> <span class="mi">0</span>
+      <span class="n">turtle</span><span class="p">(</span><span class="s">&#39;AVANZA&#39;</span><span class="p">,</span> <span class="nb">length</span><span class="p">);</span>
+   <span class="k">else</span>
+      <span class="n">drawkoch</span><span class="p">(</span><span class="nb">length</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="n">depth</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+      <span class="n">turtle</span><span class="p">(</span><span class="s">&#39;GIRA&#39;</span><span class="p">,</span> <span class="mi">60</span><span class="p">);</span>
+      <span class="n">drawkoch</span><span class="p">(</span><span class="nb">length</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="n">depth</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+      <span class="n">turtle</span><span class="p">(</span><span class="s">&#39;GIRA&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">120</span><span class="p">);</span>
+      <span class="n">drawkoch</span><span class="p">(</span><span class="nb">length</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="n">depth</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+      <span class="n">turtle</span><span class="p">(</span><span class="s">&#39;GIRA&#39;</span><span class="p">,</span> <span class="mi">60</span><span class="p">);</span>
+      <span class="n">drawkoch</span><span class="p">(</span><span class="nb">length</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="n">depth</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+   <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>Podemos probar la función recién creada enlazando los tres primeros niveles de segmentos de Koch. La secuencia de instrucciones y el resultado se puede apreciar en la siguiente figura:</p>
+<a class="reference internal image-reference" href="_images/koch2.png"><img alt="koch2" src="_images/koch2.png" style="width: 700px;" /></a>
+<p>Para dibujar el copo de nieve completo, con un determinado nivel de profundidad tendremos que dibujar tres tramos de Koch, cada uno girado -120 grados respecto del anterior. Podemos implementar una función que denominaremos <em>koch()</em>, que utiliza la función anterior para dibujar el copo de nieve. El código de la función <em>koch()</em> será el siguiente:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">koch</span><span class="p">(</span>length, level<span class="p">)</span><span class="w"></span>
+<span class="c">% Dibuja la curva de Koch para un nivel determinado</span>
+
+   <span class="nb">hold</span> <span class="n">off</span><span class="p">;</span>
+   <span class="nb">close</span><span class="p">;</span>
+   <span class="nb">hold</span> <span class="n">on</span><span class="p">;</span>
+   <span class="nb">xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="nb">length</span><span class="o">*</span><span class="nb">sind</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span><span class="o">+</span><span class="mi">10</span><span class="p">]);</span>
+   <span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="nb">length</span><span class="o">*</span><span class="nb">sind</span><span class="p">(</span><span class="mi">60</span><span class="p">),</span> <span class="mi">10</span><span class="o">+</span><span class="nb">length</span><span class="o">*</span><span class="nb">sind</span><span class="p">(</span><span class="mi">60</span><span class="p">)]);</span>
+
+   <span class="k">global</span> <span class="n">x</span> <span class="n">y</span> <span class="nb">angle</span><span class="p">;</span>
+   <span class="n">turtle</span><span class="p">(</span><span class="s">&#39;INIT&#39;</span><span class="p">);</span>
+
+   <span class="n">drawkoch</span><span class="p">(</span><span class="nb">length</span><span class="p">,</span> <span class="n">level</span><span class="p">);</span>
+   <span class="n">turtle</span><span class="p">(</span><span class="s">&#39;GIRA&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">120</span><span class="p">);</span>
+   <span class="n">drawkoch</span><span class="p">(</span><span class="nb">length</span><span class="p">,</span> <span class="n">level</span><span class="p">);</span>
+   <span class="n">turtle</span><span class="p">(</span><span class="s">&#39;GIRA&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">120</span><span class="p">);</span>
+   <span class="n">drawkoch</span><span class="p">(</span><span class="nb">length</span><span class="p">,</span> <span class="n">level</span><span class="p">);</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>El resultado de la función para los primeros niveles se puede ver en la siguiente figura:</p>
+<a class="reference internal image-reference" href="_images/koch3.png"><img alt="koch3" src="_images/koch3.png" style="width: 700px;" /></a>
+</div>
+<div class="section" id="la-curva-c-de-levy">
+<h2>La curva C de Lévy<a class="headerlink" href="#la-curva-c-de-levy" title="Permalink to this headline">¶</a></h2>
+<p>El último ejemplo que vamos a mostrar es el de la curva C de Lévy, descrita por primera vez por  Ernesto Cesàro en 1906 y Georg Faber en 1910, pero que lleva el nombre del matemático francés Paul Lévy, que fue el primero que proporcionó un método geométrico para construirla.</p>
+<p>La curva <em>C</em> comienza con un segmento recto de cierta longitud. Utilizando este segmento como hipotenusa, se construye un triángulo isósceles con ángulos 45º, 90º y 45º. Sustituimos el segmento original por los dos catetos del triángulo. El proceso se repite indefinidamente con cada uno de los segmentos que se generan. En la figura siguiente se muestran los primeros niveles de la curva <em>C</em>:</p>
+<a class="reference internal image-reference" href="_images/ccurve2.png"><img alt="ccurve2" src="_images/ccurve2.png" style="width: 300px;" /></a>
+<p>El código que se muestra a continuación dibuja la curva <em>C</em> para un determinado nivel de profundidad:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">ccurve</span><span class="p">(</span>length,level<span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">if</span> <span class="n">level</span> <span class="o">==</span> <span class="mi">0</span>
+      <span class="n">turtle</span><span class="p">(</span><span class="s">&#39;AVANZA&#39;</span><span class="p">,</span><span class="nb">length</span><span class="p">);</span>
+   <span class="k">else</span>
+      <span class="n">turtle</span><span class="p">(</span><span class="s">&#39;GIRA&#39;</span><span class="p">,</span><span class="mi">45</span><span class="p">);</span>
+      <span class="n">ccurve</span><span class="p">(</span><span class="nb">length</span><span class="o">/</span><span class="nb">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">level</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+      <span class="n">turtle</span><span class="p">(</span><span class="s">&#39;GIRA&#39;</span><span class="p">,</span><span class="o">-</span><span class="mi">90</span><span class="p">);</span>
+      <span class="n">ccurve</span><span class="p">(</span><span class="nb">length</span><span class="o">/</span><span class="nb">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">level</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+      <span class="n">turtle</span><span class="p">(</span><span class="s">&#39;GIRA&#39;</span><span class="p">,</span><span class="mi">45</span><span class="p">);</span>
+   <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>El resultado para el nivel de profundidad 12 se muestra en la siguiente figura:</p>
+<a class="reference internal image-reference" href="_images/ccurve1.png"><img alt="ccurve" src="_images/ccurve1.png" style="width: 700px;" /></a>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Tortugas y fractales</a><ul>
+<li><a class="reference internal" href="#el-copo-de-nieve-de-koch">El copo de nieve de Koch</a></li>
+<li><a class="reference internal" href="#la-curva-c-de-levy">La curva C de Lévy</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="perso.html"
+                        title="previous chapter">Personalización del arranque de Octave</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="mdt.html"
+                        title="next chapter">Modelos Digitales de Elevaciones</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/turtle.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="mdt.html" title="Modelos Digitales de Elevaciones"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="perso.html" title="Personalización del arranque de Octave"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Introducción a Octave 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Santiago Higuera.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.
+    </div>
+  </body>
+</html>

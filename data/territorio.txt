@@ -1,0 +1,53 @@
+Nombre de la provincia        Extensión en miles de kilómetros cuadrados
+Álava                         3.047  *1000km2
+Albacete                      14.858 *1000km2
+Alicante                      5.863  *1000km2
+Almería	                      8.774  *1000km2
+Asturias                      10.565  *1000km2
+Ávila                         8.048  *1000km2
+Badajoz	                      21.657  *1000km2
+Baleares                      5.014  *1000km2
+Barcelona                     7.733  *1000km2
+Burgos                        14.269  *1000km2
+Cáceres	                      19.945  *1000km2
+Cádiz                         7.385  *1000km2
+Cantabria                     5.289  *1000km2
+Castellón                     6.679  *1000km2
+Ceuta                         18  *1000km2
+Ciudad Real                   19.749  *1000km2
+Córdoba                       13.718  *1000km2
+Cuenca                        17.061  *1000km2
+Girona                        5.886  *1000km2
+Granada                       12.531  *1000km2
+Guadalajara                   12.190  *1000km2
+Guipúzcoa                     1.997  *1000km2
+Huelva                        10.085  *1000km2
+Huesca                        15.671  *1000km2
+Jaén                          13.498  *1000km2
+La Coruña                     7.876  *1000km2
+La Rioja                      5.034  *1000km2
+Las Palmas                    4.065  *1000km2
+León                          15.468  *1000km2
+Lérida                        12.028  *1000km2
+Lugo                          9.803  *1000km2
+Madrid                        7.995  *1000km2
+Málaga                        7.276  *1000km2
+Melilla                       14  *1000km2
+Murcia                        11.317  *1000km2
+Navarra                       10.421  *1000km2
+Orense                        7.278  *1000km2
+Palencia                      8.029  *1000km2
+Pontevedra                    4.477  *1000km2
+Salamanca                     12.336  *1000km2
+Santa Cruz de Tenerife 	      3.208  *1000km2
+Segovia	                      6.949  *1000km2
+Sevilla                       14.001  *1000km2
+Soria                         10.287  *1000km2
+Tarragona                     6.283  *1000km2
+Teruel                        14.804  *1000km2
+Toledo                        15.368  *1000km2
+Valencia                      10.763  *1000km2
+Valladolid                    8.202  *1000km2
+Vizcaya                       2.217  *1000km2
+Zamora                        10.559  *1000km2
+Zaragoza                      17.194  *1000km2

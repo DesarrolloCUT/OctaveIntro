@@ -1,0 +1,443 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Ejercicios resueltos &mdash; Introducción a Octave 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Introducción a Octave 1.0 documentation" href="index.html" />
+    <link rel="next" title="Gráficos con Octave" href="graph.html" />
+    <link rel="prev" title="Polinomios" href="polinomios.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="graph.html" title="Gráficos con Octave"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="polinomios.html" title="Polinomios"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Introducción a Octave 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="ejercicios-resueltos">
+<h1>Ejercicios resueltos<a class="headerlink" href="#ejercicios-resueltos" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="ejercicio-1-funcion-size">
+<h2>Ejercicio 1 (Función size())<a class="headerlink" href="#ejercicio-1-funcion-size" title="Permalink to this headline">¶</a></h2>
+<p>Escribir una función que devuelva <em>logical 1</em> si la variable que recibe como argumento es un vector fila o columna, y <em>logical 0</em> en otro caso ( argumento escalar o argumento matriz).</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>is <span class="p">=</span><span class="w"> </span><span class="nf">isVector</span><span class="p">(</span>v<span class="p">)</span><span class="w"></span>
+<span class="c">% Devuelve logical 1 si la variable recibida</span>
+<span class="c">% es un vector y logical 0 en otro caso.</span>
+
+   <span class="c">% Comprobación del número de argumentos</span>
+   <span class="k">if</span> <span class="p">(</span><span class="nb">nargin</span> <span class="o">~=</span> <span class="mi">1</span><span class="p">)</span>
+      <span class="n">is</span> <span class="p">=</span> <span class="nb">logical</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+      <span class="k">return</span><span class="p">;</span>
+   <span class="k">end</span>
+
+   <span class="k">if</span> <span class="p">(</span><span class="nb">xor</span><span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span> <span class="nb">size</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">==</span><span class="mi">1</span><span class="p">))</span>
+      <span class="c">% Es un vector</span>
+      <span class="n">is</span> <span class="p">=</span> <span class="nb">logical</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+   <span class="k">else</span>
+      <span class="c">% No es un vector</span>
+      <span class="n">is</span> <span class="p">=</span> <span class="nb">logical</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+      <span class="k">return</span><span class="p">;</span>
+   <span class="k">end</span>
+
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ejercicio-2-bucles-for">
+<h2>Ejercicio 2 (Bucles <em>for</em>)<a class="headerlink" href="#ejercicio-2-bucles-for" title="Permalink to this headline">¶</a></h2>
+<p>Escribir una función que calcule la suma <em>s</em> de los elementos de un vector que recibe como argumento. La función comprobará que el argumento recibido es un escalar o un vector. En caso de recibir un argumento no válido, la función devolverá <em>NaN</em>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Octave tiene una función de librería que realiza los cálculos pedidos en el enunciado, se trata de la función <em>sum()</em>. En la solución del ejercicio no se podrán utilizar funciones de librería, el propósito del ejercicio es que el alumno utilice bucles y operadores aritméticos corrientes.</p>
+</div>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>s <span class="p">=</span><span class="w"> </span><span class="nf">sumvector</span><span class="p">(</span>v<span class="p">)</span><span class="w"></span>
+<span class="c">% Suma las compnentes de un vector</span>
+
+   <span class="k">if</span><span class="p">(</span><span class="nb">nargin</span> <span class="o">~=</span> <span class="mi">1</span><span class="p">)</span>
+      <span class="n">s</span> <span class="p">=</span> <span class="nb">NaN</span><span class="p">;</span>
+      <span class="k">return</span><span class="p">;</span>
+   <span class="k">end</span>
+
+   <span class="k">if</span><span class="p">(</span> <span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">~=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">~=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">)</span>
+      <span class="n">s</span> <span class="p">=</span> <span class="nb">NaN</span><span class="p">;</span>
+      <span class="k">return</span><span class="p">;</span>
+   <span class="k">end</span>
+
+   <span class="n">s</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="k">for</span> <span class="nb">index</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span> <span class="nb">length</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+      <span class="n">s</span> <span class="p">=</span> <span class="n">s</span> <span class="o">+</span> <span class="n">v</span><span class="p">(</span><span class="nb">index</span><span class="p">);</span>
+   <span class="k">end</span>
+
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ejercicio-3-bucles-for-algoritmo-de-la-suma">
+<h2>Ejercicio 3 (Bucles <em>for</em>. Algoritmo de la suma)<a class="headerlink" href="#ejercicio-3-bucles-for-algoritmo-de-la-suma" title="Permalink to this headline">¶</a></h2>
+<p>Escribir una función que devuelva la suma de todos los elementos de un vector o matriz que recibe como argumento. En el caso de recibir un escalar o un vector la función pedida sería equivalente a la función <em>sum()</em> de la librería. En el caso de recibir una matriz como argumento, el resultado de la función pedida sería equivalente a la expresión <em>sum(sum())</em>. En la solución no se utilizarán funciones de librería, solamente operadores aritmeticos sencillos.</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>s <span class="p">=</span><span class="w"> </span><span class="nf">sumall</span><span class="p">(</span>A<span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="c">% Suma todos los elementos de un vector o una matriz</span>
+
+   <span class="n">filas</span> <span class="p">=</span> <span class="nb">size</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+   <span class="n">cols</span> <span class="p">=</span> <span class="nb">size</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+
+   <span class="n">s</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="k">for</span> <span class="n">ind1</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span> <span class="n">filas</span>
+      <span class="k">for</span> <span class="n">ind2</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span> <span class="n">cols</span>
+         <span class="n">s</span> <span class="p">=</span> <span class="n">s</span> <span class="o">+</span> <span class="n">A</span><span class="p">(</span><span class="n">ind1</span><span class="p">,</span><span class="n">ind2</span><span class="p">);</span>
+      <span class="k">end</span>
+   <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ejercicio-4-bucles-for-algoritmo-del-producto">
+<h2>Ejercicio 4 (Bucles <em>for</em>. . Algoritmo del producto)<a class="headerlink" href="#ejercicio-4-bucles-for-algoritmo-del-producto" title="Permalink to this headline">¶</a></h2>
+<p>Escribir una función que devuelva el producto de todos los elementos de un vector o matriz que recibe como argumento. En el caso de recibir un escalar o un vector la función pedida sería equivalente a la función <em>prod()</em> de la librería. En el caso de recibir una matriz como argumento, el resultado de la función pedida sería equivalente a la expresión <em>prod(prod())</em>. En la solución no se utilizarán funciones de librería, solamente operadores aritmeticos sencillos.</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>p <span class="p">=</span><span class="w"> </span><span class="nf">prodall</span><span class="p">(</span>A<span class="p">)</span><span class="w"></span>
+<span class="c">% Multiplica todos los elementos de un vector o una matriz</span>
+
+   <span class="n">filas</span> <span class="p">=</span> <span class="nb">size</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+   <span class="n">cols</span> <span class="p">=</span> <span class="nb">size</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+
+   <span class="n">p</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+   <span class="k">for</span> <span class="n">ind1</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span> <span class="n">filas</span>
+      <span class="k">for</span> <span class="n">ind2</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span> <span class="n">cols</span>
+         <span class="n">p</span> <span class="p">=</span> <span class="n">p</span> <span class="o">*</span> <span class="n">A</span><span class="p">(</span><span class="n">ind1</span><span class="p">,</span><span class="n">ind2</span><span class="p">);</span>
+      <span class="k">end</span>
+   <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ejercicio-5-bucles-for">
+<h2>Ejercicio 5 (Bucles <em>for</em>)<a class="headerlink" href="#ejercicio-5-bucles-for" title="Permalink to this headline">¶</a></h2>
+<p>Escribir una función que realice el <em>puntoproducto .*</em> de dos vectores que recibe como argumento. La función comprobará que el número de argumentos recibidos es correcto, y que se trata de dos vectores. Si los argumentos no son correctos, la función devolverá <em>NaN</em>. En la solución solo se permitirá la utilización de bucles y operadores aritméticos sencillos. La función devolverá el resultado correcto independientemente de que los vectores recibidos sean fila-fila, col-col, fila-col o col-fila.</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>pp <span class="p">=</span><span class="w"> </span><span class="nf">puntoprod</span><span class="p">(</span>v, w<span class="p">)</span><span class="w"></span>
+<span class="c">% Calcula el punto producto de dos vectores que recibe como argumento</span>
+
+<span class="c">% Comprobación del número de argumentos recibidos</span>
+<span class="k">if</span> <span class="p">(</span><span class="nb">nargin</span> <span class="o">~=</span> <span class="mi">2</span><span class="p">)</span>
+   <span class="n">pp</span> <span class="p">=</span> <span class="nb">NaN</span><span class="p">;</span>
+   <span class="k">return</span><span class="p">;</span>
+<span class="k">end</span>
+
+<span class="c">% Comprobación de la dimensión de los vectores</span>
+<span class="k">if</span> <span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">~=</span> <span class="mi">1</span> <span class="o">&amp;</span> <span class="nb">size</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">~=</span> <span class="mi">1</span><span class="p">)</span>
+   <span class="n">pp</span> <span class="p">=</span> <span class="nb">NaN</span><span class="p">;</span>
+   <span class="k">return</span><span class="p">;</span>
+<span class="k">elseif</span> <span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">~=</span> <span class="mi">1</span> <span class="o">&amp;</span> <span class="nb">size</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">~=</span> <span class="mi">1</span><span class="p">)</span>
+   <span class="n">pp</span> <span class="p">=</span> <span class="nb">NaN</span><span class="p">;</span>
+   <span class="k">return</span><span class="p">;</span>
+<span class="k">elseif</span> <span class="p">(</span><span class="nb">length</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">~=</span> <span class="nb">length</span><span class="p">(</span><span class="n">w</span><span class="p">))</span>
+   <span class="n">pp</span> <span class="p">=</span> <span class="nb">NaN</span><span class="p">;</span>
+   <span class="k">return</span><span class="p">;</span>
+<span class="k">end</span>
+
+<span class="n">pp</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">for</span> <span class="nb">index</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+   <span class="n">pp</span> <span class="p">=</span> <span class="n">pp</span> <span class="o">+</span> <span class="n">v</span><span class="p">(</span><span class="nb">index</span><span class="p">)</span> <span class="o">*</span> <span class="n">w</span><span class="p">(</span><span class="nb">index</span><span class="p">);</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ejercicio-6-bucles-for">
+<h2>Ejercicio 6 (Bucles <em>for</em>)<a class="headerlink" href="#ejercicio-6-bucles-for" title="Permalink to this headline">¶</a></h2>
+<p>Escribir una función que calcule la matriz <em>C</em> producto de dos matrices <em>A</em> y <em>B</em> que recibe como argumentos. La función comprobará, en primer lugar, que el número de argumentos recibidos es el adecuado y que las dimensiones de las matrices <em>A</em> y <em>B</em> son congruentes. En caso de argumentos incorrectos la función devolvera una matriz vacía <em>[]</em>. Si los argumentos son correctos, la función calculará la matriz C sin hacer uso de funciones de librería, utilizando bucles y operadores aritméticos sencillos.</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>C <span class="p">=</span><span class="w"> </span><span class="nf">prodmat</span><span class="p">(</span>A, B<span class="p">)</span><span class="w"></span>
+<span class="c">% prodmat.m : Calcula la matriz C, producto de las matrices A y B</span>
+
+<span class="c">% Comprobación del número de argumentos recibidos</span>
+<span class="k">if</span> <span class="p">(</span><span class="nb">nargin</span> <span class="o">~=</span> <span class="mi">2</span><span class="p">)</span>
+   <span class="n">C</span> <span class="p">=</span> <span class="p">[];</span>
+   <span class="k">return</span><span class="p">;</span>
+<span class="k">end</span>
+
+<span class="c">% Comprobación de la dimensión de las matrices</span>
+<span class="c">% El número de columnas de A debe ser igual al de filas de B</span>
+<span class="c">% Si las dimensiones no son las correctas el programa finaliza</span>
+<span class="k">if</span> <span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">~=</span> <span class="nb">size</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+   <span class="n">C</span> <span class="p">=</span> <span class="p">[];</span>
+   <span class="k">return</span><span class="p">;</span>
+<span class="k">end</span>
+
+<span class="c">% Preparo la matriz solución con las dimensiones adecuadas</span>
+<span class="c">% Si son A(m,n) y B(n,p) las dimensiones de C seran C(m,p)</span>
+<span class="n">C</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="nb">size</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="mi">2</span><span class="p">));</span>
+
+<span class="c">% Cálculo del producto mediante dos bucles for anidados</span>
+<span class="k">for</span> <span class="n">fila</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span> <span class="nb">size</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+   <span class="k">for</span> <span class="n">col</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">size</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+      <span class="nb">sum</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+      <span class="k">for</span><span class="p">(</span><span class="nb">index</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="nb">size</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+         <span class="nb">sum</span> <span class="p">=</span> <span class="nb">sum</span> <span class="o">+</span> <span class="n">A</span><span class="p">(</span><span class="n">fila</span><span class="p">,</span> <span class="nb">index</span><span class="p">)</span> <span class="o">*</span> <span class="n">B</span><span class="p">(</span><span class="nb">index</span><span class="p">,</span> <span class="n">col</span><span class="p">);</span>
+         <span class="k">end</span>
+         <span class="n">C</span><span class="p">(</span><span class="n">fila</span><span class="p">,</span><span class="n">col</span><span class="p">)</span> <span class="p">=</span> <span class="nb">sum</span><span class="p">;</span>
+      <span class="k">end</span>
+   <span class="k">end</span>
+
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ejercicio-7-strings-funciones">
+<h2>Ejercicio 7 (Strings, Funciones)<a class="headerlink" href="#ejercicio-7-strings-funciones" title="Permalink to this headline">¶</a></h2>
+<p>La variable <img class="math" src="_images/math/3cb3fa356ae2a3d6847201c9ff260b7102701e2b.png" alt="result = '11X121XX1X21X1'"/> contiene los resultados de los catorce partidos de futbol de la quiniela de una jornada. La variable <img class="math" src="_images/math/d4fcbf5eceff415ee9b1c4fef1f1376c625a3b3f.png" alt="apuesta = '112X211X12X1XX'"/> tiene los resultados apostados en una determinada quiniela. Se pide: (a) Calcule en una sola expresión cuantos resultados hay acertados. (b) Cuales son los numeros de orden de los partidos que se han acertado. (C) Cuáles son los resultados acertados.</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="n">numAciertos</span> <span class="p">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">result</span> <span class="o">==</span> <span class="n">apuesta</span><span class="p">)</span>
+<span class="n">ans</span> <span class="p">=</span> <span class="mi">8</span>
+
+<span class="n">partidosAcertados</span> <span class="p">=</span> <span class="nb">find</span><span class="p">(</span><span class="n">result</span> <span class="o">==</span> <span class="n">apuesta</span><span class="p">)</span>
+<span class="n">ans</span> <span class="p">=</span>    <span class="mi">1</span>    <span class="mi">2</span>    <span class="mi">5</span>    <span class="mi">6</span>    <span class="mi">8</span>    <span class="mi">9</span>   <span class="mi">12</span>   <span class="mi">13</span>
+
+<span class="n">resultadosAcertados</span> <span class="p">=</span> <span class="n">result</span><span class="p">(</span><span class="n">result</span> <span class="o">==</span> <span class="n">apuesta</span><span class="p">)</span>
+<span class="n">ans</span> <span class="p">=</span> <span class="mi">1121</span><span class="n">X11X</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ejercicio-8-funcion-rand">
+<h2>Ejercicio 8 (Función rand())<a class="headerlink" href="#ejercicio-8-funcion-rand" title="Permalink to this headline">¶</a></h2>
+<p>Desarrolle una función llamada <em>dado()</em> que devuelva un número aleatorio entre uno y seis, todos ellos con la misma probabilidad de ocurrencia.</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>r <span class="p">=</span><span class="w"> </span><span class="nf">dado</span><span class="p">()</span><span class="w"></span>
+<span class="w">   </span><span class="c">% dado() : devuelve un numero r al azar entre 1 y 6</span>
+   <span class="c">% Fórmulas útiles para números aleatorios</span>
+   <span class="c">% Número entre A y A+1 : A + rand();</span>
+   <span class="c">% Número entre A y B : A + (B-A) * rand()</span>
+   <span class="c">% Número entero entre A y B : round(A + (B-A) * rand())</span>
+   <span class="n">n</span> <span class="p">=</span> <span class="nb">round</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="mi">6</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="nb">rand</span><span class="p">());</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ejercicio-9-nargin-funcion-rand">
+<h2>Ejercicio 9 (nargin, función rand())<a class="headerlink" href="#ejercicio-9-nargin-funcion-rand" title="Permalink to this headline">¶</a></h2>
+<p>Modifique la función <em>dado()</em> del ejercicio anterior de manera que en caso de recibir un número <em>n</em> como argumento devuelva un vector de n componentes cada una de ellas con el resultado de una tirada de dado. Si no recibe argumentos seguirá devolviendo un único número entre 1 y 6. Si el parámetro <em>n</em> recibido como argumento no es entero, se redondeará al entero más proximo.</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>r <span class="p">=</span><span class="w"> </span><span class="nf">dado</span><span class="p">(</span>n<span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="c">% dado() : devuelve un numero r al azar entre 1 y 6</span>
+      <span class="k">if</span><span class="p">(</span><span class="nb">nargin</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+         <span class="n">r</span> <span class="p">=</span> <span class="nb">round</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="mi">6</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="nb">rand</span><span class="p">());</span>
+      <span class="k">return</span><span class="p">;</span>
+   <span class="k">end</span>
+
+   <span class="k">if</span><span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">~=</span><span class="mi">1</span> <span class="o">|</span> <span class="nb">size</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">n</span><span class="o">&lt;</span><span class="p">=</span><span class="mi">0</span><span class="p">)</span>
+      <span class="n">r</span> <span class="p">=</span> <span class="nb">round</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="mi">6</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="nb">rand</span><span class="p">());</span>
+      <span class="k">return</span><span class="p">;</span>
+   <span class="k">end</span>
+
+   <span class="n">n</span> <span class="p">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+   <span class="n">r</span> <span class="p">=</span> <span class="p">[];</span>
+   <span class="k">for</span> <span class="n">ind</span> <span class="p">=</span> <span class="mi">1</span> <span class="p">:</span> <span class="n">n</span>
+      <span class="n">r</span><span class="p">(</span><span class="n">ind</span><span class="p">)</span> <span class="p">=</span> <span class="nb">round</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">*</span> <span class="nb">rand</span><span class="p">());</span>
+   <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ejercicio-10-algoritmo-de-maximo">
+<h2>Ejercicio 10 (Algoritmo de máximo)<a class="headerlink" href="#ejercicio-10-algoritmo-de-maximo" title="Permalink to this headline">¶</a></h2>
+<p>Desarrolle una función que reciba un vector <em>V</em> de números reales y devuelva un vector de dos componentes <em>[max, n]</em>, la primera, <em>max</em>, con el valor máximo de las componentes del vector <em>V</em> de entrada y la segunda, <em>n</em>, con la posición que ocupa el máximo dentro del vector <em>V</em>. El problema se resolverá mediante bucles y el algoritmo de máximo.</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>[max, pos] <span class="p">=</span><span class="w"> </span><span class="nf">maxx</span><span class="p">(</span>V<span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="nb">max</span> <span class="p">=</span> <span class="n">V</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+   <span class="n">pos</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+   <span class="k">for</span> <span class="n">k</span> <span class="p">=</span> <span class="mi">1</span> <span class="p">:</span> <span class="nb">length</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+      <span class="k">if</span> <span class="n">V</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">max</span>
+         <span class="nb">max</span> <span class="p">=</span> <span class="n">V</span><span class="p">(</span><span class="n">k</span><span class="p">);</span>
+         <span class="n">pos</span> <span class="p">=</span> <span class="n">k</span><span class="p">;</span>
+      <span class="k">end</span>
+   <span class="k">end</span>
+ <span class="k">end</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">En el bucle anterior, se comienza en 1 a propósito. Repetimos el conteo del primer elemento, pero la rutina sigue funcionando si se recibe un vector de una sola componente, esto es, un escalar.</p>
+</div>
+</div>
+<div class="section" id="ejercicio-11-diagonal-secundaria">
+<h2>Ejercicio 11 (Diagonal secundaria)<a class="headerlink" href="#ejercicio-11-diagonal-secundaria" title="Permalink to this headline">¶</a></h2>
+<p>Desarrolle una función que reciba una matriz como argumento y devuelva un vector fila con los elementos de la diagonal secundaria.</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>dg <span class="p">=</span><span class="w"> </span><span class="nf">diag2</span><span class="p">(</span>A<span class="p">)</span><span class="w"></span>
+<span class="c">% diag2(A) : Devuelve un vector fila con las componentes de la diagonal secundaria</span>
+
+   <span class="n">numfilas</span> <span class="p">=</span> <span class="nb">size</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+   <span class="n">numcolumnas</span> <span class="p">=</span> <span class="nb">size</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+
+   <span class="c">% El primer elemento de la diagonal secundaria es A(1,numcolumnas)</span>
+   <span class="c">% El segundo es A(2, numcolumnas-1)</span>
+   <span class="c">% El último es A(numfilas, numcolumnas-numfilas) si numcolumnas &gt; numfilas</span>
+   <span class="c">% El último es A(numfilas, 1) si numcolumnas &lt;= numfilas</span>
+   <span class="n">dg</span> <span class="p">=</span> <span class="p">[];</span>
+   <span class="n">k</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="k">while</span> <span class="p">((</span><span class="n">numcolumnas</span> <span class="o">-</span> <span class="n">k</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;</span>  <span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span><span class="p">=</span> <span class="n">numfilas</span> <span class="p">)</span>
+      <span class="n">dg</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="p">=</span> <span class="n">A</span><span class="p">(</span><span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">numcolumnas</span> <span class="o">-</span> <span class="n">k</span> <span class="p">);</span>
+      <span class="n">k</span> <span class="p">=</span> <span class="n">k</span> <span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+   <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>Otra solución del problema utilizando un bucle <em>for</em> en lugar de un bucle <em>while</em>:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>dg <span class="p">=</span><span class="w"> </span><span class="nf">diag2</span><span class="p">(</span>A<span class="p">)</span><span class="w"></span>
+<span class="c">% diag2(A) : Devuelve un vector fila con las componentes de la diagonal secundaria</span>
+
+   <span class="n">numfilas</span> <span class="p">=</span> <span class="nb">size</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+   <span class="n">numcolumnas</span> <span class="p">=</span> <span class="nb">size</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+
+   <span class="n">dg</span> <span class="p">=</span> <span class="p">[];</span>
+   <span class="k">for</span> <span class="n">k</span> <span class="p">=</span> <span class="mi">1</span> <span class="p">:</span> <span class="n">numfilas</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">numcolumnas</span> <span class="o">-</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+         <span class="k">break</span><span class="p">;</span>
+      <span class="k">end</span>
+      <span class="n">dg</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="p">=</span> <span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">numcolumnas</span> <span class="o">-</span> <span class="n">k</span> <span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+   <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>Otra solución, observando que los elementos de la diagonal secundaria siempre suman <em>1 + numcolumnas</em>:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>dg <span class="p">=</span><span class="w"> </span><span class="nf">diag23</span><span class="p">(</span>A<span class="p">)</span><span class="w"></span>
+<span class="c">% diag2(A) : Devuelve un vector fila con las componentes de la diagonal secundaria</span>
+
+   <span class="n">numfilas</span> <span class="p">=</span> <span class="nb">size</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+   <span class="n">numcolumnas</span> <span class="p">=</span> <span class="nb">size</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+
+   <span class="c">% Los índices de los elementos de la diagonal secundaria</span>
+   <span class="c">% siempre suman 1 + numcolumnas</span>
+
+   <span class="n">dg</span> <span class="p">=</span> <span class="p">[];</span>
+   <span class="n">contador</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="k">for</span> <span class="n">fil</span> <span class="p">=</span> <span class="mi">1</span> <span class="p">:</span> <span class="n">numfilas</span>
+      <span class="k">for</span> <span class="n">col</span> <span class="p">=</span> <span class="mi">1</span> <span class="p">:</span> <span class="n">numcolumnas</span>
+         <span class="k">if</span> <span class="p">(</span><span class="n">fil</span> <span class="o">+</span> <span class="n">col</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">numcolumnas</span><span class="p">)</span>
+            <span class="n">contador</span> <span class="p">=</span> <span class="n">contador</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="n">dg</span><span class="p">(</span><span class="n">contador</span><span class="p">)</span> <span class="p">=</span> <span class="n">A</span><span class="p">(</span><span class="n">fil</span><span class="p">,</span> <span class="n">col</span><span class="p">);</span>
+         <span class="k">end</span>
+      <span class="k">end</span>
+   <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ejercicio-12-recursividad-factorial-de-un-numero">
+<h2>Ejercicio 12 (Recursividad, Factorial de un número)<a class="headerlink" href="#ejercicio-12-recursividad-factorial-de-un-numero" title="Permalink to this headline">¶</a></h2>
+<p>Podemos calcular el factorial de un número mediante la función <em>factorial()</em>, también a partir de la función <em>prod(1:n)</em>. Lo que se pide en este problema es desarrollar una función que calcule el factorial de un número natural mediante recursividad, esto es, mediante una función que se llame a si misma.</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>fac <span class="p">=</span><span class="w"> </span><span class="nf">recurfac</span><span class="p">(</span>n<span class="p">)</span><span class="w"></span>
+<span class="c">% Calcula el factorial de un número n mediante recursividad</span>
+   <span class="k">if</span><span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+      <span class="n">fac</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+   <span class="k">else</span>
+      <span class="n">fac</span> <span class="p">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">recurfac</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+   <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Ejercicios resueltos</a><ul>
+<li><a class="reference internal" href="#ejercicio-1-funcion-size">Ejercicio 1 (Función size())</a></li>
+<li><a class="reference internal" href="#ejercicio-2-bucles-for">Ejercicio 2 (Bucles <em>for</em>)</a></li>
+<li><a class="reference internal" href="#ejercicio-3-bucles-for-algoritmo-de-la-suma">Ejercicio 3 (Bucles <em>for</em>. Algoritmo de la suma)</a></li>
+<li><a class="reference internal" href="#ejercicio-4-bucles-for-algoritmo-del-producto">Ejercicio 4 (Bucles <em>for</em>. . Algoritmo del producto)</a></li>
+<li><a class="reference internal" href="#ejercicio-5-bucles-for">Ejercicio 5 (Bucles <em>for</em>)</a></li>
+<li><a class="reference internal" href="#ejercicio-6-bucles-for">Ejercicio 6 (Bucles <em>for</em>)</a></li>
+<li><a class="reference internal" href="#ejercicio-7-strings-funciones">Ejercicio 7 (Strings, Funciones)</a></li>
+<li><a class="reference internal" href="#ejercicio-8-funcion-rand">Ejercicio 8 (Función rand())</a></li>
+<li><a class="reference internal" href="#ejercicio-9-nargin-funcion-rand">Ejercicio 9 (nargin, función rand())</a></li>
+<li><a class="reference internal" href="#ejercicio-10-algoritmo-de-maximo">Ejercicio 10 (Algoritmo de máximo)</a></li>
+<li><a class="reference internal" href="#ejercicio-11-diagonal-secundaria">Ejercicio 11 (Diagonal secundaria)</a></li>
+<li><a class="reference internal" href="#ejercicio-12-recursividad-factorial-de-un-numero">Ejercicio 12 (Recursividad, Factorial de un número)</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="polinomios.html"
+                        title="previous chapter">Polinomios</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="graph.html"
+                        title="next chapter">Gráficos con Octave</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/ej_primeros.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="graph.html" title="Gráficos con Octave"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="polinomios.html" title="Polinomios"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Introducción a Octave 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Santiago Higuera.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Gráficos de curvas &mdash; Introducción a Octave 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Introducción a Octave 1.0 documentation" href="index.html" />
+    <link rel="next" title="Ejercicios resueltos: Gráficos" href="ejercicios2.html" />
+    <link rel="prev" title="Ejercicios resueltos" href="ejercicios.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="ejercicios2.html" title="Ejercicios resueltos: Gráficos"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ejercicios.html" title="Ejercicios resueltos"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Introducción a Octave 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="graficos-de-curvas">
+<h1>Gráficos de curvas<a class="headerlink" href="#graficos-de-curvas" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="funcion-plot">
+<h2>Función <strong>plot()</strong><a class="headerlink" href="#funcion-plot" title="Permalink to this headline">¶</a></h2>
+<p>Para dibujar gráficos de curvas se puede utilizar la función <strong>plot()</strong>. La función <em>plot()</em> admite diversas combinaciones de argumentos.</p>
+<ul>
+<li><p class="first"><em>plot(Y)</em>: Si <em>Y</em> es un vector, se hará una gráfica de líneas, de las parejas de puntos <img class="math" src="_images/math/3cfd2e221a809ef97d3152400e85f3cfe19d68b2.png" alt="(x_i, y_i)"/> siendo X = [1 : length(Y)]</p>
+</li>
+<li><p class="first"><em>plot(X,Y)</em>: Si <em>X</em> e <em>Y</em> son vectores, dibuja un gráfico de líneas para las parejas de puntos <img class="math" src="_images/math/3cfd2e221a809ef97d3152400e85f3cfe19d68b2.png" alt="(x_i, y_i)"/>. Si <em>X</em> e <em>Y</em> son escalares, se dibujará el punto de coordenadas <em>(x, y)</em></p>
+</li>
+<li><p class="first"><em>plot(X, Y, FORMAT_STRING)</em>: FORMAT_STRING es una cadena de caracteres que nos permite personalizar el gráfico. La cadena de formato está compuesta de uno o más caracteres que indican diversas propiedades del gráfico. El orden de los caracteres es indiferente:</p>
+<blockquote>
+<div><ul class="simple">
+<li><em>Tipo de marcador de punto</em>: &#8216;+&#8217; crosshair, &#8216;o&#8217; circle, &#8216;*&#8217; star, &#8216;.&#8217; point, &#8216;x&#8217; cross, &#8216;s&#8217; square, &#8216;d&#8217; diamond, &#8216;^&#8217; upward-facing triangle, &#8216;v&#8217; downward-facing triangle, &#8216;&gt;&#8217; right-facing triangle, &#8216;&lt;&#8217; left-facing triangle, &#8216;p&#8217; pentagram, &#8216;h&#8217; hexagram</li>
+<li><em>Tipo de línea</em>: &#8216;-&#8216;  Use solid lines (default), &#8216;&#8211;&#8217; Use dashed lines, &#8216;:&#8217;  Use dotted lines, &#8216;-.&#8217; Use dash-dotted lines.</li>
+<li><em>Color</em>: &#8216;k&#8217;  blacK, &#8216;r&#8217;  Red, &#8216;g&#8217;  Green, &#8216;b&#8217;  Blue, &#8216;m&#8217;  Magenta, &#8216;c&#8217;  Cyan, &#8216;w&#8217;  White</li>
+<li><em>Leyenda</em>: &#8216;;leyenda;&#8217;</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><a href="#id1"><span class="problematic" id="id2">*</span></a>plot(X, Y, FORMAT_STRING, PROPERTY, VALUE) : Hay varias propiedades a las que se puede dar valor: &#8220;linestyle&#8221;, &#8220;linewidth&#8221;, &#8220;color&#8221;, &#8220;marker&#8221;, &#8220;markersize&#8221;, &#8220;markeredgecolor&#8221;, &#8220;markerfacecolor&#8221;.</p>
+</li>
+</ul>
+<p>Veamos algún ejemplo:</p>
+<div class="highlight-octave"><div class="highlight"><pre>
+</pre></div>
+</div>
+</div>
+<div class="section" id="funcion-bar">
+<h2>Función <strong>bar()</strong><a class="headerlink" href="#funcion-bar" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Gráficos de curvas</a><ul>
+<li><a class="reference internal" href="#funcion-plot">Función <strong>plot()</strong></a></li>
+<li><a class="reference internal" href="#funcion-bar">Función <strong>bar()</strong></a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ejercicios.html"
+                        title="previous chapter">Ejercicios resueltos</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ejercicios2.html"
+                        title="next chapter">Ejercicios resueltos: Gráficos</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/grafcurvas.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="ejercicios2.html" title="Ejercicios resueltos: Gráficos"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ejercicios.html" title="Ejercicios resueltos"
+             >previous</a> |</li>
+        <li><a href="index.html">Introducción a Octave 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Santiago Higuera.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b3.
+    </div>
+  </body>
+</html>

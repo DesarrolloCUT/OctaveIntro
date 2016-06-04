@@ -1,0 +1,19 @@
+{
+	"folders":
+	[
+		{
+			"file_exclude_patterns":
+			[
+				"*.pdf",
+				"*.aux",
+				"*.doc",
+				"*.rtf",
+				"*.log"
+			],
+			"path": "."
+		},
+		{
+			"path": "/home/shiguera/Dropbox/InformaticaCaminos/cursorec/source"
+		}
+	]
+}

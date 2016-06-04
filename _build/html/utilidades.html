@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Utilidades &mdash; Introducción a Octave 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Introducción a Octave 1.0 documentation" href="index.html" />
+    <link rel="next" title="Personalización del arranque de Octave" href="perso.html" />
+    <link rel="prev" title="Ejercicios Lectura y escritura de ficheros" href="ejerciciosficheros.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="perso.html" title="Personalización del arranque de Octave"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ejerciciosficheros.html" title="Ejercicios Lectura y escritura de ficheros"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Introducción a Octave 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="utilidades">
+<h1>Utilidades<a class="headerlink" href="#utilidades" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="utilizacion-de-paquetes-adicionales">
+<span id="packages"></span><h2>Utilización de paquetes adicionales<a class="headerlink" href="#utilizacion-de-paquetes-adicionales" title="Permalink to this headline">¶</a></h2>
+<p><strong>Octave-Forge</strong> [1] es el repositorio donde se centraliza el desarrollo colaborativo de paquetes de funcionalidades adicionales para <em>Octave</em>.</p>
+<p>Los paquetes de <em>Octave-Forge</em> amplian la funcionalidades estándar de <em>Octave</em>, añadiendo utilidades y funciones específicas para distintos ambitos de aplicación. Todos los paquetes de <em>Octave-Forge</em> se pueden instalar mediante el mecanismo de instalación de paquetes incorporado en el propio <em>Octave</em>. Para instalar un paquete, desde la consola de Octave, teclear:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="n">pkg</span> <span class="n">install</span> <span class="o">-</span><span class="n">forge</span> <span class="n">package_name</span>
+</pre></div>
+</div>
+<p>donde <em>package-name</em> es el nombre del paquete a instalar. <em>Octave</em> descargará e instalará el paquete, quedando las funciones contenidas en el mismo disponibles para su utilización.</p>
+<p>Hay multitud de paquetes con funcionalidades adicionales que se pueden incorporar a la instalación de Octave. La lista de paquetes disponibles se puede consultar en [2]. Algunos ejemplos de paquetes adicionales que podemos instalar:</p>
+<ul class="simple">
+<li><em>image</em>: procesamiento de imágenes</li>
+<li><em>io</em>: funciones de entrada-salida en distintos formatos: <em>csv, xml, xls, json</em> y otros.</li>
+<li><em>java</em>: interface para utilizar funciones <em>java</em></li>
+<li><em>mechanics</em>: incluye, entre otras, funciones útilitarias para calculo de estructuras</li>
+<li><em>octproj</em>: transformaciones entre proyecciones cartográficas</li>
+<li><em>splines</em>: funciones para manipulación de splines</li>
+</ul>
+<p>Podemos comprobar la lista de paquetes que tenemos instalados haciendo:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="n">pkg</span> <span class="n">list</span>
+</pre></div>
+</div>
+<p>Además de la lista de paquetes anterior, hay una lista adicional de paquetes no incluidos en el sistema de paquetes <em>pkg</em>, pero cuyo código fuente se puede consultar y descargar en [3].</p>
+<p>[1] Octave-Forge: <a class="reference external" href="http://octave.sourceforge.net/index.html">http://octave.sourceforge.net/index.html</a></p>
+<p>[2] Octave-Forge: Lista de paquetes: <a class="reference external" href="http://octave.sourceforge.net/packages.php">http://octave.sourceforge.net/packages.php</a></p>
+<p>[3] Paquetes adicionales: <a class="reference external" href="http://sourceforge.net/p/octave/_list/hg">http://sourceforge.net/p/octave/_list/hg</a></p>
+</div>
+<div class="section" id="utilidades-para-interactuar-con-el-sistema-operativo">
+<h2>Utilidades para interactuar con el Sistema Operativo<a class="headerlink" href="#utilidades-para-interactuar-con-el-sistema-operativo" title="Permalink to this headline">¶</a></h2>
+<p>Podemos ejecutar comandos del sistema operativo mediante la función <strong>system(cmd, flag)</strong>. El primer argumento será una cadena de caracteres con el comando a ejecutar. El segundo parámetro es opcional, y si está presente, la salida del comando se devolverá como una cadena de texto. Si este segundo parámetro no está presente la salida del comando se enviará a la salida estándar. El valor de este segundo parámetro es cualquiera, por ejemplo un <em>&#8216;1&#8217;</em>.</p>
+<p>Podemos recuperar el valor de una variable del sistema mediante la función <strong>getenv(&#8216;var_name&#8217;)</strong>, por ejemplo, en Linux, para recuperar el <em>path</em>:</p>
+<a class="reference internal image-reference" href="_images/getenv_function.png"><img alt="getenv_function" src="_images/getenv_function.png" style="width: 400px;" /></a>
+<p>Podemos conocer el directorio actual mediante <strong>pwd()</strong>, cambiar de directorio mediante <strong>cd &lt;dir_name&gt;</strong>, listar el contenido de un directorio mediante <strong>dir</strong> o <strong>ls</strong> y crear un nuevo directorio mediante <strong>mkdir &lt;di_name&gt;</strong>.</p>
+<p>La función <strong>computer()</strong> nos informará del ordenador en el que se está ejecutando <em>Octave</em>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Utilidades</a><ul>
+<li><a class="reference internal" href="#utilizacion-de-paquetes-adicionales">Utilización de paquetes adicionales</a></li>
+<li><a class="reference internal" href="#utilidades-para-interactuar-con-el-sistema-operativo">Utilidades para interactuar con el Sistema Operativo</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ejerciciosficheros.html"
+                        title="previous chapter">Ejercicios Lectura y escritura de ficheros</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="perso.html"
+                        title="next chapter">Personalización del arranque de Octave</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/utilidades.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="perso.html" title="Personalización del arranque de Octave"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ejerciciosficheros.html" title="Ejercicios Lectura y escritura de ficheros"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Introducción a Octave 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Santiago Higuera.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.
+    </div>
+  </body>
+</html>

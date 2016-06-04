@@ -1,0 +1,8 @@
+function result = log(filename, msg)
+% Añade un mensage de log al filename
+
+
+
+
+
+end

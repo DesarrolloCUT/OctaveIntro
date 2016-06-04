@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Programación en Octave &mdash; Introducción a Octave 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Introducción a Octave 1.0 documentation" href="index.html" />
+    <link rel="next" title="Polinomios" href="polinomios.html" />
+    <link rel="prev" title="Funciones predefinidas en Octave" href="funciones.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="polinomios.html" title="Polinomios"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="funciones.html" title="Funciones predefinidas en Octave"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Introducción a Octave 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="programacion-en-octave">
+<h1>Programación en Octave<a class="headerlink" href="#programacion-en-octave" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="scripts">
+<h2>Scripts<a class="headerlink" href="#scripts" title="Permalink to this headline">¶</a></h2>
+<p>Podemos escribir una serie de instrucciones de Octave en un fichero con extensión <em>.m</em> y luego ejecutarlo desde la consola. Al fichero con las instrucciones de Octave se le llama un <em>script</em> o programa. Para ejecutarlo tendremos que situarnos en el directorio donde esté el fichero y teclear su nombre sin extensión en la consola de Octave.</p>
+<p>El lenguaje <em>m</em> es un lenguaje interpretado, esto es, Octave lee los ficheros <em>m</em> y los va ejecutando línea a línea, sin una compilación previa.</p>
+<p>Para escribir los programas utilizaremos un editor de texto. La versión actual de Octave trae un editor incorporado y también copia en el directorio de instalación una versión del editor <em>Notepad++</em>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Se puede ejecutar un fichero <em>.m</em> situado en otro directorio distinto del directorio de trabajo. Para ello tendremos que teclear la ruta completa del fichero. También puede suceder que el fichero esté grabado en algún directorio del <em>path</em> de Octave. Entonces no será necesario teclear la ruta completa, sino simplemente el nombre del fichero.</p>
+</div>
+</div>
+<div class="section" id="el-programa-hola-mundo">
+<h2>El programa <em>Hola mundo</em><a class="headerlink" href="#el-programa-hola-mundo" title="Permalink to this headline">¶</a></h2>
+<p>Es tradicional comenzar el aprendizaje de cualquier lenguaje de programación con el típico programa <em>Hola Mundo</em>. Se trata de escribir un programa que muestre por pantalla la frase <em>Hola mundo</em>. El ejercicio permite comprobar que uno sabe crear el fichero de instrucciones, escribir alguna instrucción en él y hacer que el ordenador ejecute el programa.</p>
+<p>En nuestro caso vamos a crear un fichero en el mismo directorio de trabajo en el que nos encontremos, llamado <strong>&#8216;hello.m&#8217;</strong>, y vamos a escribir en él una única instrucción:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="nb">disp</span><span class="p">(</span><span class="s">&#39;Hola, mundo&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>La función <em>disp()</em> nos permite mostrar una variable por pantalla, en este caso una cadena de texto. Tendremos que grabar el archivo en el disco con el nombre &#8216;hello.m&#8217; y después, desde la consola, teclear <em>hello</em>. Si todo va bien, el programa se ejecutará, nos mostrará el mensaje &#8216;Hola mundo&#8217; y finalizará, con lo que volveremos a tener el <em>prompt</em> de la consola a disposición para seguir tecleando instrucciones.</p>
+<p>Desde el editor integrado en la versión gráfica de Octave podemos crear un nuevo fichero, escribir en él la instrucción y grabarlo con el nombre elegido.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">A mi me gusta utilizar alguna frase que incluya algún acento o alguna ñ para comprobar que funciona la codificación de caracteres. Podemos probar con una frase del tipo <em>Hola, ¿qué tal?</em>, que incluye el signo de apertura de interrogación y una e acentuada. A mí, con la versión 3.8 de Octave funcionando bajo linux me funciona perfectamente la codificación de caracteres.</p>
+</div>
+</div>
+<div class="section" id="lineas-de-comentarios">
+<h2>Líneas de Comentarios<a class="headerlink" href="#lineas-de-comentarios" title="Permalink to this headline">¶</a></h2>
+<p>Las líneas de comentarios son líneas que no serán ejecutadas por Octave al correr el programa. Sirven para documentar las rutinas.</p>
+<p>Los comentarios pueden ser de una línea. Para ello se deben preceder del símbolo <strong>&#8216;#&#8217;</strong> o del símbolo <strong>&#8216;%&#8217;</strong>. El comentario será desde el símbolo <em>comentario</em> hasta el final de la línea. Puede ocupar toda la línea, si el símbolo <em>comentario</em> se pone al principio de la misma, o comentar una línea concreta, desde el símbolo <em>comentario</em> hasta el final de la línea. Veamos un ejemplo:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="c"># Cuenta atrás para cohetes</span>
+<span class="nb">disp</span> <span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="nb">disp</span> <span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="nb">disp</span> <span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="nb">disp</span> <span class="p">(</span><span class="s">&quot;Blast Off!&quot;</span><span class="p">);</span>  <span class="c"># El cohete abandona la plataforma</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last"><em>MATLAB</em> solo admite el símbolo porcentaje &#8216;<strong>%</strong>&#8216; como indicador de comentarios, no admite el símbolo &#8216;<strong>#</strong>&#8216;</p>
+</div>
+<p>Se pueden comentar bloques de código. Para ello hay que encerrar el bloque a comentar entre los símbolos <em>&#8216;#{&#8216;</em> y <em>&#8216;#}&#8217;</em>. Estos símbolos tienen que aparecer cómo únicos caracteres en su línea. <em>&#8216;#{&#8216;</em> aparecerá como línea previa al código a comentar, y <em>&#8216;#}&#8217;</em> como linea posterior. Una utilidad de lo anterior es &#8216;desactivar&#8217; bloques de código durante el proceso de depuración de los programas, por ejemplo.</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="c"># Cuenta atrás para cohetes</span>
+<span class="nb">disp</span> <span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="c">#{</span>
+<span class="nb">disp</span> <span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="nb">disp</span> <span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="c">#}</span>
+<span class="nb">disp</span> <span class="p">(</span><span class="s">&quot;Blast Off!&quot;</span><span class="p">);</span>  <span class="c"># El cohete abandona la plataforma</span>
+</pre></div>
+</div>
+<p>En esta versión del programa las líneas de <em>disp(2)</em> y <em>disp(1)</em> no se ejecutarán, y se pasará directamente del <em>disp(3)</em> al lanzamiento.</p>
+<p>Comentar una línea de código es habitual durante la fase de creación y depuración de los programas. Ello nos permite deshabilitar ciertas partes del código para estudiar el funcionamiento del resto.</p>
+</div>
+<div class="section" id="la-instruccion-input">
+<h2>La instrucción <strong>input</strong><a class="headerlink" href="#la-instruccion-input" title="Permalink to this headline">¶</a></h2>
+<p>La instrucción <strong>input()</strong> nos permite solicitar al usuario algunos datos que se necesitan para los cálculos ulteriores. Por ejemplo, si queremos hacer un programa que devuelva el valor de elevar un número al cubo podríamos hacer lo siguiente:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="p">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">&#39;Teclée un número: &#39;</span><span class="p">);</span>
+<span class="n">y</span> <span class="p">=</span> <span class="n">x</span>^<span class="mi">3</span><span class="p">;</span>
+<span class="nb">disp</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>La función <em>input()</em> recibe una cadena de texto a modo de mensaje que muestra por consola, situando el cursor a continuación a la espera de que el usuario teclée el valor solicitado. Una vez el usuario pulsa la tecla <em>intro</em>, el valor tecleado será asignado a la variable elegida, en el ejemplo anterior la variable <em>x</em>. El programa, entonces, se seguirá ejecutando en la línea siguiente a la de la sentencia <em>input</em> y podrá utilizar el valor de <em>x</em> en los cálculos posteriores. En el ejemplo, se crea una nueva variable <em>y</em> que almacena el valor de <em>x^3</em> y a continuación se muestra el valor de <em>y</em> por pantalla mediante la sentencia <em>disp()</em>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Cuando una instrucción se acaba con un punto y coma se omite la salida por pantalla de dicha instrucción. En el ejemplo, en la segunda instrucción, donde asignamos el valor <em>x^3</em> a la variable <em>y</em>, de no poner el punto y coma, se mostraría por pantalla el valor asignado a <em>y</em>. Se puede comprobar repitiendo la ejecución del programa con el punto y coma suprimido</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">En Matlab no se pueden meter subfunciones dentro de los scripts, solo funciones anónimas, por ejemplo: f=&#64;(x) x.^2; x=[1 2 3]; x2=f(x);</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Programación en Octave</a><ul>
+<li><a class="reference internal" href="#scripts">Scripts</a></li>
+<li><a class="reference internal" href="#el-programa-hola-mundo">El programa <em>Hola mundo</em></a></li>
+<li><a class="reference internal" href="#lineas-de-comentarios">Líneas de Comentarios</a></li>
+<li><a class="reference internal" href="#la-instruccion-input">La instrucción <strong>input</strong></a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="funciones.html"
+                        title="previous chapter">Funciones predefinidas en Octave</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="polinomios.html"
+                        title="next chapter">Polinomios</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/programacion.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="polinomios.html" title="Polinomios"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="funciones.html" title="Funciones predefinidas en Octave"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Introducción a Octave 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Santiago Higuera.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.
+    </div>
+  </body>
+</html>

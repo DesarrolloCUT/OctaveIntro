@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Vectores y Matrices &mdash; Introducción a Octave 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Introducción a Octave 1.0 documentation" href="index.html" />
+    <link rel="next" title="Matrices" href="matrices.html" />
+    <link rel="prev" title="Operadores" href="operadores.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="matrices.html" title="Matrices"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="operadores.html" title="Operadores"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Introducción a Octave 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="vectores-y-matrices">
+<h1><a class="toc-backref" href="#id1">Vectores y Matrices</a><a class="headerlink" href="#vectores-y-matrices" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#vectores-y-matrices" id="id1">Vectores y Matrices</a><ul>
+<li><a class="reference internal" href="#vectores" id="id2">Vectores</a></li>
+<li><a class="reference internal" href="#rangos" id="id3">Rangos</a></li>
+<li><a class="reference internal" href="#definicion-de-vectores-a-partir-de-rangos" id="id4">Definición de vectores a partir de rangos</a></li>
+<li><a class="reference internal" href="#la-funcion-linspace" id="id5">La función <em>linspace()</em></a></li>
+<li><a class="reference internal" href="#lectura-de-las-componentes-de-un-vector" id="id6">Lectura de las componentes de un vector</a></li>
+<li><a class="reference internal" href="#concatenacion-de-vectores" id="id7">Concatenación de vectores</a></li>
+<li><a class="reference internal" href="#funciones-utilitarias-para-trabajar-con-vectores" id="id8">Funciones utilitarias para trabajar con vectores</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matrices.html">Matrices</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="matrices.html#rangos-y-matrices">Rangos y matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matrices.html#lectura-de-las-componentes-de-una-matriz">Lectura de las componentes de una matriz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matrices.html#direccionamiento-indirecto-de-matrices-a-partir-de-vectores">Direccionamiento indirecto de matrices a partir de vectores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matrices.html#eliminacion-de-filas-o-columnas">Eliminación de filas o columnas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matrices.html#operaciones-con-matrices">Operaciones con matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matrices.html#matrices-predefinidas">Matrices predefinidas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matrices.html#la-funcion-size">La función <em>size()</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="matrices.html#inversa-determinante-y-traza-de-una-matriz">Inversa, determinante y traza de una matriz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matrices.html#funciones-max-min-sum-y-prod">Funciones <strong>max()</strong>, <strong>min()</strong>, <strong>sum()</strong> y <strong>prod()</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="matrices.html#aplicacion-de-funciones-a-matrices">Aplicación de funciones a matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matrices.html#aplicacion-de-operadores-logicos-a-matrices">Aplicación de operadores lógicos a matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matrices.html#funciones-utilitarias-para-matrices">Funciones utilitarias para matrices</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="vectores">
+<h2><a class="toc-backref" href="#id2">Vectores</a><a class="headerlink" href="#vectores" title="Permalink to this headline">¶</a></h2>
+<p><em>Octave</em> trabaja con vectores de datos, tanto con vectores fila como con vectores columna.</p>
+<p>Para definir un vector fila por teclado solo hay que teclear los elementos separados por un espacio o por una coma y encerrados entre corchetes.</p>
+<p>Analogamente, un vector columna se define tecleando la lista de elementos separados por punto y coma &#8216;<em>;</em>&#8216; o por la pulsación de la tecla <em>intro</em>:</p>
+<a class="reference internal image-reference" href="_images/vector.png"><img alt="vector" src="_images/vector.png" style="width: 400px;" /></a>
+</div>
+<div class="section" id="rangos">
+<h2><a class="toc-backref" href="#id3">Rangos</a><a class="headerlink" href="#rangos" title="Permalink to this headline">¶</a></h2>
+<p>En <em>Octave</em> podemos definir un tipo de datos especial, llamado <strong>Rango</strong>, consistente en una colección ordenada (una <em>serie</em>) de números equiespaciados.</p>
+<p>Para definir un <em>rango</em> debemos indicar a <em>Octave</em> el valor inicial del rango, el incremento entre valores sucesivos y el máximo valor que pueden alcanzar los valores de la serie. La construcción para definir un <em>rango</em> coloca los tres valores separados por &#8216;<strong>:</strong>&#8216; :</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="c">% rango = inicio : incremento : máximo_valor</span>
+<span class="n">rango</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="mi">10</span>
+<span class="c">% El resultados será: 1 3 5 7 9</span>
+</pre></div>
+</div>
+<p>Cuando se omite el <em>incremento</em>, <em>Octave</em> asume que el incremento es la unidad:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="c">% rango = inicio : máximo_valor</span>
+<span class="n">rango</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">4</span>
+<span class="c">% El resultado será: 1 2 3 4</span>
+</pre></div>
+</div>
+<p>Se pueden establecer rangos de valores decrecientes. Para ello el valor de inicio deberá ser mayor que el valor final y el incremento un valor negativo:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="n">rango</span> <span class="p">=</span> <span class="mi">4</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">0</span>
+<span class="c">% El resultado será: 4 3 2 1 0</span>
+</pre></div>
+</div>
+<p>Para especificar los valores inicio, incremento o máximo de un rango se pueden utilizar funciones, o cualquier otra expresión de <em>Octave</em> que devuelva un resultado válido, por ejemplo:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="n">rango</span> <span class="p">=</span> <span class="mi">0</span><span class="p">:</span><span class="nb">intmax</span><span class="p">(</span><span class="s">&#39;uint8&#39;</span><span class="p">)</span>
+<span class="c">% El resultado serán los primeros 255 números naturales: rango = 0 1 2 ... 255</span>
+<span class="n">rango2</span> <span class="p">=</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="mi">2</span>^<span class="mi">3</span>
+<span class="c">% El resultado será: rango2 = 0 2 4 6 8</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="definicion-de-vectores-a-partir-de-rangos">
+<h2><a class="toc-backref" href="#id4">Definición de vectores a partir de rangos</a><a class="headerlink" href="#definicion-de-vectores-a-partir-de-rangos" title="Permalink to this headline">¶</a></h2>
+<p>Una de las utilizaciones de los <em>rangos</em> es la definición de las componentes de un vector. Veamos un ejemplo. Supongamos que queremos un vector denominado <em>az</em> cuyas componentes sean los ángulos <em>0, 90, 180, 270</em>. Podríamos definirlo de la siguiente manera:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="n">rango</span> <span class="p">=</span> <span class="mi">0</span><span class="p">:</span><span class="mi">90</span><span class="p">:</span><span class="mi">270</span>
+<span class="n">az</span> <span class="p">=</span> <span class="p">[</span><span class="n">rango</span><span class="p">]</span>
+<span class="c">% El resultado será: az=[0 90 180 270]</span>
+</pre></div>
+</div>
+<p>De hecho, no es necesario definir primero el rango y luego el vector. La manera habitual de hacerlo es definiendo el rango directamente dentro de los corchetes:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="n">az</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">90</span><span class="p">:</span><span class="mi">270</span><span class="p">]</span>
+<span class="c">% El resultado será: az=[0 90 180 270]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="la-funcion-linspace">
+<h2><a class="toc-backref" href="#id5">La función <em>linspace()</em></a><a class="headerlink" href="#la-funcion-linspace" title="Permalink to this headline">¶</a></h2>
+<p>La función <strong>linspace()</strong> es también muy útil para definir vectores. Devuelve un vector con <em>n</em> números equiespaciados entre unos números de inicio y final. Los argumentos que se le pasan a la función son el número de inicio de la serie, el número final de la serie y el número total de elementos que tendrá la serie:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="c">% v = linspace( inicio, fin, num_elementos)</span>
+<span class="n">v</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="c">% El resultado será: v=[1 2 3 4 5 6 7 8 9 10]</span>
+</pre></div>
+</div>
+<p>La función <em>linspace()</em> permite también realizar series descendentes, y también podemos utilizar expresiones válidas de <em>Octave</em> para los parámetros:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="n">w</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="c">% El resultado será: w=[10 9 8 7 6]</span>
+<span class="n">z</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="c">% El resultado será: w=[0.00000 0.52360 1.04720 1.57080]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="lectura-de-las-componentes-de-un-vector">
+<h2><a class="toc-backref" href="#id6">Lectura de las componentes de un vector</a><a class="headerlink" href="#lectura-de-las-componentes-de-un-vector" title="Permalink to this headline">¶</a></h2>
+<p>Cuando queramos referirnos a una componente concreta de un vector, utilizaremos el nombre del vector seguido del índice de la componente encerrado entre paréntesis. En <em>Octave</em>, el índice de la primera componente de un vector es el <strong>1</strong>. Veamos un ejemplo refiriéndonos al vector definido en el epígrafe anterior <em>az = [0 90 180 270]</em> :</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="n">az</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="c">% El resultado será: 0</span>
+<span class="n">az</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="c">% El resultado será: 90</span>
+<span class="n">az</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="c">% El resultado será: 270</span>
+</pre></div>
+</div>
+<p><em>Octave</em> proporciona un <em>truco</em> para extraer la última componente de un vector, sin tener que explicitar el índice, y es utilizar la palabra <strong>end</strong>. En el ejemplo anterior es equivalente escribir <em>az(4)</em> que <em>az(end)</em>:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="n">az</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="c">% El resultado será: 270</span>
+<span class="n">az</span><span class="p">(</span><span class="k">end</span><span class="p">)</span>
+<span class="c">% El resultado será: 270</span>
+</pre></div>
+</div>
+<p>También podemos definir las componentes a extraer mediante un rango. En el siguiente ejemplo extraemos la segunda y tercera componente del vector <em>az</em>. El resultado de la operación es un vector de dos componentes, <em>[90 180]</em>, que se lo asignamos a un nuevo vector que hemos llamado <em>es</em>:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="n">es</span> <span class="p">=</span> <span class="n">az</span><span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="p">)</span>
+<span class="c">% El resultado será: es=[90 180]</span>
+</pre></div>
+</div>
+<p>Otro ejemplo de extracción de un <em>rango</em> de componentes de un vector es el siguiente, en el que primeramente definimos un vector <em>v</em> y a continuación extraemos algunas de sus componentes a un nuevo vector <em>W</em>:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span> <span class="c">% Se define un vector y se asigna a la variable v</span>
+<span class="c">% El resultado será: v=[1 3 5 7 9]</span>
+<span class="n">w</span> <span class="p">=</span> <span class="n">v</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">)</span> <span class="c">% Se extráen ciertas componentes del vector v que se asignan a w</span>
+<span class="c">% El resultado será: w=[1 5 9]</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Es importante distinguir entre las sentencias utilizadas para definir un vector, que utilizan <strong>corchetes [ ]</strong>, y las utilizadas para extraer componentes de un vector, que utilizan el nombre del vector seguido de las componentes a extraer entre <strong>paréntesis ( )</strong>.</p>
+</div>
+</div>
+<div class="section" id="concatenacion-de-vectores">
+<h2><a class="toc-backref" href="#id7">Concatenación de vectores</a><a class="headerlink" href="#concatenacion-de-vectores" title="Permalink to this headline">¶</a></h2>
+<p>Podemos unir dos vectores, esto es, poner las componentes de un vector a continuación de las de otro para formar un único vector. Para ello se definen entre corchetes los elementos a concatenar separados por <em>coma</em> o por <em>espacio</em>. Veamos un ejemplo:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">];</span>
+<span class="n">b</span> <span class="p">=</span> <span class="p">[</span><span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span><span class="p">];</span>
+<span class="n">c</span> <span class="p">=</span> <span class="p">[</span><span class="n">a</span> <span class="n">b</span><span class="p">]</span>
+<span class="c">% El resultado será: c = [1 2 3 4 5 6]</span>
+</pre></div>
+</div>
+<p>Podemos hacer otro tipo de concatenaciones, por ejemplo, concatenar un vector con un rango, o un número con un vector, o un vector con un número. De hecho, cundo definimos un vector tecleando sus componentes, lo que hacemos es concatenar varios números:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">];</span>
+<span class="n">c</span> <span class="p">=</span> <span class="p">[</span><span class="n">a</span> <span class="mi">5</span><span class="p">]</span>
+<span class="c">% El resultado será: c = [1 2 3 5]</span>
+<span class="n">d</span> <span class="p">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:</span><span class="mi">0</span> <span class="n">a</span> <span class="mi">4</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+<span class="c">% El resultado será: d = [-5 -4 -3 -2 -1 0 1 2 3 4 5]</span>
+<span class="n">d</span> <span class="p">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">5</span> <span class="o">-</span><span class="mi">4</span> <span class="o">-</span><span class="mi">3</span> <span class="o">-</span><span class="mi">2</span> <span class="o">-</span><span class="mi">1</span> <span class="mi">0</span> <span class="n">a</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">]</span>
+<span class="c">% El resultado será: d = [-5 -4 -3 -2 -1 0 1 2 3 4 5]</span>
+</pre></div>
+</div>
+<p>Se pueden concatenar de manera similar vectores columna. En este caso las distintas <em>subcomponentes</em> se separarán por punto y coma.</p>
+</div>
+<div class="section" id="funciones-utilitarias-para-trabajar-con-vectores">
+<h2><a class="toc-backref" href="#id8">Funciones utilitarias para trabajar con vectores</a><a class="headerlink" href="#funciones-utilitarias-para-trabajar-con-vectores" title="Permalink to this headline">¶</a></h2>
+<p>Hay varias funciones útiles a la hora de trabajar con vectores. Siendo <em>v</em> un vector:</p>
+<ul class="simple">
+<li><strong>length(v)</strong> Devuelve el número de componentes del vector <em>v</em></li>
+<li><strong>max(v), min(v)</strong> Devuelve el valor máximo/mínimo de entre las componentes de <em>v</em></li>
+<li><strong>sum(v), prod(v)</strong> Devuelve la suma/producto de las componentes de <em>v</em></li>
+<li><strong>norm(v)</strong> Devuelve el módulo del vector <em>v</em></li>
+<li><strong>dot(v, w)</strong> Devuelve el producto escalar de los vectores <em>v</em> y <em>w</em></li>
+<li><strong>cross(v, w)</strong> Devuelve el vector producto vectorial de <em>v</em> y <em>w</em> (Las dimensiones de <em>v</em> y <em>w</em> deben ser congruentes como máximo tres)</li>
+<li><strong>sort(v)</strong> Devuelve un vector con las componentes de <em>v</em> ordenadas de menor a mayor</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Vectores y Matrices</a><ul>
+<li><a class="reference internal" href="#vectores">Vectores</a></li>
+<li><a class="reference internal" href="#rangos">Rangos</a></li>
+<li><a class="reference internal" href="#definicion-de-vectores-a-partir-de-rangos">Definición de vectores a partir de rangos</a></li>
+<li><a class="reference internal" href="#la-funcion-linspace">La función <em>linspace()</em></a></li>
+<li><a class="reference internal" href="#lectura-de-las-componentes-de-un-vector">Lectura de las componentes de un vector</a></li>
+<li><a class="reference internal" href="#concatenacion-de-vectores">Concatenación de vectores</a></li>
+<li><a class="reference internal" href="#funciones-utilitarias-para-trabajar-con-vectores">Funciones utilitarias para trabajar con vectores</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="operadores.html"
+                        title="previous chapter">Operadores</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="matrices.html"
+                        title="next chapter">Matrices</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/vectores.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="matrices.html" title="Matrices"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="operadores.html" title="Operadores"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Introducción a Octave 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Santiago Higuera.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.
+    </div>
+  </body>
+</html>

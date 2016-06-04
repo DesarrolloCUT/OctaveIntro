@@ -1,0 +1,37 @@
+Gráficos de curvas
+==================
+
+Función **plot()**
+------------------
+
+Para dibujar gráficos de curvas se puede utilizar la función **plot()**. La función *plot()* admite diversas combinaciones de argumentos. 
+
+- *plot(Y)*: Si *Y* es un vector, se hará una gráfica de líneas, de las parejas de puntos :math:`(x_i, y_i)` siendo X = [1 : length(Y)]
+- *plot(X,Y)*: Si *X* e *Y* son vectores, dibuja un gráfico de líneas para las parejas de puntos :math:`(x_i, y_i)`. Si *X* e *Y* son escalares, se dibujará el punto de coordenadas *(x, y)*
+- *plot(X, Y, FORMAT_STRING)*: FORMAT_STRING es una cadena de caracteres que nos permite personalizar el gráfico. La cadena de formato está compuesta de uno o más caracteres que indican diversas propiedades del gráfico. El orden de los caracteres es indiferente:
+
+	- *Tipo de marcador de punto*: '+' crosshair, 'o' circle, '*' star, '.' point, 'x' cross, 's' square, 'd' diamond, '^' upward-facing triangle, 'v' downward-facing triangle, '>' right-facing triangle, '<' left-facing triangle, 'p' pentagram, 'h' hexagram
+	- *Tipo de línea*: '-'  Use solid lines (default), '--' Use dashed lines, ':'  Use dotted lines, '-.' Use dash-dotted lines.
+	- *Color*: 'k'  blacK, 'r'  Red, 'g'  Green, 'b'  Blue, 'm'  Magenta, 'c'  Cyan, 'w'  White
+	- *Leyenda*: ';leyenda;'
+
+- *plot(X, Y, FORMAT_STRING, PROPERTY, VALUE) : Hay varias propiedades a las que se puede dar valor: "linestyle", "linewidth", "color", "marker", "markersize", "markeredgecolor", "markerfacecolor". 
+
+Veamos algún ejemplo:
+
+.. code-block:: octave
+
+
+
+
+
+
+
+
+
+Función **bar()**
+-----------------
+
+
+
+

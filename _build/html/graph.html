@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Gráficos con Octave &mdash; Introducción a Octave 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Introducción a Octave 1.0 documentation" href="index.html" />
+    <link rel="next" title="Ejercicios resueltos: Gráficos" href="ej_graficos.html" />
+    <link rel="prev" title="Ejercicios resueltos" href="ej_primeros.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="ej_graficos.html" title="Ejercicios resueltos: Gráficos"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ej_primeros.html" title="Ejercicios resueltos"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Introducción a Octave 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="graficos-con-octave">
+<h1><a class="toc-backref" href="#id1">Gráficos con Octave</a><a class="headerlink" href="#graficos-con-octave" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#graficos-con-octave" id="id1">Gráficos con Octave</a><ul>
+<li><a class="reference internal" href="#graficos-de-curvas-en-coordenadas-polares" id="id2">Gráficos de curvas en coordenadas polares</a></li>
+<li><a class="reference internal" href="#la-funcion-plot3" id="id3">La función <em>plot3()</em></a></li>
+<li><a class="reference internal" href="#la-funcion-mesh" id="id4">La función <em>mesh()</em></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ej_graficos.html">Ejercicios resueltos: Gráficos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ej_graficos.html#ejercicio-1-grafica-de-lineas">Ejercicio 1 (Gráfica de líneas)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ej_graficos.html#ejercicio-2-representacion-de-curvas-con-ecuaciones-parametricas">Ejercicio 2 (Representación de curvas con ecuaciones paramétricas)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ej_graficos.html#ejercicio-3-representacion-de-funciones-parametricas">Ejercicio 3 (Representación de funciones paramétricas)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ej_graficos.html#ejercicio-4-polinomios">Ejercicio 4 (Polinomios)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ej_graficos.html#ejercicio">Ejercicio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ej_graficos.html#solucion">Solución</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="graficos-de-curvas-en-coordenadas-polares">
+<h2><a class="toc-backref" href="#id2">Gráficos de curvas en coordenadas polares</a><a class="headerlink" href="#graficos-de-curvas-en-coordenadas-polares" title="Permalink to this headline">¶</a></h2>
+<p>En coordenadas polares, un punto <img class="math" src="_images/math/f48b617185733d8dd6712643f1ab17c736661a06.png" alt="P"/> del plano queda definido mediante el valor <img class="math" src="_images/math/f574498915fa9e02eeb5141c24835d077eba3e75.png" alt="\rho"/> de la distancia desde el punto <img class="math" src="_images/math/f48b617185733d8dd6712643f1ab17c736661a06.png" alt="P"/> al origen de coordenadas y el valor del ángulo <img class="math" src="_images/math/a9cfbeb8ebee1f365919e147a79e242dcb67ee5d.png" alt="\theta"/> que va desde el eje <img class="math" src="_images/math/188c175aac0a8a9c22499336711b5d7256407254.png" alt="x"/>, en sentido antihorario, hasta la línea que une el origen de coordenadas con el punto <img class="math" src="_images/math/f48b617185733d8dd6712643f1ab17c736661a06.png" alt="P"/> (ver figura).</p>
+<a class="reference internal image-reference" href="_images/polares.png"><img alt="polares" src="_images/polares.png" style="width: 300px;" /></a>
+<p>Se le llama ecuación polar a la ecuación que define una curva expresada en coordenadas polares. En muchos casos se puede especificar tal ecuación definiendo <img class="math" src="_images/math/f574498915fa9e02eeb5141c24835d077eba3e75.png" alt="\rho"/> como una función de <img class="math" src="_images/math/a9cfbeb8ebee1f365919e147a79e242dcb67ee5d.png" alt="\theta"/>. La curva resultante consiste en una serie de puntos en la forma <img class="math" src="_images/math/a449d104e4a823d672513cc936b955a4249a2f76.png" alt="(\rho(\theta), \theta)"/>. Cuando una función está expresada en coordenadas polares, al origen de coordenadas se le denomina también <strong>polo</strong>.</p>
+<div class="math">
+<p><img src="_images/math/00e5031e5fb6bf74373fa10a13730582597f24a0.png" alt="\rho = \rho(\theta)"/></p>
+</div><p>Para transformar las coordenadas polares a coordenadas cartesianas hay que aplicar las siguientes ecuaciones:</p>
+<div class="math">
+<p><img src="_images/math/127cb5d57ce9a2b509b6efd1f068047b8ba04ef6.png" alt="x = \rho \, cos(\theta)\\
+y = \rho \, sin(\theta)"/></p>
+</div><p>Vamos a explicar cómo representar gráficamente con <em>Octave</em> una función expresada en coordenadas polares. Utilizaremos para ello la siguiente función:</p>
+<div class="math">
+<p><img src="_images/math/36191db8d1db80a5cd657bf6c70dc5d6e9dc4ae5.png" alt="\rho(\theta) = 3 - 5 \, \theta \;\;\;\; \theta \in [0, 10 \, \theta]"/></p>
+</div><p>Lo primero es discretizar el parámetro <img class="math" src="_images/math/a9cfbeb8ebee1f365919e147a79e242dcb67ee5d.png" alt="\theta"/>. A continuación se obtiene el vector de valores del radio <img class="math" src="_images/math/f574498915fa9e02eeb5141c24835d077eba3e75.png" alt="\rho"/>. Una vez que tenemos los dos vectores con los valores de <img class="math" src="_images/math/f574498915fa9e02eeb5141c24835d077eba3e75.png" alt="\rho"/> y <img class="math" src="_images/math/a9cfbeb8ebee1f365919e147a79e242dcb67ee5d.png" alt="\theta"/> podemos obtener los vectores con los valores de <img class="math" src="_images/math/188c175aac0a8a9c22499336711b5d7256407254.png" alt="x"/> e <img class="math" src="_images/math/b124ff74afb0914bb434e8fb849eb56d734412f8.png" alt="y"/>, haciendo la transformación a coordenadas cartesianas. Finálmente utilizaremos la función <em>plot()</em> con los valores de <img class="math" src="_images/math/188c175aac0a8a9c22499336711b5d7256407254.png" alt="x"/> e <img class="math" src="_images/math/b124ff74afb0914bb434e8fb849eb56d734412f8.png" alt="y"/> obtenidos. El código <em>Octave</em> es el siguiente:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="c">% Discretizamos ro y theta</span>
+<span class="n">theta</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="o">*</span><span class="nb">pi</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
+<span class="n">ro</span> <span class="p">=</span> <span class="mi">3</span> <span class="o">-</span> <span class="mi">5</span> <span class="o">.*</span> <span class="p">(</span><span class="n">theta</span><span class="p">);</span>
+
+<span class="c">% Transformamos a cartesianas</span>
+<span class="n">x</span> <span class="p">=</span> <span class="n">ro</span> <span class="o">.*</span> <span class="nb">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">);</span>
+<span class="n">y</span> <span class="p">=</span> <span class="n">ro</span> <span class="o">.*</span> <span class="nb">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">);</span>
+
+<span class="c">% Ploteamos</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="nb">axis</span> <span class="n">equal</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/espiral35.png"><img alt="espiral35" src="_images/espiral35.png" style="width: 300px;" /></a>
+<p>Algunos ejemplos de funciones en coordenadas polares son:</p>
+<p><strong>Circunferencia</strong>: la expresión general de una circunferencia con centro en el punto <img class="math" src="_images/math/08111c3a3d50e406dd8ce226d306df8859109919.png" alt="(\rho_0, \theta_0)"/> y radio <img class="math" src="_images/math/7dd2a5ea01fbd72ad2a58dd1f3d6ecbfde6208a1.png" alt="a"/> es:</p>
+<div class="math">
+<p><img src="_images/math/20bfaeb4144d2d741d71a3b1b1397a4831642cdb.png" alt="\rho^2 + 2 \rho \, \rho_0 \, cos(\theta - \theta_0) + \rho_0^2 = a^2"/></p>
+</div><p>Cuando la circunferencia tiene centro en el origen de coordenadas, la expresión se simplifica:</p>
+<div class="math">
+<p><img src="_images/math/e09dc7d380ae11876b4f5c046d3b830c706dc439.png" alt="\rho( \theta) = a"/></p>
+</div><p><strong>Rosa polar</strong>: es una expresión matemática con forma de flor. Su expresión es:</p>
+<div class="math">
+<p><img src="_images/math/ac7369110cb24deac828ed7472f71d3ec64d6810.png" alt="\rho(\theta) = a \, cos(k \, \theta + \theta_0)"/></p>
+</div><p>donde <img class="math" src="_images/math/8c669a3486252783fe9a20e3b080f7ae97749928.png" alt="\theta_0"/> es cualquier valor constante, incluido el cero. Si <img class="math" src="_images/math/e9203da50e1059455123460d4e716c9c7f440cc3.png" alt="k"/> es un valor entero, si  es impar, la flor tendrá  <img class="math" src="_images/math/e9203da50e1059455123460d4e716c9c7f440cc3.png" alt="k"/> pétalos y si <img class="math" src="_images/math/e9203da50e1059455123460d4e716c9c7f440cc3.png" alt="k"/> es par, la flor tendrá <img class="math" src="_images/math/dee8ae46a5b8057f8d7d48bb39deae1fbf9bfeb3.png" alt="2k"/> pétalos. Si <img class="math" src="_images/math/e9203da50e1059455123460d4e716c9c7f440cc3.png" alt="k"/> es racional pero no entero, la gráfica es similar a una rosa pero con los pétalos solapados. Nótese que estas ecuaciones nunca definen una rosa con 2, 6, 10, 14, etc. pétalos. La variable a representa la longitud de los pétalos de la rosa.</p>
+<a class="reference internal image-reference" href="_images/rosapolar.png"><img alt="rosapolar" src="_images/rosapolar.png" style="width: 300px;" /></a>
+<p><strong>Espiral de Arquímedes</strong>: La espiral de Arquímedes es una famosa espiral descubierta por Arquímedes, la cual puede expresarse también como una ecuación polar simple. Se representa con la ecuación:</p>
+<div class="math">
+<p><img src="_images/math/f466484e7447b69c7992ffca9fcb36bb003b3d03.png" alt="\rho(\theta) = a + b \, \theta"/></p>
+</div><p>Un cambio en el parámetro <img class="math" src="_images/math/7dd2a5ea01fbd72ad2a58dd1f3d6ecbfde6208a1.png" alt="a"/> producirá un giro en la espiral, mientras que <img class="math" src="_images/math/5e87bf41a96deddf6cb485ff530f153f2590e9cc.png" alt="b"/> controla la distancia entre los brazos, la cual es constante para una espiral dada. La espiral de Arquímedes tiene dos brazos, uno para <img class="math" src="_images/math/976e95360ce27d63f92b03fb2b80cb2aa3bbaf36.png" alt="\theta &gt; 0"/> y otro para <img class="math" src="_images/math/c59281ca0387450cf3f375107803d4f8fd7ba8b9.png" alt="\theta &lt; 0"/>. Los dos brazos están conectados en el polo. La imagen especular de un brazo sobre el eje vertical produce el otro brazo. Esta curva fue una de las primeras curvas, después de las secciones cónicas, en ser descritas en tratados matemáticos. Además es el principal ejemplo de curva que puede representarse de forma más fácil con una ecuación polar.</p>
+<a class="reference internal image-reference" href="_images/espiralarquimedes.png"><img alt="espiralarquimedes" src="_images/espiralarquimedes.png" style="width: 300px;" /></a>
+<p><strong>Elipse</strong>: la expresión polar de una elipse centrada en el origen de coordenadas y de semiejes <img class="math" src="_images/math/7dd2a5ea01fbd72ad2a58dd1f3d6ecbfde6208a1.png" alt="a"/> y <img class="math" src="_images/math/5e87bf41a96deddf6cb485ff530f153f2590e9cc.png" alt="b"/> es:</p>
+<div class="math">
+<p><img src="_images/math/b03118f52f0adcb5ed2ab8e2e3af203afa710c18.png" alt="\rho(\theta) = \frac{1}{\sqrt{\frac{cos^2(\theta)}{a^2} + \frac{sin^2(\theta)}{b^2}}} \;\;\; \theta \in [0, 2 \, \pi]"/></p>
+</div><p>Se define la excentricidad <img class="math" src="_images/math/630e3a780577ea7921e81ee2ac5237dd1802ec8d.png" alt="e"/> de una elipse mediante la siguiente expresión:</p>
+<div class="math">
+<p><img src="_images/math/a73a6076c89b4f0fe060a86f9a7876839ac7bc66.png" alt="e = \sqrt{1 - \frac{b^2}{a^2}}"/></p>
+</div><p>La ecuación polar de la elipse en función de su excentricidad queda de la siguiente manera:</p>
+<div class="math">
+<p><img src="_images/math/7e4ccfdc5c7a6dac771db36e81a38a28c1e6c7f6.png" alt="\rho(\theta) = \frac{b}{\sqrt{1 - e^2 \, cos^2(\theta)}}"/></p>
+</div><a class="reference internal image-reference" href="_images/elipse.png"><img alt="elipse" src="_images/elipse.png" style="width: 300px;" /></a>
+</div>
+<div class="section" id="la-funcion-plot3">
+<h2><a class="toc-backref" href="#id3">La función <em>plot3()</em></a><a class="headerlink" href="#la-funcion-plot3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>plot3()</strong>: La función <em>plot3()</em> dibuja curvas en tres dimensiones, o ternas de valores arbitrarios sin necesidad de que formen una superficie. Por ejemplo, el código siguiente dibuja una espiral en tres dimensiones:</li>
+</ul>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="p">=</span> <span class="mi">0</span><span class="p">:</span><span class="mf">0.1</span><span class="p">:</span><span class="mi">10</span><span class="o">*</span><span class="nb">pi</span><span class="p">;</span>
+<span class="n">r</span> <span class="p">=</span> <span class="nb">linspace</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">length</span><span class="p">(</span><span class="n">t</span><span class="p">));</span>
+<span class="n">z</span> <span class="p">=</span> <span class="nb">linspace</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">length</span><span class="p">(</span><span class="n">t</span><span class="p">));</span>
+<span class="n">plot3</span> <span class="p">(</span><span class="n">r</span><span class="o">.*</span><span class="nb">sin</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">r</span><span class="o">.*</span><span class="nb">cos</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">z</span><span class="p">,</span> <span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/spiral3d.png"><img alt="spiral3d" src="_images/spiral3d.png" style="width: 400px;" /></a>
+<ul class="simple">
+<li><strong>view(az, el)</strong>: Situa el punto de vista en el azimut <em>az</em> y la elevación <em>el</em>. Haciendo <em>view(2)</em> o <em>view(3)</em> establece los valores por defecto para dos y tres dimensiones.</li>
+</ul>
+</div>
+<div class="section" id="la-funcion-mesh">
+<h2><a class="toc-backref" href="#id4">La función <em>mesh()</em></a><a class="headerlink" href="#la-funcion-mesh" title="Permalink to this headline">¶</a></h2>
+<p>La funcion <em>mesh()</em> dibuja un gráfico de malla en la forma <em>Z=f(X,Y)</em>, tomando la <em>Z</em> como elevación y haciendo el color del mallado proporcional al valor de <em>Z</em>. Si <em>Z</em> es una matriz cuyas dimensiones son <em>[m, n]</em>. El vector de las coordenadas <em>x</em> tendrá que tener <em>m</em> elementos, y el vector de las componentes <em>y</em> tendrá <em>n</em> elementos.</p>
+<p>Hay varias formas de llamar a la función <em>mesh()</em>:</p>
+<ul class="simple">
+<li><strong>mesh(Z)</strong>: dibuja el gráfico de malla 3D correspondiente a <em>Z=Z(x,y)</em> haciendo <em>x=1:m</em> e <em>y=1:n</em> con <em>[m, n] = size(Z)</em>. El color es proporcional al valor de <em>Z</em>.</li>
+<li><strong>mesh(X, Y, Z)</strong>: dibuja el gráfico de malla 3D con el color determinado por el valor de Z. Si <em>X</em> e <em>Y</em> son vectores las dimensiones tienen que cumplir: <em>m=length(X)</em>, <em>n=length(y)</em> y <em>[m, n]=size(Z)</em>. En este caso, los puntos de la superfcie serán <em>(X(j), Y(i), Z(i,j))</em>. Sy <em>X, Y, Z</em> son matrices, sus dimensiones serán iguales. En este caso los puntos del mallado serán: <em>(X(i,j), Y(i,j), Z(i,j))</em></li>
+<li><strong>mesgrid(x,y)</strong>: Dados dos vectores de coordenadas <em>x</em> e <em>y</em>, la función <em>meshgrid()</em> devuelve una pareja de matrices <em>Mx</em>, <em>My</em> que se corresponden con la red de puntos de intersección de las dos series <em>x</em> e <em>y</em>. Estas matrices se pueden pasar directamente a la función <em>mesh()</em> y también se pueden utilizar para calcular los valores de <em>Z</em> si conocemos su expresión en la forma <em>Z=f(X,Y)</em>.</li>
+</ul>
+<p>Si mallamos los vectores <em>x=[0 1 2 3]</em> e <em>y=[0 1 2 3]</em> con la función <em>[xx, yy]=meshgrid(x,y)</em>, el resultado será el siguiente:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="n">xx</span> <span class="p">=</span>
+      <span class="mi">0</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span>
+      <span class="mi">0</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span>
+      <span class="mi">0</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span>
+      <span class="mi">0</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span>
+<span class="n">yy</span> <span class="p">=</span>
+      <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span>
+      <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span>
+      <span class="mi">2</span> <span class="mi">2</span> <span class="mi">2</span> <span class="mi">2</span>
+      <span class="mi">3</span> <span class="mi">3</span> <span class="mi">3</span> <span class="mi">3</span>
+</pre></div>
+</div>
+<p>Por ejemplo:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="n">tx</span> <span class="p">=</span> <span class="nb">linspace</span> <span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">41</span><span class="p">)</span><span class="o">&#39;</span><span class="p">;</span>
+<span class="n">ty</span> <span class="p">=</span> <span class="nb">linspace</span> <span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">41</span><span class="p">)</span><span class="o">&#39;</span><span class="p">;</span>
+<span class="p">[</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">]</span> <span class="p">=</span> <span class="nb">meshgrid</span> <span class="p">(</span><span class="n">tx</span><span class="p">,</span> <span class="n">ty</span><span class="p">);</span>
+<span class="n">r</span> <span class="p">=</span> <span class="nb">sqrt</span> <span class="p">(</span><span class="n">xx</span> <span class="o">.^</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">yy</span> <span class="o">.^</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="nb">eps</span><span class="p">;</span>
+<span class="n">tz</span> <span class="p">=</span> <span class="nb">sin</span> <span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">./</span> <span class="n">r</span><span class="p">;</span>
+<span class="nb">mesh</span> <span class="p">(</span><span class="n">tx</span><span class="p">,</span> <span class="n">ty</span><span class="p">,</span> <span class="n">tz</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Produce el gráfico del conocido <em>sombrero</em> que se ve en la figura:</p>
+<a class="reference internal image-reference" href="_images/hat.png"><img alt="hat" src="_images/hat.png" style="width: 400px;" /></a>
+<ul class="simple">
+<li><strong>meshc()</strong>: Es similar a <em>mesh()</em> pero dibuja además las curvas de nivel sobre el plano <em>x-y</em>: El resultado se puede ver en la siguiente figura:</li>
+</ul>
+<a class="reference internal image-reference" href="_images/meshc.png"><img alt="meshc" src="_images/meshc.png" style="width: 400px;" /></a>
+<p>Para representar una superficie expresada en ecuaciones paramétricas se procede de la siguiente forma. Supongamos que las ecuaciones de la superficie expresada en función de dos parámetros son las siguientes:</p>
+<div class="math">
+<p><img src="_images/math/2d8e6ab9ad077171a8806aef086c17d2db8dec96.png" alt="x = f_1(\theta, \phi)
+
+y = f_2(\theta, \phi)
+
+z = f_3(\theta, \phi)"/></p>
+</div><p>Generaremos unos rangos para el valor de cada parámetro y utilizaremos a continuación la función <em>meshgrid()</em> para generar las matrices <img class="math" src="_images/math/6026edf8a5f1a1a2eeecfc0c1a0d5ebf326dc5a5.png" alt="\Theta, \Pi"/> con los mallados de valores de los parámetros. A continuación podemos calcular las matrices <img class="math" src="_images/math/114a82a47cb1af992de98550686a144f96defe7f.png" alt="X, Y, Z"/> que servirán para pasarle a la función <em>mesh()</em>.</p>
+<p>Veamos un ejemplo. Sea el paraboloide elíptico definido por las siguientes ecuaciones:</p>
+<div class="math">
+<p><img src="_images/math/ce553cb436b2d11aed2b256c43e2d5264394d8a3.png" alt="x(t, u) = a cos(t) cos(u)
+
+y(t, u) = b cos(t) sin(u)
+
+z(t, u) = (cos(t))^2"/></p>
+</div><p>Se pide representarlo para <img class="math" src="_images/math/5992ada7793c52867c2528966129986f4b72af8a.png" alt="a=1, b=1, 0 &lt; t &lt; 2 \pi, 0&lt; u &lt; 2 \pi"/></p>
+<p>El resultado se puede ver en la siguiente figura:</p>
+<a class="reference internal image-reference" href="_images/parab.png"><img alt="parab" src="_images/parab.png" style="width: 400px;" /></a>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Gráficos con Octave</a><ul>
+<li><a class="reference internal" href="#graficos-de-curvas-en-coordenadas-polares">Gráficos de curvas en coordenadas polares</a></li>
+<li><a class="reference internal" href="#la-funcion-plot3">La función <em>plot3()</em></a></li>
+<li><a class="reference internal" href="#la-funcion-mesh">La función <em>mesh()</em></a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ej_primeros.html"
+                        title="previous chapter">Ejercicios resueltos</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ej_graficos.html"
+                        title="next chapter">Ejercicios resueltos: Gráficos</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/graph.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="ej_graficos.html" title="Ejercicios resueltos: Gráficos"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ej_primeros.html" title="Ejercicios resueltos"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Introducción a Octave 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Santiago Higuera.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.
+    </div>
+  </body>
+</html>

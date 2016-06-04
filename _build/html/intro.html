@@ -1,0 +1,271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Primeros pasos con Octave &mdash; Introducción a Octave 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Introducción a Octave 1.0 documentation" href="index.html" />
+    <link rel="next" title="Tipos de datos" href="tiposdatos.html" />
+    <link rel="prev" title="Manual de introducción a GNU-Octave" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="tiposdatos.html" title="Tipos de datos"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Manual de introducción a GNU-Octave"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Introducción a Octave 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="primeros-pasos-con-octave">
+<h1><a class="toc-backref" href="#id1">Primeros pasos con Octave</a><a class="headerlink" href="#primeros-pasos-con-octave" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#primeros-pasos-con-octave" id="id1">Primeros pasos con Octave</a><ul>
+<li><a class="reference internal" href="#arranque-de-la-consola-de-octave" id="id2">Arranque de la consola de Octave</a></li>
+<li><a class="reference internal" href="#calculos-elementales" id="id3">Cálculos elementales</a></li>
+<li><a class="reference internal" href="#asignacion-de-variables" id="id4">Asignación de variables</a></li>
+<li><a class="reference internal" href="#nombres-de-variables" id="id5">Nombres de variables</a></li>
+<li><a class="reference internal" href="#variables-predefinidas-en-octave" id="id6">Variables predefinidas en Octave</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tiposdatos.html">Tipos de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tiposdatos.html#el-tipo-double">El tipo <em>double</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tiposdatos.html#numeros-complejos">Números complejos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tiposdatos.html#numeros-naturales-y-numeros-enteros">Números naturales y números enteros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tiposdatos.html#valores-logical">Valores logical</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="operadores.html">Operadores</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="operadores.html#operadores-relacionales-y-de-igualdad">Operadores relacionales y de igualdad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operadores.html#operadores-logicos">Operadores lógicos</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="arranque-de-la-consola-de-octave">
+<h2><a class="toc-backref" href="#id2">Arranque de la consola de Octave</a><a class="headerlink" href="#arranque-de-la-consola-de-octave" title="Permalink to this headline">¶</a></h2>
+<p>Partimos de un ordenador con Octave instalado. Abriremos un terminal para poder ejecutar instrucciones del sistema operativo. En <em>Linux</em> simplemente hay que teclear &#8216;<em>octave</em>&#8216;, en <em>Windows</em> el programa que tenemos que ejecutar para abrir la consola de Octave es un programa llamado <em>octave.exe</em> y que está en el directorio <em>&#8216;bin&#8217;</em> de la instalación de Octave. Si todo ha ido bien, nos aparecerá la consola de <em>Octave</em> con el <em>prompt</em> indicando algo parecido a <em>octave:1&gt;</em>.</p>
+<a class="reference internal image-reference" href="_images/console.png"><img alt="CC BY SA" src="_images/console.png" style="width: 400px;" /></a>
+<p>Para salir de la consola de Octave hay que teclear &#8216;<strong>exit</strong>&#8216; o &#8216;<strong>quit</strong>&#8216;</p>
+</div>
+<div class="section" id="calculos-elementales">
+<h2><a class="toc-backref" href="#id3">Cálculos elementales</a><a class="headerlink" href="#calculos-elementales" title="Permalink to this headline">¶</a></h2>
+<p>Octave se puede utilizar como una calculadora. Se dispone de las operaciones aritméticas suma, resta, multiplicación, división y exponenciación. Pruebe a teclear las siguientes operaciones en la consola de Octave:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span>
+<span class="mi">2</span><span class="o">-</span><span class="mi">1</span>
+<span class="mi">2</span><span class="o">*</span><span class="mf">3.5</span>
+<span class="mf">3.0</span><span class="o">/</span><span class="mf">2.0</span>
+<span class="mi">2</span>^<span class="mi">5</span>
+</pre></div>
+</div>
+<p>Tras cada  operación hay que pulsar la tecla <em>intro</em>. La consola nos mostrará la palabra <em>ans</em>, el signo igual y el resultado de la operación. La palabra <em>ans</em> quiere decir <em>answer</em>, respuesta.</p>
+<p>Octave dispone de funciones para calcular raices cuadradas, logaritmos naturales, logaritmos decimales y funciones trigonométricas. Pruebe las siguientes operaciones en la consola de Octave:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="nb">sqrt</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+<span class="nb">log</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">log10</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">sin</span><span class="p">(</span><span class="mi">90</span><span class="o">*</span><span class="nb">pi</span><span class="o">/</span><span class="mi">180</span><span class="p">)</span>
+<span class="nb">cos</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">tan</span><span class="p">(</span><span class="mi">45</span><span class="o">*</span><span class="nb">pi</span><span class="o">/</span><span class="mi">180</span><span class="p">)</span>
+<span class="nb">asin</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="nb">pi</span>
+<span class="nb">acos</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">atan</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="nb">pi</span>
+</pre></div>
+</div>
+<p>Observamos un par de cosas en las expresiones anteriores:</p>
+<ul class="simple">
+<li>La utilización de la constante predefinida <em>pi</em>. Octave tiene varias constantes con valores predefinidos, una de ellas es el número <em>pi=3.14...</em>.</li>
+<li>Las funciones trigonométricas trabajan con ángulos en radianes.</li>
+</ul>
+<p>Podemos calcular exponenciales del número <img class="math" src="_images/math/630e3a780577ea7921e81ee2ac5237dd1802ec8d.png" alt="e"/>, por ejemplo, la ecuación de <em>Euler</em>:</p>
+<div class="math">
+<p><img src="_images/math/508eb813c60cbcddb2b56a5cf6338af0f0838a0a.png" alt="e^{i\pi} + 1 = 0"/></p>
+</div><p>la podríamos comprobar tecleando algo así:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="nb">exp</span><span class="p">(</span><span class="nb">pi</span><span class="o">*</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>Vemos que Octave entiende la variable <em>i</em> como el número complejo <img class="math" src="_images/math/61b038776f585f84fcc9583acb8773e7e57f7794.png" alt="i=\sqrt{-1}"/>. Podemos ver algunas de las variables que tiene predefinidas:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="nb">e</span>
+<span class="n">i</span>
+<span class="n">j</span>
+<span class="nb">pi</span>
+<span class="n">ans</span>
+</pre></div>
+</div>
+<p>Cada vez que hacemos un cálculo, el resultado se guarda en una variable llamada <em>ans</em> que podemos utilizar en el siguiente cálculo.</p>
+</div>
+<div class="section" id="asignacion-de-variables">
+<h2><a class="toc-backref" href="#id4">Asignación de variables</a><a class="headerlink" href="#asignacion-de-variables" title="Permalink to this headline">¶</a></h2>
+<p>Podemos almacenar valores en memoria mediante la asignación de dichos valores a <em>nombres válidos</em> de variables. El símbolo utilizado para la asignación es el símbolo <strong>igual &#8216;=&#8217;</strong>.</p>
+<p>En el ejemplo siguiente se asigna valor a las variables <em>x</em> e <em>y</em>. Estos valores quedan almacenados en la memoria de <em>Octave</em> y se pueden utilizar en operaciones posteriores utilizando en las expresiones el nombre de variable elegido. Se puede reasignar el valor de una variable en cualquier momento. El valor en memoria será el último asignado a la variable.</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="p">=</span> <span class="mf">2.5</span>
+<span class="n">y</span> <span class="p">=</span> <span class="mi">3</span>
+<span class="n">x</span><span class="o">+</span><span class="n">y</span>
+<span class="c">% El resultado será: ans = 5.5</span>
+<span class="n">x</span> <span class="p">=</span> <span class="mi">4</span>
+<span class="n">x</span><span class="o">+</span><span class="n">y</span>
+<span class="c">% El resultado será: ans = 7</span>
+</pre></div>
+</div>
+<p>Vemos que el esquema de la <em>instrucción de asignación en *Octave</em> es situar el nombre de variable, a continuación el símbolo igual y a la derecha del símbolo igual el valor que queremos asignar a la variable.</p>
+<p>A la derecha del símbolo igual puede aparecer un valor numérico tecleado explicitamente o cualquier expresión válida de <em>Octave</em>. En el siguiente ejemplo se asignan distintos valores a variables:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="p">=</span> <span class="nb">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+<span class="n">y</span> <span class="p">=</span> <span class="nb">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="c">% El resultado será: y = 1</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">La variable predefinida <strong>ans</strong> de <em>Octave</em> guarda el resultado de la última operación realizada en la consola de <em>Octave</em>, siempre que esa operación no sea de asignación. Si realizamos una asignación, el valor de la variable <em>ans</em> no varía.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Si al hacer una asignación no queremos que muestre el resultado de la asignación en consola tenemos que finalizar la sentencia con <strong>punto y coma &#8216;;&#8217;</strong>.</p>
+</div>
+</div>
+<div class="section" id="nombres-de-variables">
+<h2><a class="toc-backref" href="#id5">Nombres de variables</a><a class="headerlink" href="#nombres-de-variables" title="Permalink to this headline">¶</a></h2>
+<p>Los nombres de variables pueden contener letras, números y caracteres underscore (guión bajo), pero el primer carácter tiene que ser letra.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">No hay que utilizar como nombres de variables los nombres de variables predefinidas, funciones o comandos de <em>Octave</em>.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Las letras que se pueden utilizar en los nombres de variables son las del alfabeto inglés. Los caracteres locales, (ñ, letras acentuadas), no se deben utilizar en el nombre de variables o funciones.</p>
+</div>
+<p>Ejemplos de nombres válidos de variables:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="n">x</span>
+<span class="n">x2</span>
+<span class="n">XX_2</span>
+<span class="n">ultimoValor</span>
+<span class="n">n_factorial</span>
+</pre></div>
+</div>
+<p>Ejemplos de nombres no válidos de variables:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="mi">6</span><span class="n">x</span>
+<span class="k">end</span>
+<span class="n">n</span><span class="o">!</span>
+</pre></div>
+</div>
+<p>El número máximo de caracteres que puede tener el nombre de una variable se puede consultar con la función <strong>namelengthmax()</strong>:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="nb">namelengthmax</span><span class="p">()</span>
+<span class="c">% El resultado en mi consola: ans = 63</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Los nombres que dan una idea de para qué sirven las variables hacen que la legibilidad del código fuente de los programas mejore mucho. Es más facil de seguir y comprender un programa, (un tercero o el mismo programador al cabo de unas semanas o meses), cuando los nombres de variables y funciones se eligen adecuadamente. Por ejemplo, la variable <em>numFilas</em> nos dice más que la variable <em>n</em>, y puede ser de gran ayuda para <em>seguir</em> el hilo del programa en una serie de bucles y sentencias <em>if</em> anidadas. Un criterio habitual es denominar a una variable con más de una palabra, poniendo la inicial de la primera palabra en minúsculas y las iniciales del resto de palabras en mayúsculas. Así podremos utilizar nombres de variables como <em>contadorVehiculos</em> o <em>ultimaFila</em>.</p>
+</div>
+</div>
+<div class="section" id="variables-predefinidas-en-octave">
+<h2><a class="toc-backref" href="#id6">Variables predefinidas en Octave</a><a class="headerlink" href="#variables-predefinidas-en-octave" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Primeros pasos con Octave</a><ul>
+<li><a class="reference internal" href="#arranque-de-la-consola-de-octave">Arranque de la consola de Octave</a></li>
+<li><a class="reference internal" href="#calculos-elementales">Cálculos elementales</a></li>
+<li><a class="reference internal" href="#asignacion-de-variables">Asignación de variables</a></li>
+<li><a class="reference internal" href="#nombres-de-variables">Nombres de variables</a></li>
+<li><a class="reference internal" href="#variables-predefinidas-en-octave">Variables predefinidas en Octave</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Manual de introducción a GNU-Octave</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="tiposdatos.html"
+                        title="next chapter">Tipos de datos</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/intro.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="tiposdatos.html" title="Tipos de datos"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Manual de introducción a GNU-Octave"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Introducción a Octave 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Santiago Higuera.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.
+    </div>
+  </body>
+</html>

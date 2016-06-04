@@ -1,0 +1,9 @@
+function writeVector(filename, v)
+% Escribe un vector de doubles en un fichero
+
+
+
+
+
+
+end

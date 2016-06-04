@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Polinomios &mdash; Introducción a Octave 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Introducción a Octave 1.0 documentation" href="index.html" />
+    <link rel="next" title="Ejercicios resueltos" href="ej_primeros.html" />
+    <link rel="prev" title="Programación en Octave" href="programacion.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="ej_primeros.html" title="Ejercicios resueltos"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="programacion.html" title="Programación en Octave"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Introducción a Octave 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="polinomios">
+<h1>Polinomios<a class="headerlink" href="#polinomios" title="Permalink to this headline">¶</a></h1>
+<p>En Octave los polinomios se representan por un vector de coeficientes ordenados de la mayor potencia hacia la menor. Por ejemplo, el polinomio <img class="math" src="_images/math/2e30f75540189c238cd0b87f87fe63682b3703c8.png" alt="2x^3 - 3x^2 + 2"/> se representa por el vector <em>[2, -3, 0, 2]</em>.</p>
+<p>Sea <em>p</em> un vector que define los coeficientes de un polinomio. Hay varias funciones para operar con polinomios:</p>
+<ul class="simple">
+<li><strong>polyout(p, &#8216;x&#8217;):</strong> Expresa el polinomio en términos de la variable <em>x</em></li>
+<li><strong>y = polyval(p, x):</strong> Devuelve el valor del polinomio para el valor x. Si <em>x</em> es un vector o matriz, devuelve un vector o matriz con la evaluación del polinomio <em>p</em> en cada elemento.</li>
+<li><strong>b = conv(p, q):</strong> Devuelve el vector de coeficientes que define el polinomio <em>b</em>, producto de los polinomios <em>p</em> y <em>q</em>.</li>
+<li><strong>[b, r] = deconv(p, q):</strong> Realiza la división de los polinomios <em>p</em> y <em>q</em>, devolviendo el polinomio cociente <em>b</em> y el polinomio resto <em>r</em>, de forma que se cumple: <img class="math" src="_images/math/3871fa5548f0a3c770bad156a0846db1383cdda5.png" alt="p = conv(q,b) + r"/></li>
+<li><strong>r = roots(p):</strong> Devuelve un vector <em>r</em> con las raices del polinomio <em>p</em></li>
+<li><strong>d = polyder(p):</strong> Devuelve un vector con los coeficientes del polinomio que resulta de derivar <em>p</em></li>
+<li><strong>s = polyint(p):</strong> Devuelve un vector con los coeficientes del polinomio que resulta de integrar <em>p</em></li>
+<li><strong>p = polyfit(x, y, n):</strong> Devuelve el polinomio de grado <em>n</em> que mejor ajusta por mínimos cuadrados el conjuntos de puntos <img class="math" src="_images/math/87efe7e04dfd6ce8180e15f5ecfdb2e8048761b1.png" alt="(x_i, y_i)"/></li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="programacion.html"
+                        title="previous chapter">Programación en Octave</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ej_primeros.html"
+                        title="next chapter">Ejercicios resueltos</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/polinomios.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="ej_primeros.html" title="Ejercicios resueltos"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="programacion.html" title="Programación en Octave"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Introducción a Octave 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Santiago Higuera.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.
+    </div>
+  </body>
+</html>

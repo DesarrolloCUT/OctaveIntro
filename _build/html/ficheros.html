@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Lectura y escritura de ficheros de texto &mdash; Introducción a Octave 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Introducción a Octave 1.0 documentation" href="index.html" />
+    <link rel="next" title="Ejercicios Lectura y escritura de ficheros" href="ejerciciosficheros.html" />
+    <link rel="prev" title="Ejercicios resueltos: Gráficos" href="ej_graficos.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="ejerciciosficheros.html" title="Ejercicios Lectura y escritura de ficheros"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ej_graficos.html" title="Ejercicios resueltos: Gráficos"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Introducción a Octave 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="lectura-y-escritura-de-ficheros-de-texto">
+<h1><a class="toc-backref" href="#id1">Lectura y escritura de ficheros de texto</a><a class="headerlink" href="#lectura-y-escritura-de-ficheros-de-texto" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#lectura-y-escritura-de-ficheros-de-texto" id="id1">Lectura y escritura de ficheros de texto</a><ul>
+<li><a class="reference internal" href="#comandos-utilitarios-trabajando-con-ficheros" id="id2">Comandos utilitarios trabajando con ficheros</a></li>
+<li><a class="reference internal" href="#los-comandos-load-y-save" id="id3">Los comandos <strong>load</strong> y <strong>save</strong></a></li>
+<li><a class="reference internal" href="#la-funcion-fopen" id="id4">La función <strong>fopen()</strong></a></li>
+<li><a class="reference internal" href="#la-funcion-fclose" id="id5">La función <strong>fclose()</strong></a></li>
+<li><a class="reference internal" href="#lectura-de-ficheros-linea-a-linea" id="id6">Lectura de ficheros línea a línea</a></li>
+<li><a class="reference internal" href="#lectura-de-datos-formateados" id="id7">Lectura de datos formateados</a></li>
+<li><a class="reference internal" href="#escritura-de-datos-formateados" id="id8">Escritura de datos formateados</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ejerciciosficheros.html">Ejercicios Lectura y escritura de ficheros</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ejerciciosficheros.html#ejercicio-1-escribir-un-fichero-csv">Ejercicio 1: Escribir un fichero CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejerciciosficheros.html#ejercicio-2-leer-un-fichero-csv">Ejercicio 2: Leer un fichero CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejerciciosficheros.html#ejercicio-3-leer-ficheros-csv">Ejercicio 3: Leer ficheros CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejerciciosficheros.html#ejercicio-4-leer-ficheros-csv">Ejercicio 4: Leer ficheros CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejerciciosficheros.html#ejercicio-5-contador-de-lineas">Ejercicio 5: Contador de líneas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejerciciosficheros.html#ejercicio-6-escribir-ficheros-csv">Ejercicio 6: Escribir ficheros CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejerciciosficheros.html#ejercicio-7-leer-ficheros-csv">Ejercicio 7: Leer ficheros CSV</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>La documentación de Octave y de Matlab correspondiente a este capítulo se puede encontrar en los siguientes enlaces:</p>
+<ul class="last simple">
+<li><strong>Octave</strong>: <span class="raw-html"><a href='http://www.gnu.org/software/octave/doc/interpreter/Opening-and-Closing-Files.html' target='_blank'>http://www.gnu.org/software/octave/doc/interpreter/Opening-and-Closing-Files.html</a></span></li>
+<li><strong>Matlab</strong>: <span class="raw-html"><a href='http://es.mathworks.com/help/matlab/low-level-file-i-o.html' target='_blank'>http://es.mathworks.com/help/matlab/low-level-file-i-o.html</a></span></li>
+</ul>
+</div>
+<div class="section" id="comandos-utilitarios-trabajando-con-ficheros">
+<h2><a class="toc-backref" href="#id2">Comandos utilitarios trabajando con ficheros</a><a class="headerlink" href="#comandos-utilitarios-trabajando-con-ficheros" title="Permalink to this headline">¶</a></h2>
+<p>Cuando estamos trabajando con ficheros de texto hay varios comandos de <em>Octave</em> que conviene conocer.</p>
+<p>El comando <strong>type</strong> permite mostrar el contenido de un fichero de texto en la consola. La forma de utilizar el comando es la siguiente: <strong>type filename</strong>, siendo <em>filename</em> el nombre de un fichero existente. Si el nombre del fichero incluye su ruta de directorio, se buscará el fichero en la ruta especificada. Si solo se incluye el nombre del fichero, se buscará en el directorio de trabajo.</p>
+<p>El directorio de trabajo en el que estamos posicionados se puede consultar con <strong>pwd()</strong>, que muestra en pantalla la ruta del directorio de trabajo donde estamos posicionados.</p>
+<p>El contenido del directorio de trabajo se puede mostrar mediante el comando <strong>dir</strong>, al estilo windows, o mediante el comando <strong>ls</strong>, al estilo linux. Los dos comando admiten una <em>mascara</em> que permite especificar el tipo de fichero buscados. Por ejemplo podríamos utilizar <em>dir *.m</em> para mostrar un listado de los ficheros con extensión <em>.m</em>. En  la máscara, el arterisco hace la función de comodín. Podríamos leer el comando anterior como: <em>&#8216;dir lo-que-sea punto m&#8217;</em>.</p>
+<p>También podemos cambiar el directorio de trabajo desde la consola de <em>Octave</em>. Para ello se utiliza el comando <strong>cd</strong>, &#8216;<em>change directory</em>&#8216;, que admite un parámetro a continuación para especificar la ruta a la que se quiere acceder. Hay un atajo que hay que conocer. Si tecleamos <strong>cd ..</strong>, <em>cd punto punto</em>, nos moveremos al directorio padre del directorio en el que estemos posicionados. Para acceder a un determinado directorio utilizaremos: <strong>cd dirname</strong>, donde <em>dirname</em> es el nombre o la ruta completa del directorio en el que queremos posicionarnos.</p>
+<p>Los comandos anteriores admiten ser utilizados en forma de función.</p>
+</div>
+<div class="section" id="los-comandos-load-y-save">
+<h2><a class="toc-backref" href="#id3">Los comandos <strong>load</strong> y <strong>save</strong></a><a class="headerlink" href="#los-comandos-load-y-save" title="Permalink to this headline">¶</a></h2>
+<p>Podemos guardar variables en ficheros de texto mediante el comando <em>Octave</em> <strong>save</strong>. Las variables guardadas las podremos recuperar luego mediante el comando <strong>load</strong>. El comando <em>save</em> se puede utilizar de distintas maneras:</p>
+<ul class="simple">
+<li><strong>save filename</strong>: Guarda todas las variables del <em>workspace</em> en el fichero <em>filename</em>, donde <em>filename</em> es el nombre del fichero y opcionalmente su ruta completa.</li>
+<li><strong>save filename v1 v2</strong>: Se pueden especificar qué variables concretas queremos guardar en el fichero. En este ejemplo, solo se guardarán el el fichero <em>filename</em> las variables de nombre <em>v1</em> y <em>v2</em>.</li>
+<li><strong>save options filename v1 v2</strong>: donde <em>options</em> son una o más opciones separadas por espacio. Las opciones nos permiten especificar, por ejemplo, que se guarden los ficheros en distintos formatos binarios o que se guarden los datos en formato comprimido <em>zip</em>.</li>
+</ul>
+<p>La forma de operar se puede ver en el siguiente ejemplo, donde primero definimos una matriz y a continuación la guardamos en un fichero &#8216;matriz.txt&#8217;. Por último se muestra el contenido del fichero mediante <em>type()</em>:</p>
+</div>
+<div class="section" id="la-funcion-fopen">
+<h2><a class="toc-backref" href="#id4">La función <strong>fopen()</strong></a><a class="headerlink" href="#la-funcion-fopen" title="Permalink to this headline">¶</a></h2>
+<p>Para poder realizar operaciones de lectura y/o escritura en los ficheros de texto es necesario primero abrir el fichero con <strong>fopen()</strong>. Una vez abierto el fichero, se procede a realizar las distintas operaciones de lectura y/o de escritura en el mismo. Cuando se termina de operar con el fichero hay que cerrarlo con la funcion <strong>fclose()</strong>.</p>
+<p>El procedimiento habitual para leer datos de un fichero se resume en el siguiente esquema:</p>
+<div class="highlight-octave"><div class="highlight"><pre><span></span><span class="n">file</span> <span class="p">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="s">&#39;mifichero.txt&#39;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">);</span>
+
+<span class="c">% Operaciones de lectura del fichero</span>
+
+<span class="nb">fclose</span><span class="p">(</span><span class="n">fid</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Ĺa función <strong>fopen()</strong> tiene la siguiente signatura:</p>
+<ul>
+<li><p class="first"><strong>file = fopen(filename, permission)</strong> Abre el fichero de nombre <em>filename</em> con el tipo de acceso especificado por <em>permission</em>. Devuelve <em>file</em>,  que es un número, un <em>puntero</em>, que identifica al fichero en ulteriores operaciones de lectura escritura. Si se producen errores al intentar abrir el fichero, la función <em>fopen()</em> devuelve <em>-1</em>. El puntero será un número mayor o igual a <em>3</em>. Los parametros son los siguientes:</p>
+<blockquote>
+<div><ul>
+<li><p class="first"><em>filename</em>: cadena de texto con el nombre del fichero que se quiere abrir. Si incluye la ruta del fichero se utilizará, si no se buscará o creara el fichero en el directorio de trabajo.</p>
+</li>
+<li><p class="first"><em>permission</em>: especifica el modo de apertura del fichero. Lo habitual es abrir el fichero para escribir en él o para leer de él, si bien es también posible abrir el fichero en modo <em>lectura y escritura</em>. En los modos de escritura es posible añadir texto a un fichero existente o bien crear uno nuevo para la operación, sobreescribiendo el existente si lo hubiera. <em>permission</em> es una cadena de texto que puede tener los siguientes valores:</p>
+<blockquote>
+<div><ul class="simple">
+<li>&#8216;r&#8217;: Abre el fichero para lectura. Es el modo por defecto, si se utiliza la función <em>fopen()</em> sin el argumento <em>permission</em></li>
+<li>&#8216;r+&#8217;: Abre el fichero en modo <em>lectura-escritura</em></li>
+<li>&#8216;w&#8217;: Abre o crea un nuevo fichero en modo <em>escritura</em>. Si existe se sobreescribe</li>
+<li>&#8216;w+&#8217;: Abre o crea un fichero para <em>lectura-escritura</em>. Si existe, se sobreescribe</li>
+<li>&#8216;a&#8217;: Abre o crea un nuevo fichero para <em>escritura</em>. Si existe el fichero, añade al final del mismo.</li>
+<li>&#8216;a+&#8217;: Abre o crea un nuevo fichero para <em>lectura-escritura</em>. Si existe, se añade al final del mismo.</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Hay dos modos más de apertura de ficheros: &#8216;A&#8217; y &#8216;W&#8217; que no realizan el <em>flush</em> automático de los datos.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">La función <em>fopen()</em> admite un tercer y cuarto parámetros que permiten especificar el orden de lectura escritura de los bytes (Big-endian, Little-endian) y la codificación de caracteres del fichero (UTF-8, ISO-8859-1,...).</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><strong>fids = fopen(&#8216;All&#8217;)</strong>: Devuelve un vector con los punteros a TODOS los ficheros abiertos que haya.</p>
+</div>
+</div>
+<div class="section" id="la-funcion-fclose">
+<h2><a class="toc-backref" href="#id5">La función <strong>fclose()</strong></a><a class="headerlink" href="#la-funcion-fclose" title="Permalink to this headline">¶</a></h2>
+<p>Sirve para cerrar los ficheros cuando se ha terminado de trabajar con ellos.</p>
+<ul class="simple">
+<li><strong>fclose(file)</strong>: Cierra el fichero <em>file</em>. Devuelve <em>0</em> si pudo cerrar el fichero o <em>-1</em> si hay errores.</li>
+<li><strong>fclose(&#8216;All&#8217;)</strong>: Cierra todos los ficheros que haya abiertos. Devuelve <em>0</em> si pudieron cerrar los ficheros o <em>-1</em> si hay errores.</li>
+</ul>
+</div>
+<div class="section" id="lectura-de-ficheros-linea-a-linea">
+<h2><a class="toc-backref" href="#id6">Lectura de ficheros línea a línea</a><a class="headerlink" href="#lectura-de-ficheros-linea-a-linea" title="Permalink to this headline">¶</a></h2>
+<p>Una vez abierto el fichero para lectura podemos ir leyendo una línea cada vez, que recibiremos como una cadena de texto, con o sin carácter fin de línea, según la función de lectura utilizada:</p>
+<ul class="simple">
+<li><strong>line = fgets(file)</strong>: Lee una línea del fichero <em>file</em>, incluyendo el caracter de fin de línea, y la devuelve en forma de cadena de texto.</li>
+<li><strong>line = fgets(file, nchar)</strong>: Lee al menos <em>nchar</em> caracteres de la siguiente línea del fichero <em>file</em>. (Si se alcanza el final de línea o el final del fichero devuelve lo que haya leído hasta ahí).</li>
+<li><strong>line = fgetl(file)</strong>: Lee la siguiente línea del fichero <em>file</em>, sin incluir el caracter fin de línea, y la devuelve como una cadena de caracteres.</li>
+</ul>
+</div>
+<div class="section" id="lectura-de-datos-formateados">
+<h2><a class="toc-backref" href="#id7">Lectura de datos formateados</a><a class="headerlink" href="#lectura-de-datos-formateados" title="Permalink to this headline">¶</a></h2>
+<p>Octave ofrece la posibilidad de leee los datos contenidos en el fichero, uno a uno, y devolverlos en el formato seleccionado, pudiendo de esta manera leer , no solo cadenas de texto, sino también números enteros o doubles.</p>
+<p>La función para leer datos formateados es <strong>fscanf()</strong>. La función <em>fscanf()</em> admite varias signaturas. Una forma habitual de utilizar la función es la siguiente:</p>
+<p><strong>fscanf()</strong></p>
+</div>
+<div class="section" id="escritura-de-datos-formateados">
+<h2><a class="toc-backref" href="#id8">Escritura de datos formateados</a><a class="headerlink" href="#escritura-de-datos-formateados" title="Permalink to this headline">¶</a></h2>
+<p>En el ejemplo siguiente creamos una matriz <em>A</em> de tres filas y cuatro columnas. A continuación la escribimos en un fichero con una simple indicación de formato numérico. Cuando hacemos <em>type</em> al fichero recién creado podemos ver la forma en que <em>Octave</em> ejecuta la función <em>fprintf()</em>.</p>
+<a class="reference internal image-reference" href="_images/fprintf1.png"><img alt="fprintf1" src="_images/fprintf1.png" style="width: 400px;" /></a>
+<p>Como vemos la sentencia <em>fprintf(file, &#8216;%d &#8216;, A)</em> escribe todos los elementos de la matriz A en el fichero, utilizando el formato indicado: <em>numero entero más espacio</em>. Hay que fijarse en el orden en que Octave coge los elementos de A para escribirlos en el fichero. Vemos que coge los elementos de la matriz por columnas, esto es, primero el <em>A(1,1)</em>, a continuación el <em>A(2,1)</em>, y así hasta agotar la primera columna, leyendo a continuación las siguientes columnas de la misma manera hasta agotar la matriz.</p>
+<p>Lo que hace Octave es leer las matrices en el orden el que las tiene guardadas en memoria, y <em>Octave</em> guarda las matrices en memoria por columnas.</p>
+<p>Si en lugar del formato especificado en el ejemplo anterior, ejecutamos la sentencia <em>fprintf(file, &#8216;%d %d %d %d \n&#8217;, A)</em>, en la que decimos a <em>Octave</em> que cada cuatro números inserte un carácter fin de línea <em>&#8216;\n&#8217;</em>, <em>Octave</em> escribirá tres filas y cuatro columnas, pero no en el orden de filas y columnas en el que tenemos definida la matriz:</p>
+<a class="reference internal image-reference" href="_images/fprintf2.png"><img alt="fprintf2" src="_images/fprintf2.png" style="width: 400px;" /></a>
+<p>Una vez más <em>Octave</em> rellena el formato indicado cogiendo los elementos de la matriz por columnas.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Lectura y escritura de ficheros de texto</a><ul>
+<li><a class="reference internal" href="#comandos-utilitarios-trabajando-con-ficheros">Comandos utilitarios trabajando con ficheros</a></li>
+<li><a class="reference internal" href="#los-comandos-load-y-save">Los comandos <strong>load</strong> y <strong>save</strong></a></li>
+<li><a class="reference internal" href="#la-funcion-fopen">La función <strong>fopen()</strong></a></li>
+<li><a class="reference internal" href="#la-funcion-fclose">La función <strong>fclose()</strong></a></li>
+<li><a class="reference internal" href="#lectura-de-ficheros-linea-a-linea">Lectura de ficheros línea a línea</a></li>
+<li><a class="reference internal" href="#lectura-de-datos-formateados">Lectura de datos formateados</a></li>
+<li><a class="reference internal" href="#escritura-de-datos-formateados">Escritura de datos formateados</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ej_graficos.html"
+                        title="previous chapter">Ejercicios resueltos: Gráficos</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ejerciciosficheros.html"
+                        title="next chapter">Ejercicios Lectura y escritura de ficheros</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/ficheros.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="ejerciciosficheros.html" title="Ejercicios Lectura y escritura de ficheros"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ej_graficos.html" title="Ejercicios resueltos: Gráficos"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Introducción a Octave 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Santiago Higuera.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.
+    </div>
+  </body>
+</html>
